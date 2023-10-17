@@ -1,1 +1,23 @@
 GET  http://localhost:5020/
+###
+POST http://localhost:5020/signup/
+Content-Type: application/json
+
+{
+      "email":"uma@gmail.com",
+      "password":"Umadevi@12"
+}
+###
+POST http://localhost:5020/admin
+Content-Type: application/json
+
+{
+       "sno":"1",
+        "name":"National Institute of Technology",
+        "email": "national1@gmail.com",
+        "head":"Prof. (Dr) Ajay K. Sharma ",
+        "userscount":"23,997",
+        "code":"U-0072"
+}
+###
+GET  http://localhost:5020/alladmin

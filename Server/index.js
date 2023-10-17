@@ -2,7 +2,7 @@ const express = require("express");  // IMPORTING EXPRESS MODULE FROM THIRD PART
 const mongoose = require("mongoose"); // IMPORTING MONGOOSE
 const cors = require("cors"); // IMPORTING CORS
 const perfexdata= require("./model/perfexdata")
-
+const perfexdata1= require("./model/perfexdata1")
 const app = express()
 app.use(express.json())  // ACCEPTING JSON FORMAT DATA AND PARSING TO LOCAL USER
 app.use(cors({ origin: "*" }))
@@ -15,37 +15,65 @@ app.get("/", (req, res) => {
   res.send("hello")
 });
 app.post("/signup/", async (req, res) => {
-
   try {
-    const isUserExist = await userData.findOne({ email: req.body.email })
-    console.log(isUserExist)
-    if (!isUserExist) {
-      const newUser = {
-        "type": req.body.type,
-        "fullname": req.body.fullname,
-        "email": req.body.email,
-        "mobilenumber": req.body.mobilenumber,
-        "password": req.body.password,
-        "confirmpassword": req.body.confirmpassword
-      };
-      const userDetails = await userData.create(newUser)   //  POSTING TO COLLECTION OR MODEL
-      console.log(userDetails)
+    const {
+      password,
+      email} = req.body;
+      let newUser = new perfexdata({
+        password:password,
+        email:email
+      });
 
-      res.status(200).send("user created successfully")
+      const isUserExist = await perfexdata.findOne({ email: email });
 
-    } else {
+      if (isUserExist) {
+        return res.status(400).json("User already registered");
+      }
+    newUser.save();
 
-      // if user mail id is founded send below response
-      res.status(400).json("user already registered")
-
-    }
-  } catch (e) {
-    console.log(e.message)
-    return res.status(500).json("message: e.message")
-
+     return res.status(200).json("User created successfully");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Internal server error");
   }
 });
 
+app.post("/admin", async (req, res) => {
+  try {
+    const {
+      sno,
+      name,
+      email,
+      head,
+      userscount,
+      code} = req.body;
+      let newUser = new perfexdata1({
+        sno:sno,
+      name:name,
+      email:email,
+      head:head,
+      userscount:userscount,
+      code:code
+      });
+
+      const isUserExist = await perfexdata1.findOne({ email: email });
+
+      if (isUserExist) {
+        return res.status(400).json("User already registered");
+      }
+    newUser.save();
+
+     return res.status(200).json("User created successfully");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Internal server error");
+  }
+});
+app.get("/alladmin", async (req, res) => {
+
+  const allusers1 = await perfexdata1.find({})
+  res.status(200).send(allusers1)
+});
 app.listen(5020, () => {
 
   console.log("server running")

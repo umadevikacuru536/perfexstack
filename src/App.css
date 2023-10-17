@@ -55,6 +55,7 @@
   opacity: 1;
   padding-top: 10vh;
 }
+
 .loginemail{
   color: black;
   font-weight: 600;
@@ -89,4 +90,206 @@
 }
 .checkbox{
   margin-left: 20px;
+}
+.container {
+  display: flex;
+}
+
+.nav-bar {
+  background-color: #333;
+  color: #fff;
+  width: 20vw;
+  height: 80vh; /* Adjust the width as needed */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 20px;
+  margin-top: 5vh;
+  margin-left: 3vh;
+}
+
+.toggle-button {
+  cursor: pointer;
+  
+}
+
+.toggle-button:hover {
+  opacity: 0.8;
+  
+}
+
+.nav-list {
+  list-style: none;
+  padding: 0;
+  
+}
+
+.list {
+  margin-bottom: 10px;
+  
+}
+
+.list a {
+  text-decoration: none;
+  color: #c76c6c;
+  font-size: 18px;
+  
+}
+
+.list a:hover {
+  color: #ffcc00;
+}
+.image1{
+  width: 10vw;
+  height: 10vh;
+  margin-bottom: 5vh;
+  border-radius: 10px;
+  margin-top: 5vh;
+}
+.stact{
+  text-align: start;
+}
+.butn{
+  margin-right: 27%;
+  background-color: #e8eeef;
+  margin-top: 5vh;
+  border-radius: 10px;
+  padding: 10px;
+}
+.modal-dialog{
+  max-width: 60%;
+}
+.button{
+  margin-left: 10vh;
+  background-color: white;
+  border-radius: 10px;
+  height: 10vh;
+  width: 13vw;
+  margin-top: 5vh;
+  border-color: white;
+  box-shadow: 0px 0px 2px whitesmoke;
+
+}
+.button1{
+  margin-left: 10vh;
+  background-color:darkblue;
+  color: white;
+  border-radius: 10px;
+  height: 10vh;
+  width: 13vw;
+  margin-top: 5vh;
+  border-color:darkblue;
+  box-shadow: 0px 0px 2px whitesmoke;
+
+}
+.admin {
+  background-color: rgb(212, 188, 188);
+  height: 80vh;
+  margin-top: 5vh;
+  border-radius: 10px;
+  width: 300vw;
+  box-shadow: #f2f2f2;
+  margin-right: 150px;
+  padding: 5vh;
+}
+
+.table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table th, .table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  text-align: left;
+}
+
+.table th {
+  background-color: #f2f2f2;
+}
+
+.table tbody tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+.creat{
+  margin-left: 120vh;
+  background-color: white;
+  border-color: white;
+  border-radius: 10px;
+}
+.error {
+  color: red;
+  font-size: 20px;
+  
+}
+.profilecard1{
+  top: 55px;
+  left: 81px;
+  width: 832px;
+  height: 666px;
+ margin-top: 80px;
+  /* UI Properties */
+  background: #e9e6e6 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #ed626212;
+  border-radius: 50px;
+  opacity: 1;
+  padding-top: 10vh; 
+}
+/* .password-toggle {
+  position: absolute;
+  transform: translateX(-105%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 5px;
+ margin-right:10%;
+  font-size: 1rem;
+} */
+.input-container {
+  position: relative;
+}
+
+.logininput1 {
+  /* Your input field styles */
+  padding-right: 30px; /* Provide enough space for the icon */
+}
+.profilebutton{
+  background-color: midnightblue;
+  color: white;
+}
+.password-toggle {
+  position: absolute;
+  top: 50%;
+  /* Adjust the right position as needed */
+  transform: translateY(-50%);
+  transform: translateX(-100%);
+  cursor: pointer;
+  margin-left: 75vh;
+
+  /* Additional styling for the icon */
+}
+
+.profilename{
+justify-content: start;
+}
+#sort-order {
+  font-size: 16px; /* Adjust the font size as needed */
+  width: 750px; /* Adjust the width of the select box as needed */
+  padding: 5px; /* Add padding to the select box as needed */
+  margin: 10px 0;
+  border-radius: 10px;
+  border-color: white; /* Add margin as needed */
+}
+
+#sort-order option {
+  font-size: 16px; /* Adjust the font size of the options as needed */
+}
+.logininput1{
+  width: 750px;
+  border-radius: 10px;
+  border-color: white;
+}
+.edit{
+margin-left: 50%;
 }
