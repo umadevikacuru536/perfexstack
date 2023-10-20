@@ -8,40 +8,35 @@ import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from "axios";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-function Admin(){
+import Eye from "./eye";
+function Admin({  onDelete }){
+
     const [navItemsVisible, setNavItemsVisible] = useState(false);
     const [blogslist, setblogslist] = useState([]);
-
+   
     const toggleNavItems = () => {
       setNavItemsVisible(!navItemsVisible);
     };
-
-
-    const [password, setPassword] = useState("");
     const [showPassword, setShowPassword] = useState(false);
-    const [passwordError, setPasswordError] = useState("");
-    const togglePasswordVisibility = () => {
-        setShowPassword(!showPassword);
-      };
-      const validatePassword = (value) => {
-        const regex = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\[\]:;<>,.?~\\-]).{8,}$/;
-      
-        if (!regex.test(value)) {
-          setPasswordError("Password must contain at least one capital letter, one lowercase letter, one special character, and one number, and be at least 8 characters long");
-        } else {
-          setPasswordError("");
-        }
-      };
-      const handlePasswordChange = (e) => {
-        const newPassword = e.target.value;
-        setPassword(newPassword);
-        validatePassword(newPassword);
-      };
-   
+
+  const togglePasswordVisibility = () => {
+    setShowPassword((prevShowPassword) => !prevShowPassword);
+  };
+ 
       useEffect(() => {
         fetchblogs();
       });
+      const [formData, setFormData] = useState({
+       sno:""
     
+        // Add other form fields here
+      });
+  const handleChange = (e) => {
+    setFormData({
+      ...formData,
+      [e.target.name]: e.target.value,
+    });
+  };
       const fetchblogs = async () => {
         const api = " http://localhost:5020/alladmin";
         try {
@@ -54,7 +49,128 @@ function Admin(){
           console.error("Error fetching blogs:", error);
         }
       };
+      const [sno, setsno] = useState("");
+      const [name, setname] = useState("");
+      const [email, setemail] = useState("");
+      const [head, sethead] = useState("");
+      const [secondaryemail, setsecondaryemail] = useState("");
+      const [userscount, setuserscount] = useState("");
+      const [primarycontact, setprimarycontact] = useState("");
+      const [secondarycontact, setsecondarycontact] = useState("");
+      const [address, setaddress] = useState("");
+      const [city, setcity] = useState("");
+      const [password, setpassword] = useState("");
+      const [code, setcode] = useState("");
+
+      const [data2, setdata2] = useState([]);
+      
+      const useData2 = {
+        sno:sno,
+        name:name,
+        email:email,
+        head:head,
+        secondaryemail:secondaryemail,
+        userscount:userscount,
+        primarycontact:primarycontact,
+        secondarycontact:secondarycontact,
+        address:address,
+        city:city,
+        password:password,
+        code:code
+      };
+      console.log(useData2);
+      const onSubmitForm3 = (e) => {
+        e.preventDefault();
     
+        if ( sno,name,email,head,secondaryemail,userscount,primarycontact,secondarycontact,address,city,password,
+    code!== "") {
+          axios
+            .post("http://localhost:5020/admin", useData2)
+            .then((response) => {
+              setdata2(response.data);
+    
+              console.log(response.data);
+              toast.success("Registration Successfull");
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+        } else {
+          toast.warning("Enter the Required Details");
+        }
+      };
+      const [Error,setError] = useState("");
+
+      const handleDelete = async (id) => {
+        try {
+          if (!id) {
+            setError("Invalid ID provided for deletion.");
+            return;
+          }
+          console.log("Deleting institute with ID:", id);
+          const response = await axios.delete(
+            " http://localhost:5020/deleteInstitute/" + id
+          );
+          if (response.status === 200) {
+            alert("Success: Institute deleted");
+            fetchblogs();
+    
+            // Update your state or fetch updated data as needed
+            // For example, if addblogslist is updated from the server, you can update it here.
+    
+            const updatedListLength = blogslist.length - 1;
+            console.log("Updated list length:", updatedListLength);
+          } else {
+            console.log(response.data);
+            alert("Error: " + response.data);
+            setError("An error occurred while deleting the institute.");
+          }
+        } catch (error) {
+          console.error(error);
+          setError("An error occurred while deleting the institute.");
+        }
+      };
+      const [IsLoading,setIsLoading] =useState("")
+      const handleUpdate = async (id, updatedData) => {
+        try {
+          if (!id) {
+            setError("Invalid ID provided for update.");
+            return;
+          }
+          
+          console.log("Updating institute with ID:", id);
+          
+          const response = await axios.put(
+            "http://localhost:5020/updateInstitute/" + id,
+            updatedData
+          );
+          
+          if (response.status === 200) {
+            alert("Success: Institute updated");
+            fetchblogs()// Fetch updated data
+          
+            // You can also update the local state with the updated data
+            const updatedList = blogslist.map(institute => {
+              if (institute.id === id) {
+                return { ...institute, ...updatedData };
+              } else {
+                return institute;
+              }
+            });
+            setblogslist(updatedList);
+          } else {
+            console.log(response.data);
+            alert("Error: " + response.data);
+            setError("An error occurred while updating the institute.");
+          }
+        } catch (error) {
+          console.error(error);
+          setError("An error occurred while updating the institute.");
+        }
+      };
+      
+      
+      
     return(
         <div className="d-flex flex-row">
              <div className="container">
@@ -80,7 +196,7 @@ function Admin(){
              </div>
              <div className="admin">
                 <div className="d-flex flex-row">
-  <h3>Insitutions</h3>
+  <h3>Institutions</h3>
   {/* <Link to="/crate"> <button className="creat">Create +</button></Link> */}
              <div className="edit">
                     {" "}
@@ -122,17 +238,39 @@ function Admin(){
                           <div class="modal-body ">
                           <div class="container text-start">
           <div class="row">
-            <div className="col-md-2"></div>
             <div class="col-md-7">
-              <form class="p-3 ">
+              <form class="">
                 <label for="" class="profilename">
-                Institution
+                S.NO
                 </label>
                 <input
                   type="text"
                   placeholder="Enter your full institution"
                   class="form-control"
+                  onChange={(e) => setsno(e.target.value)}
+                  value={sno}
                  
+                />
+                 <label for="" class="profilename">
+                Institution Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your full institution"
+                  class="form-control"
+                  onChange={(e) => setname(e.target.value)}
+                  value={name}
+                 
+                />
+                 <label for="" class="profilename">
+                Head Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your full institution"
+                  class="form-control"
+                  onChange={(e) => sethead(e.target.value)}
+                                value={head}
                 />
                 <div class="d-flex flex-row">
                   <div class="col-md-4">
@@ -144,18 +282,22 @@ function Admin(){
                       type="text"
                       placeholder="Enter  Primary email"
                       class="form-control"
+                      onChange={(e) => setemail(e.target.value)}
+                      value={email}
                     />
                   </div>
                   <div class="col-md-2"></div>
                   <div class="col-md-4">
                     <label for="" class="profilename">
-                    Primary Count
+                    Primary Contact
                     </label>
                     <br />
                     <input
                       type="text"
                       placeholder="Enter your  Primary count"
                       class="form-control"
+                      onChange={(e) => setprimarycontact(e.target.value)}
+                      value={primarycontact}
                     />
                   </div>
                 </div>
@@ -169,18 +311,22 @@ function Admin(){
                       type="text"
                       placeholder="Enter Secondary email"
                       class="form-control"
+                      onChange={(e) => setsecondaryemail(e.target.value)}
+                      value={secondaryemail}
                     />
                   </div>
                   <div class="col-md-2"></div>
                   <div class="col-md-4">
                     <label for="" class="profileh5 mb-1">
-                    Secondary Count
+                    Secondary Contact
                     </label>
                     <br />
                     <input
                       type="text"
                       placeholder="Enter your  Secondary count"
                       class="form-control"
+                      onChange={(e) => setsecondarycontact(e.target.value)}
+                      value={secondarycontact}
                     />
                   </div>
                 </div>
@@ -191,23 +337,39 @@ function Admin(){
                   type="text"
                   placeholder="Enter your Address"
                   class="form-control"
+                  onChange={(e) => setaddress(e.target.value)}
+                  value={address}
                 />
-                  <label for="" class="profilename">  City
+                  <label for="" class="profilename">  City Name
                 </label>
                 <input
                   type="text"
                   placeholder="Enter your City"
                   class="form-control"
+                  onChange={(e) => setcity(e.target.value)}
+                  value={city}
                 />
                
                <label for="institution-code" class="profilename">
   Institution code</label><br/>
-  <select name="sort-order" id="sort-order">
-    <option value="asc">University</option>
-    <option value="desc">INstitude</option>
-    <option value="desc">Trinning</option>
-    <option value="desc">NGO</option>
-  </select>
+  <input
+                  type="text"
+                  placeholder="Enter your Code"
+                  class="form-control"
+                  onChange={(e) => setcode(e.target.value)}
+                  value={code}
+                />
+<br/>
+   
+<label for="institution-code" class="profilename">
+  Userscount</label><br/>
+  <input
+                  type="text"
+                  placeholder="Enter your Count"
+                  class="form-control"
+                  onChange={(e) => setuserscount(e.target.value)}
+                  value={userscount}
+                />
 <br/>
                  <label for="" class="profilename"> Institution Type</label><br/>
                  <select name="sort-order" id="sort-order">
@@ -217,7 +379,7 @@ function Admin(){
     <option value="desc">NGO</option>
   </select>
                 <br/>
-                 <label for="" class="profilename">  Action plan </label><br/>
+                 <label for="" class="profilename">  Access plan </label><br/>
                  <select name="sort-order" id="sort-order">
     <option value="asc">Exam practice</option>
     <option value="desc">LMS</option>
@@ -228,23 +390,24 @@ function Admin(){
                <label htmlFor="password" className="loginemail">Password</label><br />
                <div className="input-container">
   <input
-    type={showPassword ? "text" : "password"}
+    type= "password"
     name="password"
     id="password"
     className="logininput1"
+    onChange={(e) => setpassword(e.target.value)}
     value={password}
     placeholder="Minimum 6 characters"
-    onChange={handlePasswordChange}
+    
   />
   <i className="password-toggle" onClick={togglePasswordVisibility}>
     <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
   </i>
 </div>
 
-                 {passwordError && (
+                 {/* {passwordError && (
                       <span className="error mes">{passwordError}</span>
-                    )}<br/>
-                <button class="profilebutton">Add Details</button>
+                    )}<br/> */}
+                <button class="profilebutton" onClick={onSubmitForm3}>Add Details</button>
               </form>
             </div>
           </div>
@@ -278,13 +441,222 @@ function Admin(){
         <td>{blog.userscount}</td>
         <td>{blog.code}</td>
         <td>
-        <i className="" onClick={togglePasswordVisibility}>
+          <div className="A">
+          <i className="password-toggle1"onClick={togglePasswordVisibility}>
+          <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} /></i>
+          <span class="material-symbols-outlined"   data-bs-toggle="modal"
+                      data-bs-target="#myModal1" >edit_square</span>
+          <div class="modal" id="myModal1">
+                      <div class="modal-dialog">
+                        <div class="modal-content">
+                          {/* <!-- Modal Header --> */}
+                          <div class="modal-header">
+                            
+                            <button
+                              type="button"
+                              class="btn-close"
+                              data-bs-dismiss="modal"
+                            ></button>
+                            <ToastContainer
+                              position="top-right"
+                              autoClose={1000}
+                              hideProgressBar={false}
+                              newestOnTop={false}
+                              closeOnClick
+                              rtl={false}
+                              pauseOnFocusLoss
+                              draggable
+                              pauseOnHover
+                              theme="colored"
+                            />
+                          </div>
+
+                          {/* <!-- Modal body --> */}
+                          <div class="modal-body ">
+                          <div class="container text-start">
+          <div class="row">
+            <div class="col-md-7">
+              <form class="">
+                <label for="" class="profilename">
+                S.NO
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your full institution"
+                  class="form-control"
+                  value={formData.sno}
+                  onChange={handleChange}
+                 
+                />
+                 <label for="" class="profilename">
+                Institution Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your full institution"
+                  class="form-control"
+                  onChange={(e) => setname(e.target.value)}
+                  value={name}
+                 
+                />
+                 <label for="" class="profilename">
+                Head Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your full institution"
+                  class="form-control"
+                  onChange={(e) => sethead(e.target.value)}
+                                value={head}
+                />
+                <div class="d-flex flex-row">
+                  <div class="col-md-4">
+                    <label for="" class="profilename">
+                     Primary email
+                    </label>
+                    <br />
+                    <input
+                      type="text"
+                      placeholder="Enter  Primary email"
+                      class="form-control"
+                      onChange={(e) => setemail(e.target.value)}
+                      value={email}
+                    />
+                  </div>
+                  <div class="col-md-2"></div>
+                  <div class="col-md-4">
+                    <label for="" class="profilename">
+                    Primary Contact
+                    </label>
+                    <br />
+                    <input
+                      type="text"
+                      placeholder="Enter your  Primary count"
+                      class="form-control"
+                      onChange={(e) => setprimarycontact(e.target.value)}
+                      value={primarycontact}
+                    />
+                  </div>
+                </div>
+                <div class="d-flex flex-row">
+                  <div class="col-md-4">
+                    <label for="" class="profileh5 mb-1">
+                    Secondary email
+                    </label>
+                    <br />
+                    <input
+                      type="text"
+                      placeholder="Enter Secondary email"
+                      class="form-control"
+                      onChange={(e) => setsecondaryemail(e.target.value)}
+                      value={secondaryemail}
+                    />
+                  </div>
+                  <div class="col-md-2"></div>
+                  <div class="col-md-4">
+                    <label for="" class="profileh5 mb-1">
+                    Secondary Contact
+                    </label>
+                    <br />
+                    <input
+                      type="text"
+                      placeholder="Enter your  Secondary count"
+                      class="form-control"
+                      onChange={(e) => setsecondarycontact(e.target.value)}
+                      value={secondarycontact}
+                    />
+                  </div>
+                </div>
+                <label for="" class="profilename">
+            Address
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your Address"
+                  class="form-control"
+                  onChange={(e) => setaddress(e.target.value)}
+                  value={address}
+                />
+                  <label for="" class="profilename">  City Name
+                </label>
+                <input
+                  type="text"
+                  placeholder="Enter your City"
+                  class="form-control"
+                  onChange={(e) => setcity(e.target.value)}
+                  value={city}
+                />
+               
+               <label for="institution-code" class="profilename">
+  Institution code</label><br/>
+  <input
+                  type="text"
+                  placeholder="Enter your Code"
+                  class="form-control"
+                  onChange={(e) => setcode(e.target.value)}
+                  value={code}
+                />
+<br/>
+   
+<label for="institution-code" class="profilename">
+  Userscount</label><br/>
+  <input
+                  type="text"
+                  placeholder="Enter your Count"
+                  class="form-control"
+                  onChange={(e) => setuserscount(e.target.value)}
+                  value={userscount}
+                />
+<br/>
+                 <label for="" class="profilename"> Institution Type</label><br/>
+                 <select name="sort-order" id="sort-order">
+    <option value="asc">School</option>
+    <option value="desc">Collage</option>
+    <option value="desc">Trinning</option>
+    <option value="desc">NGO</option>
+  </select>
+                <br/>
+                 <label for="" class="profilename">  Access plan </label><br/>
+                 <select name="sort-order" id="sort-order">
+    <option value="asc">Exam practice</option>
+    <option value="desc">LMS</option>
+    <option value="desc">College</option>
+    <option value="desc">NGO</option>
+  </select>
+               <br/>
+               <label htmlFor="password" className="loginemail">Password</label><br />
+               <div className="input-container">
+  <input
+    type= "password"
+    name="password"
+    id="password"
+    className="logininput1"
+    onChange={(e) => setpassword(e.target.value)}
+    value={password}
+    placeholder="Minimum 6 characters"
+    
+  />
+  <i className="password-toggle" onClick={togglePasswordVisibility}>
     <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-  </i><span class="material-symbols-outlined">
-edit_square
-</span><span class="material-symbols-outlined">
-delete
-</span>
+  </i>
+</div>
+
+                 {/* {passwordError && (
+                      <span className="error mes">{passwordError}</span>
+                    )}<br/> */}
+                <button class="profilebutton" onClick={()=>  handleUpdate(blog._id) }>Add Details</button>
+              </form>
+            </div>
+          </div>
+        </div>
+                          </div>
+                           
+                        </div>
+                      </div>
+                    </div>
+          <span class="material-symbols-outlined"  onClick={() => handleDelete(blog._id)}>delete</span>
+
+            </div>
         </td>
       </tr>
       

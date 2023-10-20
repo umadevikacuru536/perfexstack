@@ -5,6 +5,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import img from "./img/6333204.jpg"
 function About() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -80,15 +81,16 @@ function About() {
     <div className="">
       <div className="container5">
         <div className="row">
-          <div className='col-12 col-md-1'></div>
-          <div className="col-12 card12 col-md-4 remove mt-5">
+         
+          <div className="col-12  col-md-4 remove ">
+            <button className="img">
             <img
-              src="https://static.vecteezy.com/system/resources/thumbnails/003/689/228/small/online-registration-or-sign-up-login-for-account-on-smartphone-app-user-interface-with-secure-password-mobile-application-for-ui-web-banner-access-cartoon-people-illustration-vector.jpg"
+              src={img}
               alt=""
               className='image2'
-            />
+            /></button>
           </div>
-
+<div className="col-md-1"></div>
           <div className="col-12 col-md-6 card">
           <ToastContainer
                   position="top-right"

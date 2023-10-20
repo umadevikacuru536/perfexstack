@@ -6,6 +6,8 @@ import About1 from './forgetpaswword';
 import Home from './home';
 import Admin from './admin';
 import Profile from './create';
+import Eye from './eye';
+import DataDeleteButton from './tas';
 function App() {
   return (
     <div className="App">
@@ -18,6 +20,8 @@ function App() {
   <Route path='/home' element={<Home/>}/>
   <Route path='/admin' element={<Admin/>}/>
   <Route path='/crate' element={<Profile/>}/>
+  <Route path='/eye' element={<Eye/>}/>
+  <Route path='/delete' element={<DataDeleteButton/>}/>
  </Routes>
  </BrowserRouter>
     </div>

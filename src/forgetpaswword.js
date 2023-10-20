@@ -23,7 +23,7 @@ function About1() {
               className='image2'
             />
           </div>
-
+          <div className='col-12 col-md-1'></div>
           <div className="col-12 col-md-6 card">
             <form>
               <img src={logo} className='image' /><br />

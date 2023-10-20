@@ -55,15 +55,67 @@
   opacity: 1;
   padding-top: 10vh;
 }
+.card12 {
+  width: 332px;
+  height: 366px;
+  border-color: white;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px whitesmoke;
+  border-radius: 50px;
+  opacity: 1;
+  
+  /* Positioning */
+  position: absolute;
+  top: 15vh; /* Align to the top */
+  left: 37vh; /* Align to the left */
+  text-align: left;
+}
+.card123{
+  width: 332px;
+  height: 366px;
+  border-color: white;
+  background: #FFFFFF 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px whitesmoke;
+  border-radius: 50px;
+  opacity: 1;
+  
+  /* Positioning */
+  position: absolute;
+  top: 60vh; /* Align to the top */
+  left: 37vh; /* Align to the left */
+}
+.eye{
 
+  
+  width: 1202px;
+  height: 876px;
+ margin-top: 80px;
+  /* UI Properties */
+  background: #f1ecec 0% 0% no-repeat padding-box;
+  box-shadow: 0px 0px 15px #00000012;
+  border-radius: 50px;
+  opacity: 1;
+  padding-top: 10vh;
+  margin-left: 30vh;
+}
 .loginemail{
   color: black;
   font-weight: 600;
   padding-left: 20px;
 
 }
+.heading{
+ font-weight: bold;
+  margin-top: -120px;
+  margin-left: 10px;
+}
 .loginforgot{
   margin-left: 50vh;
+}
+.emailicon{
+  margin-left: 5vh;
+  margin-top: 3vh;
+  font-size: 6vh;
 }
 .uma{
   text-align: start;
@@ -73,9 +125,22 @@
   margin-left: 20px;
 }
 .image2{
-  margin-top: 30vh;
+ 
   height: 300px;
   width: 300px;
+  border-radius: 40px;
+  
+}
+.img{
+  background-color:rgb(247, 245, 245);
+  width: 20vw;
+  height: 32vh;
+  margin-top: 30vh;
+  margin-left: 20vh;
+  box-shadow: 2px 2px 2px 2px solid rgb(240, 237, 237);
+  border-radius: 10px;
+  padding-top: 10px;
+  border-color: white;
 }
 .loginbutton{
   padding: 10px;
@@ -156,8 +221,13 @@
   border-radius: 10px;
   padding: 10px;
 }
+.form-control{
+  border-color: #333;
+  border-radius: 10px;
+}
 .modal-dialog{
-  max-width: 60%;
+  max-width: 45%;
+ 
 }
 .button{
   margin-left: 10vh;
@@ -206,7 +276,8 @@
 }
 
 .table th {
-  background-color: #f2f2f2;
+  background-color: #615880;
+  color: white;
 }
 
 .table tbody tr:nth-child(even) {
@@ -292,4 +363,9 @@ justify-content: start;
 }
 .edit{
 margin-left: 50%;
+}
+.A{
+  display: flex;
+  justify-content: space-around;
+  margin: 0px;
 }
