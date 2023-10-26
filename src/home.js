@@ -39,7 +39,7 @@ function Home() {
         <h1 className="stact">Welcome to perfex stact</h1>
         <div className=" d-flex flex-row">
            <Link to="/admin"> <button className="button1">Instutions Count No</button></Link>
-            <button className="button">Users</button>
+            <Link to="/users"><button className="button">Users</button></Link>
             <button className="button">Active Users</button>
         </div>
       </div>

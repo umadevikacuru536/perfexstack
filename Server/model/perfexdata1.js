@@ -49,6 +49,15 @@ name:{
         type: String,
         require: true,
       },
+      InstitutionType: {
+        type: String,
+        require: true,
+      },
+      Accessplan: {
+        type: String,
+        require: true,
+      },
+
 })
 
 const perfexdata1=mongoose.model("perfexdata1",productSchema);

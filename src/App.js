@@ -7,7 +7,11 @@ import Home from './home';
 import Admin from './admin';
 import Profile from './create';
 import Eye from './eye';
-import DataDeleteButton from './tas';
+import UpdateInstitute from './updatedata';
+import Users from './users';
+import Home1 from './uma';
+import Detial from './pa';
+
 function App() {
   return (
     <div className="App">
@@ -21,7 +25,10 @@ function App() {
   <Route path='/admin' element={<Admin/>}/>
   <Route path='/crate' element={<Profile/>}/>
   <Route path='/eye' element={<Eye/>}/>
-  <Route path='/delete' element={<DataDeleteButton/>}/>
+  <Route path='/update' element={<UpdateInstitute/>}/>
+  <Route path='/users' element={<Users/>}/>
+  <Route path='/uma' element={<Home1/>}/>
+  <Route path='/detial' element={<Detial/>}/>
  </Routes>
  </BrowserRouter>
     </div>
