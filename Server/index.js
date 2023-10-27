@@ -174,46 +174,48 @@ app.get("/alladmin", async (req, res) => {
 //     return res.status(500).json(e.message);
 //   }
 // });
-app.put('/update-data/:email', async (req, res) => {
-  const { email } = req.params;
-  const updateData = req.body;
-
-  try {
-    // Find the document in your MongoDB database based on the email
-    const user = await perfexdata1.findOne({ email });
-
-    if (!user) {
-      return res.status(404).json({ success: false, message: 'User not found' });
-    }
-
-    // Update the user's data
-    for (const key in updateData) {
-      if (updateData.hasOwnProperty(key)) {
-        user[key] = updateData[key];
-      }
-    }
-
-    // Save the updated document
-    await user.save();
-
-    res.json({ success: true, message: 'Data updated successfully' });
-  } catch (error) {
-    console.error('Error updating data:', error);
-    res.status(500).json({ success: false, message: 'Data update failed' });
-  }
+app.put('/update-data/:id', async (req, res) => {
+  const { id } = req.params;
+  const user =await perfexdata1.findByIdAndUpdate(id ,req.body);
+  if(!user){
+    res.status(400).json("user not found");
+  }res.status(200).json("users data updated successfully");
 });
 
 
-app.get("/alladmin/:email",async(req,res)=>{
-  const {email} = req.params
-  const user = await perfexdata1.findOne({email:email})
-  if(!user){
-    res.send("user not found")
-  }else{
-    res.send(user)
-  }
 
-})
+
+app.get("/alladmin/:email",async(req,res)=>{
+try {
+  const email = req.params.email; 
+  const user = await perfexdata1.findOne({email:email});
+
+  if (user) {
+    return res.status(200).json(user);
+  } else {
+    return res.status(404).json("user not found");
+  }
+} catch (e) {
+  console.error(e.message);
+  return res.status(500).json(e.message);
+}
+});
+app.get("/alladmin/:id", async (req, res) => {
+ 
+  try {
+    const id = req.params.id; // Use req.params.id to get the instituteId
+    const user = await perfexdata1.findById(id);
+
+    if (user) {
+      return res.status(200).json(user);
+    } else {
+      return res.status(404).json("user not found");
+    }
+  } catch (e) {
+    console.error(e.message);
+    return res.status(500).json(e.message);
+  }
+});
 
 app.post('/change-password', async (req, res) => {
   try {

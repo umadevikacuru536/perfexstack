@@ -11,6 +11,7 @@ import UpdateInstitute from './updatedata';
 import Users from './users';
 import Home1 from './uma';
 import Detial from './pa';
+import Update from './update';
 
 function App() {
   return (
@@ -29,6 +30,7 @@ function App() {
   <Route path='/users' element={<Users/>}/>
   <Route path='/uma' element={<Home1/>}/>
   <Route path='/detial' element={<Detial/>}/>
+  <Route path='/Update:id' element={<Update/>}/>
  </Routes>
  </BrowserRouter>
     </div>

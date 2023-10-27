@@ -439,7 +439,6 @@ function Users({  onDelete }){
                 <button className="filterbutton">select Institution</button>
                 <button className="filterbutton">select Batch year</button>
                 <button className="filterbutton">select Batch</button>
-                <button className="filterbutton">select Institution</button>
                 <button className="filterbutton">Go</button>
 
 

@@ -8,7 +8,6 @@ import "react-toastify/dist/ReactToastify.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from "axios";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import Eye from "./eye";
 import { useNavigate } from "react-router-dom";
 function Admin() {
   const navigate = useNavigate()
@@ -46,28 +45,46 @@ function Admin() {
     code: ""
     // Add other form fields here
   });
-  const [emailDetail, setEmailDetail] = useState(null);
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
-  };
-  const handleSubmit = (e) => {
-    e.preventDefault();
 
-    // Send an HTTP request to update the MongoDB document
+  const handleChange = (e) => {
+    const newValue = e.target.value;
+    setblogslist((prevData)=>({
+      ...prevData,
+      blogslist:newValue,
+    }))
+  };
+  const handleUpdate = (e) => {
+  e.preventDefault()
+  
+    const UsersData = {
+      sno: blogslist.sno,
+      name: blogslist.name,
+      email: blogslist.email,
+      secondaryemail: blogslist.secondaryemail,
+      head: blogslist.head,
+      userscount: blogslist.userscount,
+      code: blogslist.code,
+      primarycontact: blogslist.primarycontact,
+      secondarycontact: blogslist.secondarycontact,
+      address: blogslist.address,
+      city: blogslist.city,
+      password: blogslist.password,
+      InstitutionType: blogslist.InstitutionType,
+      Accessplan: blogslist.Accessplan,
+    };
+  
     axios
-      .put(`http://localhost:5020/update-data/${email}`, formData)
+      .put("http://localhost:5020/update-data/" , UsersData) // Send UsersData in the request
       .then((response) => {
         if (response.data.success) {
-          console.log("Data updated successfully");
+          alert('Data updated successfully');
+          console.log('Data updated successfully');
         } else {
-          console.error("Data update failed");
+          console.error('Data update failed');
         }
       })
       .catch((error) => {
-        console.error("Error updating data:", error);
+        console.error('Error updating data:', error);
       });
   };
 
@@ -95,6 +112,8 @@ function Admin() {
   const [city, setcity] = useState("");
   const [password, setpassword] = useState("");
   const [code, setcode] = useState("");
+  const [InstitutionType, setInstitutionType] = useState("");
+  const [Accessplan, setAccessplan] = useState("");
 
   const [data2, setdata2] = useState([]);
 
@@ -110,7 +129,9 @@ function Admin() {
     address: address,
     city: city,
     password: password,
-    code: code
+    code: code,
+    InstitutionType: InstitutionType,
+    Accessplan: Accessplan
   };
   // const updatedData = {
   //   sno:"",
@@ -131,7 +152,7 @@ function Admin() {
     e.preventDefault();
 
     if (sno, name, email, head, secondaryemail, userscount, primarycontact, secondarycontact, address, city, password,
-      code !== "") {
+    code,InstitutionType,Accessplan !== "") {
       axios
         .post("http://localhost:5020/admin", useData2)
         .then((response) => {
@@ -444,7 +465,7 @@ function Admin() {
           </thead>
           <tbody>
             {blogslist.map((blog) => (
-              <tr key={blog.sno}>
+              <tr key={blog.id}>
                 <td>{blog.sno}</td>
                 <td>{blog.name}</td>
                 <td>{blog.email}</td>
@@ -454,218 +475,9 @@ function Admin() {
                 <td>
                   <div className="A">
                     <Link to={`/detial?email=${blog.email}`} className="fa-solid fa-eye " style={{ color: "black" }}></Link>
-                    <span class="material-symbols-outlined" data-bs-toggle="modal"
-                      data-bs-target="#myModal1" >edit_square</span>
-                    <div class="modal" id="myModal1">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {/* <!-- Modal Header --> */}
-                          <div class="modal-header">
-
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                            ></button>
-                            <ToastContainer
-                              position="top-right"
-                              autoClose={1000}
-                              hideProgressBar={false}
-                              newestOnTop={false}
-                              closeOnClick
-                              rtl={false}
-                              pauseOnFocusLoss
-                              draggable
-                              pauseOnHover
-                              theme="colored"
-                            />
-                          </div>
-
-                          {/* <!-- Modal body --> */}
-                          <div class="modal-body ">
-                            <div class="container text-start">
-                              <div class="row">
-                                <div class="col-md-7">
-                                  <form class="" onSubmit={handleSubmit}>
-                                    <label for="" class="profilename">
-                                      S.NO
-                                    </label>
-                                    <input
-                                      type="text"
-                                      placeholder="Enter your full institution"
-                                      class="form-control"
-                                      value={formData.sno}
-                                      onChange={handleChange}
-
-                                    />
-                                    <label for="" class="profilename">
-                                      Institution Name
-                                    </label>
-                                    <input
-                                      type="text"
-                                      placeholder="Enter your full institution"
-                                      class="form-control"
-                                      value={formData.name}
-                                      onChange={handleChange}
-
-                                    />
-                                    <label for="" class="profilename">
-                                      Head Name
-                                    </label>
-                                    <input
-                                      type="text"
-                                      placeholder="Enter your full institution"
-                                      class="form-control"
-                                      value={formData.head}
-                                      onChange={handleChange}
-                                    />
-                                    <div class="d-flex flex-row">
-                                      <div class="col-md-4">
-                                        <label for="" class="profilename">
-                                          Primary email
-                                        </label>
-                                        <br />
-                                        <input
-                                          type="text"
-                                          placeholder="Enter  Primary email"
-                                          class="form-control"
-                                          value={formData.email}
-                                          onChange={handleChange}
-                                        />
-                                      </div>
-                                      <div class="col-md-2"></div>
-                                      <div class="col-md-4">
-                                        <label for="" class="profilename">
-                                          Primary Contact
-                                        </label>
-                                        <br />
-                                        <input
-                                          type="text"
-                                          placeholder="Enter your  Primary count"
-                                          class="form-control"
-                                          value={formData.primarycontact}
-                                          onChange={handleChange}
-                                        />
-                                      </div>
-                                    </div>
-                                    <div class="d-flex flex-row">
-                                      <div class="col-md-4">
-                                        <label for="" class="profileh5 mb-1">
-                                          Secondary email
-                                        </label>
-                                        <br />
-                                        <input
-                                          type="text"
-                                          placeholder="Enter Secondary email"
-                                          class="form-control"
-                                          value={formData.secondaryemail}
-                                          onChange={handleChange}
-                                        />
-                                      </div>
-                                      <div class="col-md-2"></div>
-                                      <div class="col-md-4">
-                                        <label for="" class="profileh5 mb-1">
-                                          Secondary Contact
-                                        </label>
-                                        <br />
-                                        <input
-                                          type="text"
-                                          placeholder="Enter your  Secondary count"
-                                          class="form-control"
-                                          value={formData.secondarycontact}
-                                          onChange={handleChange}
-                                        />
-                                      </div>
-                                    </div>
-                                    <label for="" class="profilename">
-                                      Address
-                                    </label>
-                                    <input
-                                      type="text"
-                                      placeholder="Enter your Address"
-                                      class="form-control"
-                                      value={formData.address}
-                                      onChange={handleChange}
-                                    />
-                                    <label for="" class="profilename">  City Name
-                                    </label>
-                                    <input
-                                      type="text"
-                                      placeholder="Enter your City"
-                                      class="form-control"
-                                      value={formData.city}
-                                      onChange={handleChange}
-                                    />
-
-                                    <label for="institution-code" class="profilename">
-                                      Institution code</label><br />
-                                    <input
-                                      type="text"
-                                      placeholder="Enter your Code"
-                                      class="form-control"
-                                      value={formData.code}
-                                      onChange={handleChange}
-                                    />
-                                    <br />
-
-                                    <label for="institution-code" class="profilename">
-                                      Userscount</label><br />
-                                    <input
-                                      type="text"
-                                      placeholder="Enter your Count"
-                                      class="form-control"
-                                      value={formData.userscount}
-                                      onChange={handleChange}
-                                    />
-                                    <br />
-                                    <label for="" class="profilename"> Institution Type</label><br />
-                                    <select name="sort-order" id="sort-order" value={formData.InstitutionType}
-                                      onChange={handleChange}>
-                                      <option value="asc">School</option>
-                                      <option value="desc">Collage</option>
-                                      <option value="desc">Trinning</option>
-                                      <option value="desc">NGO</option>
-                                    </select>
-                                    <br />
-                                    <label for="" class="profilename">  Access plan </label><br />
-                                    <select name="sort-order" id="sort-order" value={formData.Accessplan}
-                                      onChange={handleChange}>
-                                      <option value="asc">Exam practice</option>
-                                      <option value="desc">LMS</option>
-                                      <option value="desc">College</option>
-                                      <option value="desc">NGO</option>
-                                    </select>
-                                    <br />
-                                    <label htmlFor="password" className="loginemail">Password</label><br />
-                                    <div className="input-container">
-                                      <input
-                                        type="password"
-                                        name="password"
-                                        id="password"
-                                        className="logininput1"
-                                        value={formData.password}
-                                        onChange={handleChange}
-                                        placeholder="Minimum 6 characters"
-
-                                      />
-                                      {/* <Link to={`/detial?email=${blog.email}`}><i className="password-toggle">
-    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-  </i></Link>  */}
-                                    </div>
-
-                                    {/* {passwordError && (
-                      <span className="error mes">{passwordError}</span>
-                    )}<br/> */}
-                                    <button class="profilebutton">Add Details</button>
-                                  </form>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-
-                        </div>
-                      </div>
-                    </div>
+                   <Link to={`/Update${blog._id}`}><span class="material-symbols-outlined"
+                       >edit_square</span></Link> 
+                    
                     <span class="material-symbols-outlined" onClick={() => handleDelete(blog._id)}>delete</span>
 
                   </div>

@@ -225,6 +225,10 @@ margin-right: 50vh;
 }
 .modal-dialog{
   max-width: 45%;
+  background-color: #c2cde3;
+border-radius: 20px;
+margin-top: 10vh;
+padding: 3vh;
  
 }
 .button{

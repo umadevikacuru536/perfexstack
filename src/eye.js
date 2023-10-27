@@ -22,6 +22,26 @@ function Eye() {
         console.error("Error fetching blogs:", error);
       }
     };
+    const [password, setpassword] = useState("");
+    const [passwordChanged, setPasswordChanged] = useState(false);
+    const handleChangePassword = () => {
+      // Send a POST request to your server to change the password
+      axios
+        .post('http://localhost:5020/change-password', {
+          email: appiled.email, // Pass the user's email to identify the user
+          password: password, // New password
+        })
+        .then((response) => {
+          if (response.data.success) {
+            setPasswordChanged(true);
+          } else {
+            console.error("Password change failed");
+          }
+        })
+        .catch((error) => {
+          console.error("Error changing password:", error);
+        });
+    };
     return (
       
         <div className="eye">
@@ -45,8 +65,14 @@ function Eye() {
           <button className="card123">
          
             <label>Change password</label><br/>
-            <input placeholder="enter change password"/><br/>
-            <button>Reset</button>
+            <input placeholder="enter change password"
+             value={password}
+             onChange={(e) => setpassword(e.target.value)}
+            /><br/>
+            <button className="reset" onClick={handleChangePassword}>
+          Reset
+        </button>
+        {passwordChanged && <div>Password changed successfully</div>}
           </button>
           </div>
           <button className="Pa">

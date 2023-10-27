@@ -9,8 +9,7 @@ import logo from '../src/img/_94715d91-9ccb-448a-a29a-a52b3610949f.jpeg';
 import "./App.css"; // You can create an App.css file for styling
 import { FaBars } from "react-icons/fa";
 const Detial = () => {
-  const [password, setNewPassword] = useState("");
-  const [passwordChanged, setPasswordChanged] = useState(false);
+  const [password, setPassword] = useState("");
   const handleChangePassword = () => {
     // Send a POST request to your server to change the password
     axios
@@ -21,7 +20,7 @@ const Detial = () => {
       .then((response) => {
         if (response.data.success) {
           alert("password update")
-          setPasswordChanged(true);
+        console.log(password)
         } else {
           alert("Password change failed")
           console.error("Password change failed");
@@ -107,16 +106,19 @@ const Detial = () => {
                       
            
           </button>
-          <button className="card123">
-         
-            <label>Change password</label><br/>
-            <span style={{ marginRight: "30px" }}>
-  <input placeholder="enter change password" value={emailDetail.password} />
-</span> <br/>
-<button className="reset" onClick={handleChangePassword}>
+          <div className="card123">
+        <label>Change password</label>
+        <input
+          type="text"
+          placeholder="Enter new password"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+        />
+        <button className="reset" onClick={handleChangePassword}>
           Reset
         </button>
-          </button>
+      
+      </div>
           </div>
           <button className="Pa">
              <form class="text-start">
