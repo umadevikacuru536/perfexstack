@@ -205,27 +205,30 @@ function Admin() {
 
   return (
     <div className="d-flex flex-row">
-      <div className="container">
-        <div className={`nav-bar ${!navItemsVisible ? "hidden" : ""}`}>
-
-          <div className="toggle-button" onClick={toggleNavItems}>
-
-            <img src={logo} className='image1' />
-            <FaBars />
-          </div>
-          {navItemsVisible && (
-            <ul className="nav-list">
-              <li className="list">
-                <a href="/">Dash Board</a>
-              </li>
-              <li className="list">
-                <a href="/about">Home page</a>
-              </li>
-            </ul>
-          )}
+     <div className="container">
+      
+      <div className={`nav-bar ${!navItemsVisible ? "hidden" : ""}`}>
+        
+        <div className="toggle-button" onClick={toggleNavItems}>
+        <img src={logo} className='image1' />
+         <FaBars />
+       
         </div>
-
+        {navItemsVisible && (
+          <ul className="nav-list">
+            <li className="list">
+              <a href="/">Dash Board</a>
+            </li>
+            <li className="list">
+              <a href="/home">Home page</a><br/>
+              <a href="/admin">Instutions</a><br/>
+              <a href="/users">Users</a>
+            </li> 
+          </ul>
+        )}
       </div>
+     
+    </div>
       <div className="admin">
         <div className="d-flex flex-row">
           <h3>Institutions</h3>
@@ -404,7 +407,8 @@ function Admin() {
                             />
                             <br />
                             <label for="" class="profilename"> Institution Type</label><br />
-                            <select name="sort-order" id="sort-order">
+                            <select name="sort-order" id="sort-order"onChange={(e) => setInstitutionType(e.target.value)}
+                              value={InstitutionType}>
                               <option value="asc">School</option>
                               <option value="desc">Collage</option>
                               <option value="desc">Trinning</option>
@@ -412,7 +416,8 @@ function Admin() {
                             </select>
                             <br />
                             <label for="" class="profilename">  Access plan </label><br />
-                            <select name="sort-order" id="sort-order">
+                            <select name="sort-order" id="sort-order"onChange={(e) => setAccessplan(e.target.value)}
+                              value={Accessplan}>
                               <option value="asc">Exam practice</option>
                               <option value="desc">LMS</option>
                               <option value="desc">College</option>
@@ -474,8 +479,8 @@ function Admin() {
                 <td>{blog.code}</td>
                 <td>
                   <div className="A">
-                    <Link to={`/detial?email=${blog.email}`} className="fa-solid fa-eye " style={{ color: "black" }}></Link>
-                   <Link to={`/Update${blog._id}`}><span class="material-symbols-outlined"
+                    <Link to={`/detial?email=${blog.email}`} className="fa-solid fa-eye " ></Link>
+                   <Link to={`/Update/${blog.email}`}><span class="material-symbols-outlined editicon"
                        >edit_square</span></Link> 
                     
                     <span class="material-symbols-outlined" onClick={() => handleDelete(blog._id)}>delete</span>

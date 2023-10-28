@@ -30,7 +30,7 @@ function App() {
   <Route path='/users' element={<Users/>}/>
   <Route path='/uma' element={<Home1/>}/>
   <Route path='/detial' element={<Detial/>}/>
-  <Route path='/Update:id' element={<Update/>}/>
+  <Route path='/Update/:email' element={<Update/>}/>
  </Routes>
  </BrowserRouter>
     </div>

@@ -84,7 +84,9 @@ const Detial = () => {
               <a href="/">Dash Board</a>
             </li>
             <li className="list">
-              <a href="/about">Home page</a>
+              <a href="/home">Home page</a><br/>
+              <a href="/admin">Instutions</a><br/>
+              <a href="/users">Users</a>
             </li> 
           </ul>
         )}
@@ -107,13 +109,18 @@ const Detial = () => {
            
           </button>
           <div className="card123">
-        <label>Change password</label>
+        <label className="label">Change password</label><br/>
         <input
           type="text"
           placeholder="Enter new password"
-          value={password}
-          onChange={(e) => setPassword(e.target.value)}
-        />
+          value={emailDetail.password}
+          onChange={(e) =>
+           setEmailDetail({
+              ...emailDetail,
+              password: e.target.value,
+            })
+          }
+        /><br/>
         <button className="reset" onClick={handleChangePassword}>
           Reset
         </button>

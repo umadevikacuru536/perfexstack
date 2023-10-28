@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 const Update = () => {
   let navigate = useNavigate();
 
-  const { id } = useParams();
+  const { email } = useParams();
 
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState(null);
@@ -65,7 +65,7 @@ const Update = () => {
       };
 
     axios
-      .put("http://localhost:5020/update-data/" + id, UserData)
+      .put("http://localhost:5020/update-data/" + email, UserData)
       .then((response) => {
         console.log(response.data);
         if (response.status === 200) {
@@ -80,7 +80,7 @@ const Update = () => {
             theme: "colored",
           });
           setTimeout(function () {
-            navigate("/AdminDashboard");
+            navigate("/admin");
           }, 3000);
         }
       })
@@ -94,10 +94,10 @@ const Update = () => {
 
   useEffect(() => {
     const fetchData = async () => {
-      console.log(id);
+      console.log(email);
       try {
         const response = await axios.get(
-          "http://localhost:5020/alladmin/" + id
+          "http://localhost:5020/alladmin/" + email
         ); // Replace with your API endpoint
         setIndividualInstitute(response.data);
         setLoading(false);
@@ -108,277 +108,328 @@ const Update = () => {
     };
 
     fetchData();
-  }, [id]);
+  }, [email]);
   return (
     <div>
-      {
-       individualInstitute ? (
-        <div>
-          <div className="modal-dialog">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h4 className="modal-title">Edit Institute</h4>
-                <Link to="/AdminDashboard">
-                  <button type="button" className="btn-close"></button>
-                </Link>
-              </div>
-              <div className="modal-body text-start">
-                <ToastContainer
-                  position="top-right"
-                  autoClose={5000}
-                  hideProgressBar={false}
-                  newestOnTop={false}
-                  closeOnClick
-                  rtl={false}
-                  pauseOnFocusLoss
-                  draggable
-                  pauseOnHover
-                  theme="light"
-                />
-                {/* Same as */}
-                <ToastContainer />
-                <form action="" onSubmit={onSubmitForm}>
-                  <div className="col-12 col-md-6 m-2">
-                  <label for="" class="profilename">
-                              S.NO
-                            </label><br/>
-                            <input
-                              type="text"
-                              placeholder="Enter your full institution"
-                              class="form-control"
-                              value={individualInstitute.sno}
-                              onChange={onChangeInstituteName}
-                            /><br/>
-                             <label for="" class="profilename">
-                              Institution Name
-                            </label>                    <br />
+    {loading ? (
+      <p>Loading...</p>
+    ) : individualInstitute ? (
+      <div>
+        <div className="modal-dialog1">
+          <div className="modal-content">
+            <div className="modal-header">
+              <h4 className="modal-title">Edit Institute</h4>
+              <Link to="/admin">
+                <button type="button" className="btn-close"></button>
+              </Link>
+            </div>
+            <div className="modal-body text-start">
+              <ToastContainer
+                position="top-right"
+                autoClose={5000}
+                hideProgressBar={false}
+                newestOnTop={false}
+                closeOnClick
+                rtl={false}
+                pauseOnFocusLoss
+                draggable
+                pauseOnHover
+                theme="light"
+              />
+              {/* Same as */}
+              <ToastContainer />
+              <form action="" onSubmit={onSubmitForm}>
+              <div className="col-12 col-md-6 m-2">
+                  <label className="headingAdd">S NO :</label>
+                  <br />
 
+                  <input
+                    type="text"
+                    id="instituteName"
+                    className="etotal"
+                    style={{
+                      border: "1px solid black",
+                    }}
+                    placeholder="Enter Institute Name"
+                    value={individualInstitute.sno}
+                    onChange={(e) =>
+                      setIndividualInstitute({
+                        ...individualInstitute,
+                        sno: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="col-12 col-md-6 m-2">
+                  <label className="headingAdd">Institute Name :</label>
+                  <br />
+
+                  <input
+                    type="text"
+                    id="instituteName"
+                    className="etotal"
+                    style={{
+                      border: "1px solid black",
+                    }}
+                    placeholder="Enter Institute Name"
+                    value={individualInstitute.name}
+                    onChange={(e) =>
+                      setIndividualInstitute({
+                        ...individualInstitute,
+                        name: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="col-12 col-md-6 m-2">
+                  <label className="headingAdd">Head Name :</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="etotal"
+                    style={{
+                      border: "1px solid black",
+                    }}
+                    placeholder="Enter Head Name"
+                    value={individualInstitute.head}
+                    onChange={(e) =>
+                      setIndividualInstitute({
+                        ...individualInstitute,
+                        head: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+
+                <div className="row">
+                  <div className="col-12 col-md-6">
+                    <label className="headingAdd">Primary Email :</label>
+                    <br />
                     <input
                       type="text"
-                      id="instituteName"
-                      class="form-control"
-                      placeholder="Enter Institute Name"
-                      value={individualInstitute.name}
-                      onChange={onChangeInstituteName}
-                    />
-                  </div>
-                  <div className="col-12 col-md-6 m-2">
-                  <label for="" class="profilename">
-                              Head Name
-                            </label>                    <br />
-                    <input
-                      type="text"
-                      class="form-control"
-                      placeholder="Enter Head Name"
-                      value={individualInstitute.head}
+                      className="etotal"
+                      style={{
+                        border: "1px solid black",
+                      }}
+                      placeholder="Enter Primary Email"
+                      value={individualInstitute.email}
                       onChange={(e) =>
                         setIndividualInstitute({
                           ...individualInstitute,
-                          head: e.target.value,
+                          email: e.target.value,
                         })
                       }
                     />
                   </div>
-
-                  <div className="row">
-                    <div className="col-12 col-md-6">
-                    <label for="" class="profilename">
-                                  Primary email
-                                </label>                      <br />
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter Primary Email"
-                        value={individualInstitute.email}
-                        onChange={(e) =>
-                          setIndividualInstitute({
-                            ...individualInstitute,
-                            email: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                    <div className="col-12 col-md-6">
-                    <label for="" class="profilename">
-                                  Primary Contact
-                                </label>
-                      <br />
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter Primary Contact Number"
-                        value={individualInstitute.primarycontact}
-                        onChange={(e) =>
-                          setIndividualInstitute({
-                            ...individualInstitute,
-                            primarycontact: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="row">
-                    <div className="col-12 col-md-6">
-                    <label for="" class="profileh5 mb-1">
-                                  Secondary email
-                                </label>                      <br />
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter Secondary Email"
-                        value={individualInstitute.secondaryemail}
-                        onChange={(e) =>
-                          setIndividualInstitute({
-                            ...individualInstitute,
-                            secondaryemail: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                    <div className="col-12 col-md-6 ">
-                    <label for="" class="profileh5 mb-1">
-                                  Secondary Contact
-                                </label>
-                      <br />
-                      <input
-                        type="text"
-                        class="form-control"
-                        placeholder="Enter Secondary Contact Number"
-                        value={individualInstitute.secondarycontact}
-                        onChange={(e) =>
-                          setIndividualInstitute({
-                            ...individualInstitute,
-                            secondarycontact: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
-                  </div>
-                  <div className="col-12 col-md-6 m-2">
-                    <label class="profilename">Address :</label>
+                  <div className="col-12 col-md-6">
+                    <label className="headingAdd">
+                      Primary Contact Number :
+                    </label>
                     <br />
                     <input
                       type="text"
-                      class="form-control"
-                      placeholder="Enter Address"
-                      value={individualInstitute.address}
+                      className="etotal"
+                      style={{
+                        border: "1px solid black",
+                      }}
+                      placeholder="Enter Primary Contact Number"
+                      value={individualInstitute.primarycontact}
                       onChange={(e) =>
                         setIndividualInstitute({
                           ...individualInstitute,
-                          address: e.target.value,
+                          primarycontact: e.target.value,
                         })
                       }
                     />
                   </div>
-                  <div className="col-12 col-md-6 m-2">
-                    <label class="profilename">City Name :</label>
+                </div>
+                <div className="row">
+                  <div className="col-12 col-md-6">
+                    <label className="headingAdd">Secondary Email :</label>
                     <br />
                     <input
                       type="text"
-                      class="form-control"
-                      placeholder="Enter City Name"
-                      value={individualInstitute.city}
+                      className="etotal"
+                      style={{
+                        border: "1px solid black",
+                      }}
+                      placeholder="Enter Secondary Email"
+                      value={individualInstitute.secondaryemail}
                       onChange={(e) =>
                         setIndividualInstitute({
                           ...individualInstitute,
-                          city: e.target.value,
+                          secondaryemail: e.target.value,
                         })
                       }
                     />
                   </div>
-                  <div className="col-12 col-md-6 m-2">
-                    <label class="profilename">Institute Code :</label>
+                  <div className="col-12 col-md-6 ">
+                    <label className="headingAdd">
+                      Secondary Contact Number :
+                    </label>
                     <br />
                     <input
                       type="text"
-                      class="form-control"
-                      placeholder="Enter Institute Code"
-                      value={individualInstitute.code}
+                      className="etotal"
+                      style={{
+                        border: "1px solid black",
+                      }}
+                      placeholder="Enter Secondary Contact Number"
+                      value={individualInstitute.secondarycontact}
                       onChange={(e) =>
                         setIndividualInstitute({
                           ...individualInstitute,
-                          code: e.target.value,
+                          secondarycontact: e.target.value,
                         })
                       }
                     />
                   </div>
+                </div>
+                <div className="col-12 col-md-6 m-2">
+                  <label className="headingAdd">Address :</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="etotal"
+                    style={{
+                      border: "1px solid black",
+                    }}
+                    placeholder="Enter Address"
+                    value={individualInstitute.address}
+                    onChange={(e) =>
+                      setIndividualInstitute({
+                        ...individualInstitute,
+                        address: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="col-12 col-md-6 m-2">
+                  <label className="headingAdd">City Name :</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="etotal"
+                    style={{
+                      border: "1px solid black",
+                    }}
+                    placeholder="Enter City Name"
+                    value={individualInstitute.city}
+                    onChange={(e) =>
+                      setIndividualInstitute({
+                        ...individualInstitute,
+                        city: e.target.value,
+                      })
+                    }
+                  />
+                </div>
+                <div className="col-12 col-md-6 m-2">
+                  <label className="headingAdd">Institute Code :</label>
+                  <br />
+                  <input
+                    type="text"
+                    className="etotal"
+                    style={{
+                      border: "1px solid black",
+                    }}
+                    placeholder="Enter Institute Code"
+                    value={individualInstitute.code}
+                    onChange={(e) =>
+                      setIndividualInstitute({
+                        ...individualInstitute,
+                        code: e.target.value,
+                      })
+                    }
+                  />
+                </div>
 
-                  <div className=" mt-3">
-                    <div className="col-12 col-md-6 m-2">
-                      <label class="profilename">Institute Type :</label>
-                      <br />
-                      <select
-                         class="form-control1"
-                        value={individualInstitute.InstitutionType}
-                        onChange={(e) =>
-                          setIndividualInstitute({
-                            ...individualInstitute,
-                            InstitutionType: e.target.value,
-                          })
-                        }
-                      >
-                        <option>School</option>
-                        <option>Collage</option>
-                        <option>University</option>
-                        <option>Education Society</option>
-                        <option>Training Institute</option>
-                        <option>NGOs</option>
-                      </select>
-                    </div>
+                <div className=" mt-3">
+                  <div className="col-12 col-md-6 m-2">
+                    <label className="headingAdd">Institute Type :</label>
                     <br />
+                    <select
+                      className="w-100 p-2"
+                      style={{
+                        borderRadius: "10px",
+                        border: "1px solid black",
+                      }}
+                      value={individualInstitute.InstitutionType}
+                      onChange={(e) =>
+                        setIndividualInstitute({
+                          ...individualInstitute,
+                          InstitutionType: e.target.value,
+                        })
+                      }
+                    >
+                      <option>School</option>
+                      <option>Collage</option>
+                      <option>University</option>
+                      <option>Education Society</option>
+                      <option>Training Institute</option>
+                      <option>NGOs</option>
+                    </select>
+                  </div>
+                  <br />
 
-                    <div className="col-12 col-md-6 m-2">
-                      <label class="profilename">Access Plans :</label>
-                      <br />
-                      <select
-                       class="form-control1"
-                        value={individualInstitute.Accessplan}
-                        onChange={(e) =>
-                          setIndividualInstitute({
-                            ...individualInstitute,
-                            Accessplan: e.target.value,
-                          })
-                        }
-                      >
-                        <option>Exam Practice</option>
-                        <option>LMS</option>
-                        <option>Mock Interview</option>
-                        <option>Previous papers</option>
-                      </select>
-                    </div>
-                    <div className="col-12 col-md-6 m-2">
-                      <label className="loginemail">Password :</label>
-                      <br />
-                      <input
-                        type="text"
-                        className="logininput1"
-                        placeholder="Enter Password"
-                        value={individualInstitute.password}
-                        onChange={(e) =>
-                          setIndividualInstitute({
-                            ...individualInstitute,
-                            password: e.target.value,
-                          })
-                        }
-                      />
-                    </div>
+                  <div className="col-12 col-md-6 m-2">
+                    <label className="headingAdd">Access Plans :</label>
+                    <br />
+                    <select
+                      className="w-100 p-2"
+                      style={{
+                        borderRadius: "10px",
+                        border: "1px solid black",
+                      }}
+                      value={individualInstitute.Accessplan}
+                      onChange={(e) =>
+                        setIndividualInstitute({
+                          ...individualInstitute,
+                          Accessplan: e.target.value,
+                        })
+                      }
+                    >
+                      <option>Exam Practice</option>
+                      <option>LMS</option>
+                      <option>Mock Interview</option>
+                      <option>Previous papers</option>
+                    </select>
                   </div>
-                  {/* Add other form fields here */}
-                  <div className="modal-footer mt-3">
-                    <button type="submit" className="btn btn-danger">
-                      Update
-                    </button>
+                  <div className="col-12 col-md-6 m-2">
+                    <label className="headingAdd">Password :</label>
+                    <br />
+                    <input
+                      type="text"
+                      className="etotal"
+                      style={{
+                        border: "1px solid black",
+                      }}
+                      placeholder="Enter Password"
+                      value={individualInstitute.password}
+                      onChange={(e) =>
+                        setIndividualInstitute({
+                          ...individualInstitute,
+                          password: e.target.value,
+                        })
+                      }
+                    />
                   </div>
-                  <p>{error}</p>
-                </form>
-              </div>
+                </div>
+                {/* Add other form fields here */}
+                <div className="modal-footer mt-3">
+                  <button type="submit" className="btn btn-danger">
+                    Update
+                  </button>
+                </div>
+                <p>{error}</p>
+              </form>
             </div>
           </div>
         </div>
-      ) : (
-        <p>Data not found</p>
-      )}
-    </div>
+      </div>
+    ) : (
+      <p>Data not found</p>
+    )}
+  </div>
   );
 };
 

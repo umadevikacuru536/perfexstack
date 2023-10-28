@@ -28,7 +28,9 @@ function Home() {
               <a href="/">Dash Board</a>
             </li>
             <li className="list">
-              <a href="/about">Home page</a>
+              <a href="/home">Home page</a><br/>
+              <a href="/admin">Instutions</a><br/>
+              <a href="/users">Users</a>
             </li> 
           </ul>
         )}

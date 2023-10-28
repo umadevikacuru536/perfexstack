@@ -57,6 +57,23 @@ name:{
         type: String,
         require: true,
       },
+      selectbatchyear: {
+        type: String,
+        require: true,
+      },
+      selectbatch: {
+        type: String,
+        require: true,
+      },
+     status: {
+        type: String,
+        require: true,
+      },
+      expirydate: {
+        type: String,
+        require: true,
+      },
+      
 
 })
 

@@ -13,19 +13,23 @@ POST http://localhost:5020/admin
 Content-Type: application/json
 
 {
-         "sno":"5",
-         "name":"siva",
-         "email": "satya121111@gmail.com",
-         "head":"satya",
-         "secondaryemail":"satya@gmail.com",
-         "userscount":"700",
-         "primarycontact":"964323897",
-         "secondarycontact":"76437545897",
+         "sno":"3",
+         "name":"Naresh it",
+         "email": "naresh@gmail.com",
+         "head":"naresh",
+         "secondaryemail":"naresh@gmail.com",
+         "userscount":"500",
+         "primarycontact":"974323897",
+         "secondarycontact":"7643756897",
          "address":"Guntur",
          "city":"hyderabad",
          "password":"uma@12",
           "InstitutionType":"collage",
           "Accessplan":"LMS",
+          "selectbatchyear":"1997",
+          "selectbatch":"java",
+          "status":"Training",
+          "expirydate":"2025",
          "code":"4042"
 }
 ###
@@ -45,24 +49,26 @@ GET  http://localhost:5020/alladmin
 ###
 GET  http://localhost:5020/alladmin/satya12@gmail.com
 ###
-GET  http://localhost:5020/alladmin/653b75fc3bfa0ba9a3fe5381
+GET  http://localhost:5020/alladmin/653b825ddcfa33a32cc46e50
 ###
 DELETE  http://localhost:5020/deleteInstitute/652fa57f443b3ee90c553f39
 ###
-PUT  http://localhost:5020/update-data/653b4f6f858ea6a1116d5996
+PUT  http://localhost:5020/update-data/satya12@gmail.com
 Content-Type: application/json
 
 {
-       "sno":"4",
-        "name":"jspider",
-        "email": "jspiders12@gmail.com",
-        "head":"Mr sunli",
-        "secondaryemail":"jspiders1@gmail.com",
-        "userscount":"900",
-        "primarycontact":"964325897",
-        "secondarycontact":"76432457897",
-        "address":"Guntur",
-        "city":"hyderabad",
-        "password":"uma@12",
-        "code":"4042"
+        "sno":"1",
+         "name":"uma",
+         "email": "siva@gmail.com",
+         "head":"satya",
+         "secondaryemail":"satya@gmail.com",
+         "userscount":"700",
+         "primarycontact":"964323897",
+         "secondarycontact":"76437545897",
+         "address":"Guntur",
+         "city":"hyderabad",
+         "password":"uma@12",
+          "InstitutionType":"collage",
+          "Accessplan":"LMS",
+         "code":"4042"
 }

@@ -54,6 +54,10 @@ app.post("/admin", async (req, res) => {
       password,
       InstitutionType,
       Accessplan,
+      selectbatchyear,
+      selectbatch,
+      status,
+      expirydate,
       code} = req.body;
       let newUser = new perfexdata1({
         sno:sno,
@@ -69,6 +73,10 @@ app.post("/admin", async (req, res) => {
       password:password,
       InstitutionType:InstitutionType,
       Accessplan:Accessplan,
+      selectbatchyear:selectbatchyear,
+      selectbatch:selectbatch,
+      status:status,
+      expirydate:expirydate,
       code:code
       });
 
@@ -174,12 +182,31 @@ app.get("/alladmin", async (req, res) => {
 //     return res.status(500).json(e.message);
 //   }
 // });
-app.put('/update-data/:id', async (req, res) => {
-  const { id } = req.params;
-  const user =await perfexdata1.findByIdAndUpdate(id ,req.body);
-  if(!user){
-    res.status(400).json("user not found");
-  }res.status(200).json("users data updated successfully");
+
+// app.put('/update-data/:email', async (req, res) => {
+//   const { email } = req.params;
+//   const user =await perfexdata1.findOneAndReplace(email ,req.body);
+//   if(!user){
+//     res.status(400).json("user not found");
+//   }res.status(200).json("users data updated successfully");
+// });
+
+app.put('/update-data/:email', async (req, res) => {
+  const { email } = req.params;
+  const updatedUserData = req.body;
+
+  try {
+    // Find the user by email and update their data
+    const user = await perfexdata1.findOneAndReplace({ email }, updatedUserData);
+
+    if (!user) {
+      return res.status(404).json("User not found");
+    }
+
+    return res.status(200).json("User data updated successfully");
+  } catch (error) {
+    return res.status(500).json("Internal server error");
+  }
 });
 
 
@@ -204,7 +231,7 @@ app.get("/alladmin/:id", async (req, res) => {
  
   try {
     const id = req.params.id; // Use req.params.id to get the instituteId
-    const user = await perfexdata1.findById(id);
+    const user = await perfexdata1.findById({id});
 
     if (user) {
       return res.status(200).json(user);

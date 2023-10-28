@@ -10,10 +10,38 @@ import axios from "axios";
 import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
 import Eye from "./eye";
 function Users({  onDelete }){
+  
 
     const [navItemsVisible, setNavItemsVisible] = useState(false);
     const [blogslist, setblogslist] = useState([]);
-   
+  const [selectbatchyear, setSelectedBatchYear] = useState("");
+  const [selectbatch, setSelectedBatch] = useState("");
+  const [filteredBlogsList, setFilteredBlogsList] = useState(blogslist);
+  // // Function to handle the "Go" button click and filter data
+  // const handleFilterData = () => {
+  //   // Filter data based on selected values
+  //   const filteredData = blogslist.filter((blog) => {
+  //     return (
+  //       (!name || blog.value === name) &&
+  //       (!selectbatchyear || blog.selectbatchyear === selectbatchyear) &&
+  //       (!selectbatch || blog.selectbatch === selectbatch)
+  //     );
+  //   });
+
+  //   // Use the filtered data as needed
+  //   console.log(filteredData);
+  // };
+  const handleFilterData = () => {
+    const filteredJobs = blogslist.filter(
+      (blog) =>
+        (!name || blog.name.toLowerCase().includes(name.toLowerCase().trim())) &&
+        (!selectbatchyear || blog.selectbatchyear.toLowerCase().includes(selectbatchyear.toLowerCase().trim())) &&
+        (!selectbatch || blog.selectbatch.toLowerCase().includes(selectbatch.toLowerCase().trim()))
+    );
+
+    setFilteredBlogsList(filteredJobs);
+  };
+
     const toggleNavItems = () => {
       setNavItemsVisible(!navItemsVisible);
     };
@@ -435,15 +463,41 @@ function Users({  onDelete }){
                   </div><br/>
                   
    </div>
-   <div className="filter">
-                <button className="filterbutton">select Institution</button>
-                <button className="filterbutton">select Batch year</button>
-                <button className="filterbutton">select Batch</button>
-                <button className="filterbutton">Go</button>
-
-
+   <div className="filter">    
+   <select className="option" value={name} onChange={(e) => setname(e.target.value)}>
+<option value="">Select Option</option>
+  {blogslist.map((blog)=>(
+    <option key={blog.value} value={blog.value}>
+    {blog.name}
+  </option>
+  
+  ))}
+  
+</select>
+<select className="option" value={selectbatchyear} onChange={(e) => setSelectedBatchYear(e.target.value)}>
+<option value="">Select Batch Year</option>
+  {blogslist.map((blog)=>(
+     <option key={blog.selectbatchyear} value={blog.selectbatchyear}>
+     {blog.selectbatchyear}
+   </option>
+  
+  ))}
+  
+</select>
+<select className="option" value={selectbatch} onChange={(e) => setSelectedBatch(e.target.value)}>
+<option value="">Select Batch</option>
+  {blogslist.map((blog)=>(
+    <option key={blog.selectbatch} value={blog.selectbatch}>
+    {blog.selectbatch}
+  </option>
+  
+  ))}
+  
+</select>
+                <button className="filterbutton" onClick={handleFilterData}>Go</button>
 
               </div>
+            
    <table className="table">
   <thead>
     <tr>
@@ -459,233 +513,28 @@ function Users({  onDelete }){
   </thead>
   <tbody>
   
-      <tr>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td></td>
-        <td>
-          <div className="A">
-          <i className="password-toggle1"onClick={togglePasswordVisibility}>
-          <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} /></i>
-          <span class="material-symbols-outlined"   data-bs-toggle="modal"
-                      data-bs-target="#myModal1" >edit_square</span>
-          <div class="modal" id="myModal1">
-                      <div class="modal-dialog">
-                        <div class="modal-content">
-                          {/* <!-- Modal Header --> */}
-                          <div class="modal-header">
-                            
-                            <button
-                              type="button"
-                              class="btn-close"
-                              data-bs-dismiss="modal"
-                            ></button>
-                            <ToastContainer
-                              position="top-right"
-                              autoClose={1000}
-                              hideProgressBar={false}
-                              newestOnTop={false}
-                              closeOnClick
-                              rtl={false}
-                              pauseOnFocusLoss
-                              draggable
-                              pauseOnHover
-                              theme="colored"
-                            />
-                          </div>
+  {filteredBlogsList.map((blog) => (
+              <tr key={blog.id}>
+                <td>{blog.sno}</td>
+                <td>{blog.name}</td>
+                <td>{blog.email}</td>
+                <td>{blog.code}</td>
+                <td>{blog.primarycontact}</td>
+                <td>{blog.status}</td>
+                <td>{blog.expirydate}</td>
+                <td>
+                  <div className="A">
+                    <Link to={`/detial?email=${blog.email}`} className="fa-solid fa-eye " ></Link>
+                   <Link to={`/Update/${blog.email}`}><span class="material-symbols-outlined editicon"
+                       >edit_square</span></Link> 
+                    
+                    <span class="material-symbols-outlined" onClick={() => handleDelete(blog._id)}>delete</span>
 
-                          {/* <!-- Modal body --> */}
-                          <div class="modal-body ">
-                          <div class="container text-start">
-          <div class="row">
-            <div class="col-md-7">
-              <form class="">
-                <label for="" class="profilename">
-                S.NO
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your full institution"
-                  class="form-control"
-                  value={formData.sno}
-                  onChange={handleChange}
-                 
-                />
-                 <label for="" class="profilename">
-                Institution Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your full institution"
-                  class="form-control"
-                  onChange={(e) => setname(e.target.value)}
-                  value={name}
-                 
-                />
-                 <label for="" class="profilename">
-                Head Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your full institution"
-                  class="form-control"
-                  onChange={(e) => sethead(e.target.value)}
-                                value={head}
-                />
-                <div class="d-flex flex-row">
-                  <div class="col-md-4">
-                    <label for="" class="profilename">
-                     Primary email
-                    </label>
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="Enter  Primary email"
-                      class="form-control"
-                      onChange={(e) => setemail(e.target.value)}
-                      value={email}
-                    />
                   </div>
-                  <div class="col-md-2"></div>
-                  <div class="col-md-4">
-                    <label for="" class="profilename">
-                    Primary Contact
-                    </label>
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="Enter your  Primary count"
-                      class="form-control"
-                      onChange={(e) => setprimarycontact(e.target.value)}
-                      value={primarycontact}
-                    />
-                  </div>
-                </div>
-                <div class="d-flex flex-row">
-                  <div class="col-md-4">
-                    <label for="" class="profileh5 mb-1">
-                    Secondary email
-                    </label>
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="Enter Secondary email"
-                      class="form-control"
-                      onChange={(e) => setsecondaryemail(e.target.value)}
-                      value={secondaryemail}
-                    />
-                  </div>
-                  <div class="col-md-2"></div>
-                  <div class="col-md-4">
-                    <label for="" class="profileh5 mb-1">
-                    Secondary Contact
-                    </label>
-                    <br />
-                    <input
-                      type="text"
-                      placeholder="Enter your  Secondary count"
-                      class="form-control"
-                      onChange={(e) => setsecondarycontact(e.target.value)}
-                      value={secondarycontact}
-                    />
-                  </div>
-                </div>
-                <label for="" class="profilename">
-            Address
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your Address"
-                  class="form-control"
-                  onChange={(e) => setaddress(e.target.value)}
-                  value={address}
-                />
-                  <label for="" class="profilename">  City Name
-                </label>
-                <input
-                  type="text"
-                  placeholder="Enter your City"
-                  class="form-control"
-                  onChange={(e) => setcity(e.target.value)}
-                  value={city}
-                />
-               
-               <label for="institution-code" class="profilename">
-  Institution code</label><br/>
-  <input
-                  type="text"
-                  placeholder="Enter your Code"
-                  class="form-control"
-                  onChange={(e) => setcode(e.target.value)}
-                  value={code}
-                />
-<br/>
-   
-<label for="institution-code" class="profilename">
-  Userscount</label><br/>
-  <input
-                  type="text"
-                  placeholder="Enter your Count"
-                  class="form-control"
-                  onChange={(e) => setuserscount(e.target.value)}
-                  value={userscount}
-                />
-<br/>
-                 <label for="" class="profilename"> Institution Type</label><br/>
-                 <select name="sort-order" id="sort-order">
-    <option value="asc">School</option>
-    <option value="desc">Collage</option>
-    <option value="desc">Trinning</option>
-    <option value="desc">NGO</option>
-  </select>
-                <br/>
-                 <label for="" class="profilename">  Access plan </label><br/>
-                 <select name="sort-order" id="sort-order">
-    <option value="asc">Exam practice</option>
-    <option value="desc">LMS</option>
-    <option value="desc">College</option>
-    <option value="desc">NGO</option>
-  </select>
-               <br/>
-               <label htmlFor="password" className="loginemail">Password</label><br />
-               <div className="input-container">
-  <input
-    type= "password"
-    name="password"
-    id="password"
-    className="logininput1"
-    onChange={(e) => setpassword(e.target.value)}
-    value={password}
-    placeholder="Minimum 6 characters"
-    
-  />
-  <i className="password-toggle" onClick={togglePasswordVisibility}>
-    <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-  </i>
-</div>
+                </td>
+              </tr>
 
-                 {/* {passwordError && (
-                      <span className="error mes">{passwordError}</span>
-                    )}<br/> */}
-                <button class="profilebutton" onClick={()=>  handleUpdate() }>Add Details</button>
-              </form>
-            </div>
-          </div>
-        </div>
-                          </div>
-                           
-                        </div>
-                      </div>
-                    </div>
-          <span class="material-symbols-outlined"  onClick={() => handleDelete()}>delete</span>
-
-            </div>
-        </td>
-      </tr>
+            ))}
       
 
   </tbody>
