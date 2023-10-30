@@ -12,6 +12,7 @@ import Users from './users';
 import Home1 from './uma';
 import Detial from './pa';
 import Update from './update';
+import Asssessment from './Assessment';
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
   <Route path='/uma' element={<Home1/>}/>
   <Route path='/detial' element={<Detial/>}/>
   <Route path='/Update/:email' element={<Update/>}/>
+  <Route path='/assessment' element={<Asssessment/>}/>
  </Routes>
  </BrowserRouter>
     </div>

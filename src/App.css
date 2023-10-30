@@ -95,7 +95,7 @@ margin-right: 50vh;
   flex-direction: row;
   margin-right: 50vh;
   margin-top: 30px;
-  background-color: rgb(199, 226, 227);
+  background-color: rgb(199, 199, 234);
   border-radius: 10px;
   padding: 30px;
 }
@@ -107,6 +107,7 @@ margin-right: 50vh;
   color: black;
   font-weight: 600;
   padding-left: 20px;
+font-size: larger;
 
 }
 .heading{
@@ -116,6 +117,7 @@ margin-right: 50vh;
 }
 .loginforgot{
   margin-left: 50vh;
+  font-size: 20px;
 }
 .emailicon{
   margin-left: 5vh;
@@ -128,6 +130,8 @@ margin-right: 50vh;
 }
 .logininput{
   margin-left: 20px;
+  border-radius: 10px;
+  height: 40px;
 }
 .image2{
  
@@ -218,38 +222,66 @@ margin-right: 50vh;
 }
 .stact{
   text-align: start;
+  margin-left: 25px;
+  font-weight: bold;
 }
 .butn{
-  margin-right: 27%;
-  background-color: #e8eeef;
+  margin-right: 40%;
   margin-top: 5vh;
   border-radius: 10px;
-  padding: 10px;
+ background-color: white;
+ border-color: white;
+ border-radius: 20px;
+padding-bottom: 600px;
+box-shadow:0vh 0vh 1vh 1vh white;
+}
+.institu{
+  font-size:40px;
+  font-weight: bold;
 }
 .form-control{
-  border-color: #333;
+  border-color: #c1b7b7;
   border-radius: 10px;
+  width: 600px;
+}
+.form-control12{
+  border-color: #c1b7b7;
+  border-radius: 10px;
+  width: 400px;
+  height: 40px;
+}
+.form-control13{
+  border-color: #c1b7b7;
+  border-radius: 10px;
+  width: 400px;
+  height: 40px;
+
 }
 .modal-dialog1{
   max-width: 45%;
-  background-color: #c2cde3;
+  /* background-color: lavender; */
+  /* background-image: url("https://img.freepik.com/premium-photo/abstract-background-images-wallpaper-ai-generated_643360-53097.jpg"); */
+background-size: cover;
+background-image: url("https://wallpapers.com/images/hd/professional-background-2b3p57557lfg0y5g.jpg");
 border-radius: 20px;
 margin-top: 10vh;
 padding: 3vh;
  margin-left: 55vh;
 }
 .modal-dialog{
-  max-width: 45%;
+  max-width: 53%;
 border-radius: 20px;
 padding: 3vh;
 
 }
+.aa{
+  margin-right: 200px;
+}
 .button{
-  margin-left: 10vh;
   background-color: white;
   border-radius: 10px;
-  height: 10vh;
-  width: 13vw;
+  height: 6vh;
+  width: 7vw;
   margin-top: 5vh;
   border-color: white;
   box-shadow: 0px 0px 2px whitesmoke;
@@ -267,19 +299,18 @@ padding: 3vh;
   
 }
 .button1{
-  margin-left: 10vh;
   background-color:darkblue;
   color: white;
   border-radius: 10px;
-  height: 10vh;
-  width: 13vw;
+  height: 6vh;
+  width: 7vw;
   margin-top: 5vh;
   border-color:darkblue;
   box-shadow: 0px 0px 2px whitesmoke;
 
 }
 .admin {
-  background-color: rgb(212, 188, 188);
+   background-color: lavender; 
   height: 80vh;
   margin-top: 5vh;
   border-radius: 10px;
@@ -293,17 +324,23 @@ padding: 3vh;
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
+  border-radius: 10px;
 }
 
 .table th, .table td {
-  border: 1px solid #ccc;
+  border: 1px solid #a8a4a4;
   padding: 8px;
   text-align: left;
+}
+.table td{
+  font-size: 22px;
 }
 
 .table th {
   background-color: #615880;
-  color: white;
+  color: rgb(246, 241, 241);
+  font-size: 22px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .table tbody tr:nth-child(even) {
@@ -369,6 +406,8 @@ padding: 3vh;
 
 .profilename{
 justify-content: start;
+font-size: 18px;
+font-weight: bold;
 }
 #sort-order {
   font-size: 16px; /* Adjust the font size as needed */
@@ -396,7 +435,12 @@ justify-content: start;
   border-color: white;
 }
 .edit{
-margin-left: 60%;
+margin-left: 52%;
+
+
+}
+.material-symbols-outlined{
+  font-size: 32px;
 }
 .A{
   display: flex;
@@ -404,7 +448,7 @@ margin-left: 60%;
   margin: 0px;
 }
 .Pa{
-
+width: 950px;
   border-color: white;
   background:white;
 
@@ -414,6 +458,9 @@ padding: 30px;
 }
 .filter{
   text-align: start;
+}
+.aaa{
+  margin-right: 50px;
 }
 .span{
   font-size: 15px;
@@ -435,3 +482,40 @@ padding: 30px;
   height: 50px;
   width: 150px;
 }
+/* assement */
+.creat1{
+  background-color: #4c3b88;
+  height: 5vh;
+  width: 10vw;
+  color: white;
+  border-radius: 10px;
+  border-color:#4c3b88;
+  margin: 5vh;
+}
+.assement{
+font-size: 20px;
+font-weight: bold;
+margin-right: 100vh;
+margin-top: 5vh;
+}
+.card21{
+  background-color: #e0dde8;
+  margin-right: 150vh;
+  margin-top: 5vh;
+  border-radius: 10px;
+}
+.seach{
+  margin-left: 102vh;
+  font-size: 20px;
+}
+
+
+
+
+
+
+
+
+
+
+

@@ -231,7 +231,7 @@ function Admin() {
     </div>
       <div className="admin">
         <div className="d-flex flex-row">
-          <h3>Institutions</h3>
+          <h3 className="institu">Institutions</h3>
           {/* <Link to="/crate"> <button className="creat">Create +</button></Link> */}
           <div className="edit">
             {" "}
@@ -308,7 +308,7 @@ function Admin() {
                               value={head}
                             />
                             <div class="d-flex flex-row">
-                              <div class="col-md-4">
+                              <div class="col-md-6 aa">
                                 <label for="" class="profilename">
                                   Primary email
                                 </label>
@@ -316,12 +316,12 @@ function Admin() {
                                 <input
                                   type="text"
                                   placeholder="Enter  Primary email"
-                                  class="form-control"
+                                  class="form-control12"
                                   onChange={(e) => setemail(e.target.value)}
                                   value={email}
                                 />
                               </div>
-                              <div class="col-md-2"></div>
+                      
                               <div class="col-md-4">
                                 <label for="" class="profilename">
                                   Primary Contact
@@ -330,36 +330,36 @@ function Admin() {
                                 <input
                                   type="text"
                                   placeholder="Enter your  Primary count"
-                                  class="form-control"
+                                  class="form-control13"
                                   onChange={(e) => setprimarycontact(e.target.value)}
                                   value={primarycontact}
                                 />
                               </div>
                             </div>
                             <div class="d-flex flex-row">
-                              <div class="col-md-4">
-                                <label for="" class="profileh5 mb-1">
+                              <div class="col-md-6 aa">
+                                <label for="" class="profilename">
                                   Secondary email
                                 </label>
                                 <br />
                                 <input
                                   type="text"
                                   placeholder="Enter Secondary email"
-                                  class="form-control"
+                                  class="form-control12"
                                   onChange={(e) => setsecondaryemail(e.target.value)}
                                   value={secondaryemail}
                                 />
                               </div>
-                              <div class="col-md-2"></div>
+                              
                               <div class="col-md-4">
-                                <label for="" class="profileh5 mb-1">
+                                <label for="" class="profilename">
                                   Secondary Contact
                                 </label>
                                 <br />
                                 <input
                                   type="text"
                                   placeholder="Enter your  Secondary count"
-                                  class="form-control"
+                                  class="form-control13"
                                   onChange={(e) => setsecondarycontact(e.target.value)}
                                   value={secondarycontact}
                                 />
@@ -436,9 +436,9 @@ function Admin() {
                                 placeholder="Minimum 6 characters"
 
                               />
-                              <i className="password-toggle" onClick={togglePasswordVisibility}>
+                              {/* <i className="password-toggle" onClick={togglePasswordVisibility}>
                                 <FontAwesomeIcon icon={showPassword ? faEyeSlash : faEye} />
-                              </i>
+                              </i> */}
                             </div>
 
                             {/* {passwordError && (

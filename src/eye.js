@@ -34,6 +34,7 @@ function Eye() {
         .then((response) => {
           if (response.data.success) {
             setPasswordChanged(true);
+            console.log(response.data)
           } else {
             console.error("Password change failed");
           }

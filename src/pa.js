@@ -18,9 +18,10 @@ const Detial = () => {
         password: password, // New password
       })
       .then((response) => {
-        if (response.data.success) {
+        if (response.data) {
           alert("password update")
-        console.log(password)
+        console.log(response.data)
+       
         } else {
           alert("Password change failed")
           console.error("Password change failed");
@@ -159,7 +160,7 @@ const Detial = () => {
                   value={emailDetail.head}
                 />
                 <div class="d-flex flex-row">
-                  <div class="col-md-4">
+                  <div class="col-md-6 aaa">
                     <label for="" class="profilename">
                      Primary email
                     </label>
@@ -167,11 +168,11 @@ const Detial = () => {
                     <input
                       type="text"
                       placeholder="Enter  Primary email"
-                      class="form-control"
+                      class="form-control12"
                       value={emailDetail.email}
                     />
                   </div>
-                  <div class="col-md-2"></div>
+                  
                   <div class="col-md-4">
                     <label for="" class="profilename">
                     Primary Contact
@@ -180,34 +181,34 @@ const Detial = () => {
                     <input
                       type="text"
                       placeholder="Enter your  Primary count"
-                      class="form-control"
+                      class="form-control13"
                       value={emailDetail.primarycontact}
                     />
                   </div>
                 </div>
                 <div class="d-flex flex-row">
-                  <div class="col-md-4">
-                    <label for="" class="profileh5 mb-1">
+                  <div class="col-md-6 aaa">
+                    <label for="" class="profilename">
                     Secondary email
                     </label>
                     <br />
                     <input
                       type="text"
                       placeholder="Enter Secondary email"
-                      class="form-control"
+                      class="form-control12"
                       value={emailDetail.secondaryemail}
                     />
                   </div>
-                  <div class="col-md-2"></div>
+                
                   <div class="col-md-4">
-                    <label for="" class="profileh5 mb-1">
+                    <label for="" class="profilename">
                     Secondary Contact
                     </label>
                     <br />
                     <input
                       type="text"
                       placeholder="Enter your  Secondary count"
-                      class="form-control"
+                      class="form-control13"
                       value={emailDetail.secondarycontact}
                     />
                   </div>
@@ -268,7 +269,7 @@ const Detial = () => {
                <label htmlFor="password" className="loginemail">Password</label><br />
                <div className="input-container">
   <input
-    type= "password"
+    type= "text"
     name="password"
     id="password"
     className="logininput1"

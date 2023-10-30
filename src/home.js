@@ -37,14 +37,17 @@ function Home() {
       </div>
      
     </div>
-    <div className="butn">
+    <button className="butn">
         <h1 className="stact">Welcome to perfex stact</h1>
         <div className=" d-flex flex-row">
-           <Link to="/admin"> <button className="button1">Instutions Count No</button></Link>
+           <Link to="/admin"> <button className="button1">Instutions Count</button></Link>
             <Link to="/users"><button className="button">Users</button></Link>
             <button className="button">Active Users</button>
+            <button className="button">Active Users</button>
+            <button className="button">Asssessment</button>
+            <button className="button">Courses</button>
         </div>
-      </div>
+      </button>
     </div>
     
   );
