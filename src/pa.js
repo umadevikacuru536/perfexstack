@@ -2,13 +2,22 @@ import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import { FaBars } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+import sidebarData from "./SidebarData";
+import { IconContext } from "react-icons";
+import { useNavigate } from "react-router-dom";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faPhone } from '@fortawesome/free-solid-svg-icons';
 import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import logo from '../src/img/_94715d91-9ccb-448a-a29a-a52b3610949f.jpeg';
 import "./App.css"; // You can create an App.css file for styling
-import { FaBars } from "react-icons/fa";
 const Detial = () => {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => {
+    setSidebar(!sidebar);
+  };
   const [password, setPassword] = useState("");
   const handleChangePassword = () => {
     // Send a POST request to your server to change the password
@@ -70,30 +79,33 @@ const Detial = () => {
 
     return (
       <div className="d-flex flex-row">
-      <div className="container">
-      
-      <div className={`nav-bar ${!navItemsVisible ? "hidden" : ""}`}>
-        
-        <div className="toggle-button" onClick={toggleNavItems}>
-        <img src={logo} className='image1' />
-         <FaBars />
-       
-        </div>
-        {navItemsVisible && (
-          <ul className="nav-list">
-            <li className="list">
-              <a href="/">Dash Board</a>
-            </li>
-            <li className="list">
-              <a href="/home">Home page</a><br/>
-              <a href="/admin">Instutions</a><br/>
-              <a href="/users">Users</a>
-            </li> 
-          </ul>
-        )}
+      <IconContext.Provider value={{ color: "#fff" }}>
+      <div className="navbar">
+        <Link to="#" className="menu-bars">
+          <FaBars onClick={showSidebar} />
+        </Link>
       </div>
-     
-    </div>
+      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+        <ul className="nav-menu-items" onClick={showSidebar}>
+          <li className="navbar-toggle">
+            <Link to="#" className="menu-bars">
+              <AiOutlineClose />
+            </Link>
+          </li>
+          {sidebarData.map((item, index) => {
+            const { title, path, icon, cName } = item;
+            return (
+              <li key={index} className={cName}>
+                <Link to={path}>
+                  {icon}
+                  <span>{title}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </IconContext.Provider>
         <div className="eye">
           <div className="sri">
           <button className="card12">

@@ -72,3 +72,20 @@ Content-Type: application/json
           "Accessplan":"LMS",
          "code":"4042"
 }
+###
+POST http://localhost:5020/assessment
+Content-Type: application/json
+
+{
+
+      "category":"10",
+      "assessmentname":"java",
+      "nooftimes":"2",
+      "assessmentpassword":"jsw",
+      "exametype":"test",
+      "cutofftype":"ss",
+      "questionselection":"option",
+      "assessmentreport":"good",
+      "assessmentflow":"ok",
+      "assessmentadaptiveness":"hh"
+}

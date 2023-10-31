@@ -13,15 +13,15 @@ import Home1 from './uma';
 import Detial from './pa';
 import Update from './update';
 import Asssessment from './Assessment';
+import Coursesadd from './courses/coursesadd';
+import Courses from './courses/courses';
 
 function App() {
   return (
     <div className="App">
       <BrowserRouter>
  <Routes>
-
-  <Route path="/" element={<About/>}/>
-
+  <Route path="/login" element={<About/>}/>
   <Route path="/forget" element={<About1/>}/>
   <Route path='/home' element={<Home/>}/>
   <Route path='/admin' element={<Admin/>}/>
@@ -33,6 +33,8 @@ function App() {
   <Route path='/detial' element={<Detial/>}/>
   <Route path='/Update/:email' element={<Update/>}/>
   <Route path='/assessment' element={<Asssessment/>}/>
+  <Route path='/coursesadd' element={<Coursesadd/>}/>
+  <Route path='/courses' element={<Courses/>}/>
  </Routes>
  </BrowserRouter>
     </div>

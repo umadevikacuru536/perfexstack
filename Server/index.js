@@ -2,7 +2,8 @@ const express = require("express");  // IMPORTING EXPRESS MODULE FROM THIRD PART
 const mongoose = require("mongoose"); // IMPORTING MONGOOSE
 const cors = require("cors"); // IMPORTING CORS
 const perfexdata= require("./model/perfexdata")
-const perfexdata1= require("./model/perfexdata1")
+const perfexdata1= require("./model/perfexdata1");
+const assessment = require("./model/assessment");
 const app = express()
 app.use(express.json())  // ACCEPTING JSON FORMAT DATA AND PARSING TO LOCAL USER
 app.use(cors({ origin: "*" }))
@@ -208,10 +209,6 @@ app.put('/update-data/:email', async (req, res) => {
     return res.status(500).json("Internal server error");
   }
 });
-
-
-
-
 app.get("/alladmin/:email",async(req,res)=>{
 try {
   const email = req.params.email; 
@@ -261,6 +258,46 @@ app.post('/change-password', async (req, res) => {
   } catch (error) {
     console.error('Error changing password:', error);
     res.status(500).json({ success: false, message: 'Password change failed' });
+  }
+});
+
+app.post("/assessment", async (req, res) => {
+  try {
+    const {
+      category,
+      assessmentname,
+      nooftimes,
+      assessmentpassword,
+      exametype,
+      cutofftype,
+      questionselection,
+      assessmentreport,
+      assessmentflow,
+      assessmentadaptiveness} = req.body;
+      let newUser = new assessment({
+        category:category,
+        assessmentname:assessmentname,
+        nooftimes:nooftimes,
+        assessmentpassword:assessmentpassword,
+        exametype:exametype,
+        cutofftype:cutofftype,
+        questionselection:questionselection,
+        assessmentreport:assessmentreport,
+        assessmentflow:assessmentflow,
+        assessmentadaptiveness:assessmentadaptiveness
+      });
+
+      // const isUserExist = await assessment.findOne({ '':'' });
+
+      // if (isUserExist) {
+      //   return res.status(400).json("User already registered");
+      // }
+    newUser.save();
+
+     return res.status(200).json("User created successfully");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Internal server error");
   }
 });
 app.listen(5020, () => {

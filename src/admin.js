@@ -1,92 +1,36 @@
 import React, { useState, useEffect } from "react";
 import logo from '../src/img/_94715d91-9ccb-448a-a29a-a52b3610949f.jpeg';
 import "./App.css"; // You can create an App.css file for styling
-import { FaBars } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from "axios";
-import { faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
+import { FaBars } from "react-icons/fa";
+import { AiOutlineClose } from "react-icons/ai";
+import sidebarData from "./SidebarData";
+import { IconContext } from "react-icons";
 import { useNavigate } from "react-router-dom";
 function Admin() {
+  const [sidebar, setSidebar] = useState(false);
+
+  const showSidebar = () => {
+    setSidebar(!sidebar);
+  };
   const navigate = useNavigate()
-  const [navItemsVisible, setNavItemsVisible] = useState(false);
   const [blogslist, setblogslist] = useState([]);
   const handleEmailSubmit = () => {
     // You can add validation here if needed
     console.log("Email:", email);
     navigate(`/detial?email=${email}`);
   };
-  const toggleNavItems = () => {
-    setNavItemsVisible(!navItemsVisible);
-  };
-  const [showPassword, setShowPassword] = useState(false);
-
-  const togglePasswordVisibility = () => {
-    setShowPassword((prevShowPassword) => !prevShowPassword);
-  };
+ 
 
   useEffect(() => {
     fetchblogs();
   });
-  const [formData, setFormData] = useState({
-    sno: "",
-    name: "",
-    email: "",
-    head: "",
-    secondaryemail: "",
-    userscount: "",
-    primarycontact: "",
-    secondarycontact: "",
-    address: "",
-    city: "",
-    password: "",
-    code: ""
-    // Add other form fields here
-  });
+  
 
-  const handleChange = (e) => {
-    const newValue = e.target.value;
-    setblogslist((prevData)=>({
-      ...prevData,
-      blogslist:newValue,
-    }))
-  };
-  const handleUpdate = (e) => {
-  e.preventDefault()
-  
-    const UsersData = {
-      sno: blogslist.sno,
-      name: blogslist.name,
-      email: blogslist.email,
-      secondaryemail: blogslist.secondaryemail,
-      head: blogslist.head,
-      userscount: blogslist.userscount,
-      code: blogslist.code,
-      primarycontact: blogslist.primarycontact,
-      secondarycontact: blogslist.secondarycontact,
-      address: blogslist.address,
-      city: blogslist.city,
-      password: blogslist.password,
-      InstitutionType: blogslist.InstitutionType,
-      Accessplan: blogslist.Accessplan,
-    };
-  
-    axios
-      .put("http://localhost:5020/update-data/" , UsersData) // Send UsersData in the request
-      .then((response) => {
-        if (response.data.success) {
-          alert('Data updated successfully');
-          console.log('Data updated successfully');
-        } else {
-          console.error('Data update failed');
-        }
-      })
-      .catch((error) => {
-        console.error('Error updating data:', error);
-      });
-  };
+
 
   const fetchblogs = async () => {
     const api = "http://localhost:5020/alladmin";
@@ -133,20 +77,7 @@ function Admin() {
     InstitutionType: InstitutionType,
     Accessplan: Accessplan
   };
-  // const updatedData = {
-  //   sno:"",
-  //   name:"",
-  //   email:"",
-  //   head:"",
-  //   secondaryemail:"",
-  //   userscount:"",
-  //   primarycontact:"",
-  //   secondarycontact:"",
-  //   address:"",
-  //   city:"",
-  //   password:"",
-  //   code:""
-  // };
+  
 
   const onSubmitForm3 = (e) => {
     e.preventDefault();
@@ -205,30 +136,35 @@ function Admin() {
 
   return (
     <div className="d-flex flex-row">
-     <div className="container">
-      
-      <div className={`nav-bar ${!navItemsVisible ? "hidden" : ""}`}>
-        
-        <div className="toggle-button" onClick={toggleNavItems}>
-        <img src={logo} className='image1' />
-         <FaBars />
-       
-        </div>
-        {navItemsVisible && (
-          <ul className="nav-list">
-            <li className="list">
-              <a href="/">Dash Board</a>
-            </li>
-            <li className="list">
-              <a href="/home">Home page</a><br/>
-              <a href="/admin">Instutions</a><br/>
-              <a href="/users">Users</a>
-            </li> 
-          </ul>
-        )}
+    <IconContext.Provider value={{ color: "#fff" }}>
+      <div className="navbar">
+        <Link to="#" className="menu-bars">
+          <FaBars onClick={showSidebar} />
+        </Link>
       </div>
-     
-    </div>
+      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
+        <ul className="nav-menu-items" onClick={showSidebar}>
+          <li className="navbar-toggle">
+            <Link to="#" className="menu-bars">
+              <AiOutlineClose />
+            </Link>
+          </li>
+          {sidebarData.map((item, index) => {
+            const { title, path, icon, cName } = item;
+            return (
+              <li key={index} className={cName}>
+                <Link to={path}>
+                  {icon}
+                  <span>{title}</span>
+                </Link>
+              </li>
+            );
+          })}
+        </ul>
+      </nav>
+    </IconContext.Provider>
+  
+    <div className="d-flex flex-row">
       <div className="admin">
         <div className="d-flex flex-row">
           <h3 className="institu">Institutions</h3>
@@ -496,6 +432,7 @@ function Admin() {
 
       </div>
 
+    </div>
     </div>
   )
 }
