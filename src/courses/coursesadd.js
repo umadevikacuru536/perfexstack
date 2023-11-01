@@ -53,7 +53,10 @@ function Coursesadd(){
     const toggleNavItems = () => {
       setNavItemsVisible(!navItemsVisible);
     };
-  
+    function myFunction() {
+      document.getElementById("myTime").stepUp();
+    }
+    
     return(
         <div>
 <div className="d-flex flex-row">
@@ -84,20 +87,29 @@ function Coursesadd(){
         </ul>
       </nav>
     </IconContext.Provider>
-    <div className="coursers text-start">
+    <div class="coursers ">
+                    <div class="modal-content">
+                        {/* <!-- Modal Header --> */}
+                        <div class="modal-header">
+                            <h3>CREATE ASSESSMENT</h3>
+                            <Link to="/courses"><button type="button" class="btn-close"></button></Link>
+                        </div>
+                        <div class="modal-body">
+                            <div class="text-start">
+    <from className="text-start">
     <label className="profilename">Tags</label><br/>
-    <input placeholder="slect Relevant tags"/><br/>
+    <input placeholder="slect Relevant tags" className="input"/><br/>
     <label className="profilename">Cover letter</label><br/>
-    <textarea id="w3review" name="w3review" rows="4" cols="50"></textarea><br/>
+    <textarea id="w3review" name="w3review" rows="6" cols="70"></textarea><br/>
     <label className="profilename">Difficulty</label><br/>
-     <select >
+     <select className="input" >
         <option >select the difficulty level</option>
         <option >Beginner</option>
         <option >Intermediate</option>
        <option >Adavanced</option>
      </select><br/>
      <label className="profilename">Subscription</label><br/>
-     <select >
+     <select className="input" >
         <option >select Subscription</option>
         <option >Free</option>
         <option >Paid</option>
@@ -122,17 +134,18 @@ function Coursesadd(){
         }}
       />
      <label className="profilename">Author</label><br/>
-     <input placeholder="Author"/><br/>
+     <input placeholder="Author" className="input" /><br/>
      
     <div className="d-flex flex-row">
         <div className="d-flex flex-column" style={{marginRight:"80px"}}>
       <label className="profilename">Hours</label><br/>
-      <select value={selectedHours} onChange={handleHoursChange}>
+      {/* <select className="hours" value={selectedHours} onChange={handleHoursChange}>
         <option value="1">1</option>
         <option value="2">2</option>
         <option value="3">3</option>
         <option value="4">4</option>
-      </select>
+      </select> */}
+      <input type="time" id="myTime" value="16"/>
       </div>
       <div className="d-flex flex-column">
       <label className="profilename">Minutes</label><br/>
@@ -168,16 +181,20 @@ function Coursesadd(){
     </div>
     <div>
         <label className="profilename">What you'll learn</label>
-        <button>+Add</button>
+        <button className="ma">+Add</button>
        </div>
-       <input/>
+       <input className="input" />
          <div>
           <label className="profilename">Requirements</label>
-          <button>+Add</button>
+          <button className="ma">+Add</button>
           </div> 
-          <input/> <br/>
-          <button>Create</button>
+          <input className="input" /> <br/>
+          <button className="creat12">Create</button>
+    </from>
     </div>
+    </div>
+</div>
+</div>
     </div>
  
         </div>

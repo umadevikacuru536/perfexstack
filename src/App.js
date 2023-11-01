@@ -15,6 +15,7 @@ import Update from './update';
 import Asssessment from './Assessment';
 import Coursesadd from './courses/coursesadd';
 import Courses from './courses/courses';
+import Assessmentadd from './assessmentadd';
 
 function App() {
   return (
@@ -33,6 +34,7 @@ function App() {
   <Route path='/detial' element={<Detial/>}/>
   <Route path='/Update/:email' element={<Update/>}/>
   <Route path='/assessment' element={<Asssessment/>}/>
+  <Route path='/assessmentadd' element={<Assessmentadd/>}/>
   <Route path='/coursesadd' element={<Coursesadd/>}/>
   <Route path='/courses' element={<Courses/>}/>
  </Routes>

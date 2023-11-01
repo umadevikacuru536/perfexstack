@@ -78,6 +78,8 @@ Content-Type: application/json
 
 {
 
+     "sno":"1",
+      "examid":"2457",
       "category":"10",
       "assessmentname":"java",
       "nooftimes":"2",

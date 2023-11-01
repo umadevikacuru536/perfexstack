@@ -264,6 +264,8 @@ app.post('/change-password', async (req, res) => {
 app.post("/assessment", async (req, res) => {
   try {
     const {
+      sno,
+      examid,
       category,
       assessmentname,
       nooftimes,
@@ -275,6 +277,8 @@ app.post("/assessment", async (req, res) => {
       assessmentflow,
       assessmentadaptiveness} = req.body;
       let newUser = new assessment({
+        sno:sno,
+        examid:examid,
         category:category,
         assessmentname:assessmentname,
         nooftimes:nooftimes,

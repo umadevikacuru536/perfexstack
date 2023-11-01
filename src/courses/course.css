@@ -1,8 +1,35 @@
 .coursers{
-    background-color: lavender;
-    margin-top: 5vh;
-    padding-left: 40px;
-    padding-top: 20px;
-    padding-left: 300px;
-    padding-right: 400px;
+   
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUPt_2s--RrR9M3EJRLkrTCkO_KLEZYNKZn30zmhJ4dHAEgxo_C98i5ILbuuaw9cHFqpc&usqp=CAU");
+    background-repeat: no-repeat;
+   background-size: cover;
+   margin-top: 5vh;
+   border-radius: 20px;
+   margin-left: 200px;
+padding-top: 3vh;
+padding-left: 3vh;
+padding-right: 3vh;
+   height: 93vh;
+}
+.input{
+    width: 70vh;
+    border-radius:  5px;
+}
+.ma{
+    margin-left: 50vh;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+    background-color: rgb(54, 54, 111);
+    color: white;
+    border-radius: 10px;
+    height: 4vh;
+    width: 9vh;
+}
+.creat12{
+    background-color: green;
+    color: white;
+    border-radius: 10px;
+    height: 4vh;
+    width: 9vh;
+    margin-top: 2vh;
 }

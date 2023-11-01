@@ -452,10 +452,11 @@ margin-right: 100vh;
 margin-top: 5vh;
 }
 .card21{
-  background-color: #e0dde8;
+ background:#ede1f4 ;
   margin-top: 5vh;
   border-radius: 10px;
   padding: 20px;
+  margin-left: 10vh;
 }
 .seach{
   margin-left: 102vh;
@@ -471,7 +472,36 @@ margin-top: 5vh;
   font-size: 25px;
   font-weight: bold;
 }
-
+.input1{
+  border-radius: 5px;
+  border-color: grey;
+}
+.showoption{
+  font-size: 18px;
+  font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.ram{
+  background-image: url("https://img.freepik.com/free-photo/abstract-luxury-gradient-blue-background-smooth-dark-blue-with-black-vignette-studio-banner_1258-52337.jpg");
+  width: 50vw;
+  margin-top: 5vh;
+  margin-left: 15vh;
+  border-radius: 20px;
+ 
+}
+.modal-dialog99{
+  padding-left: 2vh;
+  padding-top: 5vh;
+  padding-right: 15vh;
+}
+.ravi{
+  font-size: 20px;
+}
+.profilename1{
+  justify-content: start;
+font-size: 18px;
+font-weight: bold;
+margin-top: 3vh;
+}
 /* navbar */
 .navbar {
   background-color: #060b26;

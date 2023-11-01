@@ -52,7 +52,7 @@ function Asssessment(){
     <div className="card21">
         <div className="d-flex flex-row ">
       <p className="assement">Assessment List</p>
-      <button className="creat1">+ Create Assessment</button>
+      <Link to="/assessmentadd"><button className="creat1">+ Create Assessment</button></Link>
       </div>
      
       <div className="text-start m-4">
