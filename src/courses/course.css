@@ -1,21 +1,24 @@
-.coursers{
-   
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSUPt_2s--RrR9M3EJRLkrTCkO_KLEZYNKZn30zmhJ4dHAEgxo_C98i5ILbuuaw9cHFqpc&usqp=CAU");
+.coursers {
+
+    background-image: linear-gradient(lightyellow, lightblue, lightgray);
     background-repeat: no-repeat;
-   background-size: cover;
-   margin-top: 5vh;
-   border-radius: 20px;
-   margin-left: 200px;
-padding-top: 3vh;
-padding-left: 3vh;
-padding-right: 3vh;
-   height: 93vh;
+    background-size: cover;
+    margin-top: 5vh;
+    border-radius: 20px;
+    margin-left: 200px;
+    padding-top: 3vh;
+    padding-left: 3vh;
+    padding-right: 3vh;
+    height: 100vh;
+    width: 50vw;
 }
-.input{
+
+.input {
     width: 70vh;
-    border-radius:  5px;
+    border-radius: 5px;
 }
-.ma{
+
+.ma {
     margin-left: 50vh;
     margin-top: 2vh;
     margin-bottom: 2vh;
@@ -25,7 +28,8 @@ padding-right: 3vh;
     height: 4vh;
     width: 9vh;
 }
-.creat12{
+
+.creat12 {
     background-color: green;
     color: white;
     border-radius: 10px;

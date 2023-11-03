@@ -77,7 +77,9 @@ function Admin() {
     InstitutionType: InstitutionType,
     Accessplan: Accessplan
   };
-  
+  const chartbox =()=>{
+    navigate("/chat")
+  }
 
   const onSubmitForm3 = (e) => {
     e.preventDefault();
@@ -141,6 +143,7 @@ function Admin() {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
+        <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>

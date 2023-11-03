@@ -13,6 +13,7 @@ import { faEnvelope } from '@fortawesome/free-solid-svg-icons';
 import logo from '../src/img/_94715d91-9ccb-448a-a29a-a52b3610949f.jpeg';
 import "./App.css"; // You can create an App.css file for styling
 const Detial = () => {
+  const navigate=useNavigate()
   const [sidebar, setSidebar] = useState(false);
 
   const showSidebar = () => {
@@ -76,7 +77,9 @@ const Detial = () => {
     if (!emailDetail) {
         return <div>Email not found</div>;
     }
-
+    const chartbox =()=>{
+      navigate("/chat")
+    }
     return (
       <div className="d-flex flex-row">
       <IconContext.Provider value={{ color: "#fff" }}>
@@ -84,6 +87,8 @@ const Detial = () => {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
+        <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
+
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>

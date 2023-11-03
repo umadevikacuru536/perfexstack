@@ -4,6 +4,8 @@ const cors = require("cors"); // IMPORTING CORS
 const perfexdata= require("./model/perfexdata")
 const perfexdata1= require("./model/perfexdata1");
 const assessment = require("./model/assessment");
+const courses = require("./model/courses");
+const jwt= require("jsonwebtoken")
 const app = express()
 app.use(express.json())  // ACCEPTING JSON FORMAT DATA AND PARSING TO LOCAL USER
 app.use(cors({ origin: "*" }))
@@ -15,29 +17,34 @@ mongoose.connect("mongodb+srv://umadevikavuru:umadevi1234@cluster0.drlbwri.mongo
 app.get("/", (req, res) => {
   res.send("hello")
 });
-app.post("/signup/", async (req, res) => {
+app.post("/login", async (req, res) => {
   try {
-    const {
-      password,
-      email} = req.body;
-      let newUser = new perfexdata({
-        password:password,
-        email:email
-      });
+    const { password, email } = req.body;
+    let newUser = new perfexdata({
+      password: password,
+      email: email
+    });
 
-      const isUserExist = await perfexdata.findOne({ email: email });
+    const isUserExist = await perfexdata.findOne({ email: email });
 
-      if (isUserExist) {
-        return res.status(400).json("User already registered");
-      }
-    newUser.save();
+    if (isUserExist) {
+      const payload = {
+        id: isUserExist._id
+      };
+      let token = jwt.sign(payload, 'uma', { expiresIn: '24hr' });
+      console.log(token);
 
-     return res.status(200).json("User created successfully");
+      return res.status(200).json({ message: "User created successfully", token: token });
+    } else {
+      await newUser.save(); // Await the user creation before sending a response
+      return res.status(200).json({ message: "User already registered" });
+    }
   } catch (error) {
     console.error(error.message);
-    res.status(500).json("Internal server error");
+    return res.status(500).json({ message: "Internal server error" });
   }
 });
+
 
 app.post("/admin", async (req, res) => {
   try {
@@ -303,6 +310,55 @@ app.post("/assessment", async (req, res) => {
     console.error(error.message);
     res.status(500).json("Internal server error");
   }
+});
+app.get("/allassessment", async (req, res) => {
+
+  const allusers1 = await assessment.find({})
+  res.status(200).send(allusers1)
+});
+app.post("/courses", async (req, res) => {
+  try {
+    const {
+      sno,
+      author,
+      topic,
+      lastupdate,
+      aboutlearning,
+      subscription,
+      learn,
+      requirement,
+      difficulty,
+      coverletter} = req.body;
+      let newUser = new courses({
+        sno:sno,
+        author:author,
+        topic:topic,
+        lastupdate:lastupdate,
+        aboutlearning:aboutlearning,
+        subscription:subscription,
+        learn:learn,
+        requirement:requirement,
+        difficulty:difficulty,
+        coverletter:coverletter
+      });
+
+      // const isUserExist = await assessment.findOne({ '':'' });
+
+      // if (isUserExist) {
+      //   return res.status(400).json("User already registered");
+      // }
+    newUser.save();
+
+     return res.status(200).json("User created successfully");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Internal server error");
+  }
+});
+app.get("/allcourses", async (req, res) => {
+
+  const allusers1 = await courses.find({})
+  res.status(200).send(allusers1)
 });
 app.listen(5020, () => {
 

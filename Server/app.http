@@ -1,7 +1,7 @@
 
 GET  http://localhost:5020/
 ###
-POST http://localhost:5020/signup/
+POST http://localhost:5020/login
 Content-Type: application/json
 
 {
@@ -78,7 +78,7 @@ Content-Type: application/json
 
 {
 
-     "sno":"1",
+     "sno":"99999",
       "examid":"2457",
       "category":"10",
       "assessmentname":"java",
@@ -91,3 +91,23 @@ Content-Type: application/json
       "assessmentflow":"ok",
       "assessmentadaptiveness":"hh"
 }
+###
+GET http://localhost:5020/allassessment
+###
+POST http://localhost:5020/courses
+Content-Type: application/json
+
+{
+       "sno":"1",
+      "author":"uma",
+      "topic":"java",
+      "lastupdate":"20",
+      "aboutlearning":"ksks",
+      "subscription":"ddd",
+      "learn":"dd",
+      "requirement":"dd",
+      "difficulty":"dd",
+      "coverletter":"dd"
+}
+###
+GET http://localhost:5020/allcourses

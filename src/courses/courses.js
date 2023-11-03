@@ -5,10 +5,13 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import sidebarData from "../SidebarData";
 import { IconContext } from "react-icons";
+import axios from "axios";
+import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 function Courses() {
+  const navigate = useNavigate();
     const [sidebar, setSidebar] = useState(false);
-
+    const [blogslist, setblogslist] = useState([]);
   const showSidebar = () => {
     setSidebar(!sidebar);
   };
@@ -17,7 +20,27 @@ function Courses() {
     const toggleNavItems = () => {
       setNavItemsVisible(!navItemsVisible);
     };
+    useEffect(() => {
+      fetchblogs();
+    });
+    
+    const chartbox =()=>{
+      navigate("/chat")
+    }
   
+  
+    const fetchblogs = async () => {
+      const api = "http://localhost:5020/allcourses";
+      try {
+        const response = await axios.get(api, {
+  
+        });
+        setblogslist(response.data);
+  
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
   return (
     <div>
     <div className="d-flex flex-row">
@@ -26,6 +49,7 @@ function Courses() {
             <Link to="#" className="menu-bars">
               <FaBars onClick={showSidebar} />
             </Link>
+            <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
           </div>
           <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
             <ul className="nav-menu-items" onClick={showSidebar}>
@@ -58,6 +82,7 @@ function Courses() {
             <label className="showname">Show</label><br/>
           
     <select className="show" >
+  
       <option value="volvo">10</option>
       <option value="saab">20</option>
       <option value="mercedes">30</option>
@@ -80,15 +105,27 @@ function Courses() {
                 </tr>
               </thead>
               <tbody>
-                <tr>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                  <td></td>
-                </tr>
+              {blogslist.map((blog) => (
+              <tr key={blog.id}>
+                <td>{blog.sno}</td>
+                <td>{blog.author}</td>
+                <td>{blog.topic}</td>
+                <td>{blog.lastupdate}</td>
+                <td>{blog.learn}</td>
+                <td>{blog.subscription}</td>
+                <td>
+                  <div className="A">
+                    <span className="fa-solid fa-eye " ></span>
+                 <span class="material-symbols-outlined editicon"
+                       >edit_square</span> 
+                    
+                    <span class="material-symbols-outlined">delete</span>
+
+                  </div>
+                </td>
+              </tr>
+
+            ))}
               </tbody>
             </table>
     

@@ -6,19 +6,42 @@ import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import sidebarData from "./SidebarData";
 import { IconContext } from "react-icons";
+import { useEffect } from "react";
+import axios from "axios";
 import { useNavigate } from "react-router-dom";
 function Asssessment(){
   const [sidebar, setSidebar] = useState(false);
-
+const navigate =useNavigate()
   const showSidebar = () => {
     setSidebar(!sidebar);
   };
     const [navItemsVisible, setNavItemsVisible] = useState(false);
-
+    const [blogslist, setblogslist] = useState([]);
     const toggleNavItems = () => {
       setNavItemsVisible(!navItemsVisible);
     };
+    useEffect(() => {
+      fetchblogs();
+    });
+    
   
+  
+  
+    const fetchblogs = async () => {
+      const api = " http://localhost:5020/allassessment";
+      try {
+        const response = await axios.get(api, {
+  
+        });
+        setblogslist(response.data);
+  
+      } catch (error) {
+        console.error("Error fetching blogs:", error);
+      }
+    };
+    const chartbox =()=>{
+      navigate("/chat")
+    }
     return(
         <div>
 <div className="d-flex flex-row">
@@ -27,6 +50,8 @@ function Asssessment(){
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
+        <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
+
       </div>
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>
@@ -82,16 +107,28 @@ function Asssessment(){
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-              <td></td>
-            </tr>
+          {blogslist.map((blog) => (
+              <tr key={blog.id}>
+                <td>{blog.sno}</td>
+                <td>{blog.examid}</td>
+                <td>{blog.category}</td>
+                <td>{blog.assessmentname}</td>
+                <td>{blog.assessmentpassword}</td>
+                <td>{blog.questionselection}</td>
+                <td>{blog. assessmentreport}</td>
+                <td>
+                  <div className="A">
+                    <span className="fa-solid fa-eye " ></span>
+                 <span class="material-symbols-outlined editicon"
+                       >edit_square</span> 
+                    
+                    <span class="material-symbols-outlined">delete</span>
+
+                  </div>
+                </td>
+              </tr>
+
+            ))}
           </tbody>
         </table>
 

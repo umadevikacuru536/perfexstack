@@ -57,17 +57,20 @@
 // export default Home;
 
 import React, { useState } from "react";
-import { Link, BrowserRouter as Router } from "react-router-dom";
+import { Link, BrowserRouter as Router, useNavigate } from "react-router-dom";
 import { FaBars } from "react-icons/fa";
 import { AiOutlineClose } from "react-icons/ai";
 import sidebarData from "./SidebarData";
 import { IconContext } from "react-icons";
 function Home() {
   const [sidebar, setSidebar] = useState(false);
-
+const navigate= useNavigate()
   const showSidebar = () => {
     setSidebar(!sidebar);
   };
+  const chartbox =()=>{
+    navigate("/chat")
+  }
 
   return (
     <>
@@ -76,7 +79,9 @@ function Home() {
         <Link to="#" className="menu-bars">
           <FaBars onClick={showSidebar} />
         </Link>
+       <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
       </div>
+      
       <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
         <ul className="nav-menu-items" onClick={showSidebar}>
           <li className="navbar-toggle">
@@ -96,6 +101,7 @@ function Home() {
             );
           })}
         </ul>
+        
       </nav>
     </IconContext.Provider>
   </>

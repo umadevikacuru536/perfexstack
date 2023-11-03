@@ -5,7 +5,8 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import img from "./img/6333204.jpg"
+import img from "./img/6333204.jpg";
+import Cookies from 'js-cookie';
 function About() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -35,26 +36,20 @@ function About() {
   };
   const onSubmitBtn = (e) => {
     e.preventDefault();
-    if (email && password!== "") {
+    if (email && password !== "") {
       axios
-        .post("http://localhost:5020/signup/", usersData)
+        .post("http://localhost:5020/login", usersData)
         .then((response) => {
           if (response.status === 200) {
             let jwtToken = response.data.token;
-            localStorage.setItem("token", jwtToken);
-
-            toast.success("Registration Successfull", {
-              position: "top-right",
-              autoClose: 1000,
-              hideProgressBar: false,
-              closeOnClick: true,
-              pauseOnHover: true,
-              draggable: true,
-              progress: undefined,
-              theme: "colored",
+  
+            // Store the token in a cookie
+            Cookies.set('token', jwtToken);
+  
+            toast.success("Registration Successful", {
+              // ... (your success notification settings)
             });
-
-
+  
             setTimeout(function () {
               navigate("/home");
             }, 3000);
@@ -63,17 +58,10 @@ function About() {
         .catch((error) => {
           console.error(error);
           toast.error("Login failed. Check your credentials.", {
-            position: "top-right",
-            autoClose: 1000,
-            hideProgressBar: false,
-            closeOnClick: true,
-            pauseOnHover: true,
-            draggable: true,
-            progress: undefined,
-            theme: "colored",
+            // ... (your error notification settings)
           });
         });
-    }else {
+    } else {
       toast.warning("Enter both email and password");
     }
   };
