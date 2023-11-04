@@ -9,6 +9,7 @@ import { IconContext } from "react-icons";
 import { useEffect } from "react";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "./sidebar/sidebar";
 function Asssessment(){
   const [sidebar, setSidebar] = useState(false);
 const navigate =useNavigate()
@@ -22,11 +23,20 @@ const navigate =useNavigate()
     };
     useEffect(() => {
       fetchblogs();
-    });
+    },[]);
     
   
-  
-  
+  const [examname,setexamname]=useState("")
+  const searchBySkills = () => {
+    const filteredBlogs = blogslist.filter(
+      (blog) =>
+        blog.assessmentname &&
+        blog.assessmentname
+          .toLowerCase()
+          .includes(examname.toLowerCase().trim())
+    );
+    setblogslist(filteredBlogs);
+  };
     const fetchblogs = async () => {
       const api = " http://localhost:5020/allassessment";
       try {
@@ -34,6 +44,7 @@ const navigate =useNavigate()
   
         });
         setblogslist(response.data);
+       
   
       } catch (error) {
         console.error("Error fetching blogs:", error);
@@ -42,38 +53,13 @@ const navigate =useNavigate()
     const chartbox =()=>{
       navigate("/chat")
     }
+
+  
+    
     return(
         <div>
 <div className="d-flex flex-row">
-     <IconContext.Provider value={{ color: "#fff" }}>
-      <div className="navbar">
-        <Link to="#" className="menu-bars">
-          <FaBars onClick={showSidebar} />
-        </Link>
-        <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
-
-      </div>
-      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-        <ul className="nav-menu-items" onClick={showSidebar}>
-          <li className="navbar-toggle">
-            <Link to="#" className="menu-bars">
-              <AiOutlineClose />
-            </Link>
-          </li>
-          {sidebarData.map((item, index) => {
-            const { title, path, icon, cName } = item;
-            return (
-              <li key={index} className={cName}>
-                <Link to={path}>
-                  {icon}
-                  <span>{title}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </IconContext.Provider>
+    <Sidebar/>
     <div className="card21">
         <div className="d-flex flex-row ">
       <p className="assement">Assessment List</p>
@@ -83,15 +69,19 @@ const navigate =useNavigate()
       <div className="text-start m-4">
         <label className="showname">Show</label><br/>
       
-<select className="show" >
-  <option value="volvo">10</option>
-  <option value="saab">20</option>
-  <option value="mercedes">30</option>
-  <option value="audi">40</option>
+  
+  <select className="show">
+  {blogslist.map((serialNo) => (
+    <option key={serialNo.id} value={serialNo.sno}>
+      {serialNo.sno}
+    </option>
+  ))}
 </select>
 
         <label className="seach">Seach</label>
-        <input/>
+        <input value={examname}
+                onChange={(e) => setexamname(e.target.value)}/>
+                <button onClick={searchBySkills} className="seachbut">seach</button>
       </div>
       <table className="table">
           <thead>
@@ -107,29 +97,32 @@ const navigate =useNavigate()
             </tr>
           </thead>
           <tbody>
-          {blogslist.map((blog) => (
-              <tr key={blog.id}>
-                <td>{blog.sno}</td>
-                <td>{blog.examid}</td>
-                <td>{blog.category}</td>
-                <td>{blog.assessmentname}</td>
-                <td>{blog.assessmentpassword}</td>
-                <td>{blog.questionselection}</td>
-                <td>{blog. assessmentreport}</td>
-                <td>
-                  <div className="A">
-                    <span className="fa-solid fa-eye " ></span>
-                 <span class="material-symbols-outlined editicon"
-                       >edit_square</span> 
-                    
-                    <span class="material-symbols-outlined">delete</span>
+  {blogslist.length > 0 ? (
+    blogslist.map((blog) => (
+      <tr key={blog.id}>
+        <td>{blog.sno}</td>
+        <td>{blog.examid}</td>
+        <td>{blog.category}</td>
+        <td>{blog.assessmentname}</td>
+        <td>{blog.assessmentpassword}</td>
+        <td>{blog.questionselection}</td>
+        <td>{blog.assessmentreport}</td>
+        <td>
+          <div className="A">
+            <span className="fa-solid fa-eye"></span>
+            <span className="material-symbols-outlined editicon">edit_square</span>
+            <span className="material-symbols-outlined">delete</span>
+          </div>
+        </td>
+      </tr>
+    ))
+  ) : (
+    <tr>
+      <td colSpan="18">No data available</td>
+    </tr>
+  )}
+</tbody>
 
-                  </div>
-                </td>
-              </tr>
-
-            ))}
-          </tbody>
         </table>
 
       </div>

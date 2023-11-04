@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import axios from "axios";
+import Sidebar from "./sidebar/sidebar";
 function Assessmentadd() {
     const [sidebar, setSidebar] = useState(false);
 
@@ -41,6 +42,7 @@ function Assessmentadd() {
         questionselection: questionselection,
         assessmentreport: assessmentreport,
         assessmentflow: assessmentflow,
+        nooftimes:nooftimes,
         assessmentadaptiveness: assessmentadaptiveness,
         examid:examid
     };
@@ -82,37 +84,7 @@ function Assessmentadd() {
       }
     return (
         <div className="d-flex flex-row">
-            <IconContext.Provider value={{ color: "#fff" }}>
-                <div className="navbar">
-                    <Link to="#" className="menu-bars">
-                        <FaBars onClick={showSidebar} />
-                    </Link>
-                    <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
-
-                </div>
-                <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-                    <ul className="nav-menu-items" onClick={showSidebar}>
-                        <li className="navbar-toggle">
-                            <Link to="#" className="menu-bars">
-                                <AiOutlineClose />
-                            </Link>
-                        </li>
-                        {sidebarData.map((item, index) => {
-                            const { title, path, icon, cName } = item;
-                            return (
-                                <li key={index} className={cName}>
-                                    <Link to={path}>
-                                        {icon}
-                                        <span>{title}</span>
-                                    </Link>
-                                </li>
-                            );
-                        })}
-                    </ul>
-                 
-                </nav>
-                
-            </IconContext.Provider>
+       <Sidebar/>
             
             <div className="ram">
                 <div class="modal-dialog99">

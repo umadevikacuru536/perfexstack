@@ -7,6 +7,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import sidebarData from "../SidebarData";
 import { IconContext } from "react-icons";
 import { useState } from 'react';
+import Sidebar from '../sidebar/sidebar';
 
 const SimpleForm = () => {
   const [sidebar, setSidebar] = useState(false);
@@ -15,13 +16,11 @@ const SimpleForm = () => {
     setSidebar(!sidebar);
   };
   return (
-    <div>
-      <IconContext.Provider value={{ color: "#fff" }}>
-        <div className="navbar">
-          <Link to="#" className="menu-bars">
-            <FaBars onClick={showSidebar} />
-          </Link>
-          <span class="material-symbols-outlined">close</span>
+    <div >
+   
+   
+    <Sidebar/>
+  <div style={{marginTop:"40vh"}}>
           <ChatBot className="chatbot"
             steps={[
               {
@@ -125,29 +124,9 @@ const SimpleForm = () => {
               },
             ]}
           />
-        </div>
-        <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-          <ul className="nav-menu-items" onClick={showSidebar}>
-            <li className="navbar-toggle">
-              <Link to="#" className="menu-bars">
-                <AiOutlineClose />
-              </Link>
-            </li>
-            {sidebarData.map((item, index) => {
-              const { title, path, icon, cName } = item;
-              return (
-
-                <li key={index} className={cName}>
-                  <Link to={path}>
-                    {icon}
-                    <span>{title}</span>
-                  </Link>
-                </li>
-              );
-            })}
-          </ul>
-        </nav>
-      </IconContext.Provider>
+      
+       
+      </div>
     </div>
   );
 };

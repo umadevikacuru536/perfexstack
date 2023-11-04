@@ -1,320 +1,296 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;400&display=swap');
-
-:root {
-    --main-color: #0e356c;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    text-decoration: none;
-    font-family: 'Roboto', sans-serif;
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins" , sans-serif;
 }
 
-section {
-    padding: 10px;
-}
-
-section > div {
-    display: flex;
-    justify-content: space-between;
-    flex-wrap: wrap;
-}
-
-header {
-    background: var(--main-color);
-    padding: 30px 20px;
-    border-bottom-right-radius: 4px;
-    border-bottom-left-radius: 4px;
-    box-shadow: 0px 0px 5px rgba(0,0,0, 0.2);
-  margin-bottom:2em;
-}
-
-header h1 {
-    font-weight: normal;
-    color: #fff;
-}
-
-main {
-    max-width: 1000px;
-    margin: auto;
-}
-
-h5 {
-    font-size: 1.4em;
-    font-weight: 300;
-    margin: 1em 0;
-}
-
-.item {
-    display: inline-block;
-    overflow: hidden;
-    padding: 1.2rem 3rem;
-    position: relative;
-    margin-bottom: 1rem;
-    min-width: 200px;
-    text-align: center;
-}
-
-
-/* rotate effect */
-.rotate {
-    border: 2px solid var(--main-color);
-    color: var(--main-color);
-}
-.rotate::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;
-    transform-origin: bottom left; 
-    transform: rotate(-90deg);
-    transition: transform 0.2s;
-    background: var(--main-color);
-}
-.rotate:hover::before {
-    transform: rotate(0deg);
-}
-.rotate:hover {
-    color: #fff;
-}
-
-/* swipe effect */
-.swipeX {
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    transition: all 0.2s;
-}
-.swipeX::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--main-color);
-    z-index: -1;
-    transform: translateX(-100%);
-    transition: all 0.3s;
-}
-.swipeX:hover::before {
-    transform: translateY(0);
-}
-.swipeX:hover {
-    color: #fff;
-}
-
-/* swipe effect */
-.swipeY {
-    color: var(--main-color);
-    border: 2px solid var(--main-color);
-    transition: all 0.2s;
-}
-.swipeY::before {
-    content: '';
-    position: absolute;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    background: var(--main-color);
-    z-index: -1;
-    transform: translateY(-100%);
-    transition: all 0.3s;
-}
-.swipeY:hover::before {
-    transform: translateX(0);
-}
-.swipeY:hover {
-    color: #fff;
-}
-
-/* smoothX */ 
-.smoothX {
-    position: relative;
-    border: 2px solid var(--main-color);
-    color: var(--main-color);
-    transition: 0.6s;
-}
-.smoothX::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--main-color);
-    transition: 0.6s;
-    transform: rotateX(90deg);
-}
-.smoothX:hover::before {
-    transform: rotateX(0deg);
-    z-index: -1;
-}
-.smoothX:hover {
-    color: #fff;
-}
-
-/* smoothXY */ 
-.smoothXY {
-    position: relative;
-    border: 2px solid var(--main-color);
-    color: var(--main-color);
-    transition: 0.6s;
-}
-.smoothXY::before, .smoothXY::after {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--main-color);
-    transition: 0.6s;
-}
-.smoothXY::before {
-    transform: rotateX(90deg);
-}
-.smoothXY::after {
-    transform: rotateY(90deg);
-}
-.smoothXY:hover::before, .smoothXY:hover::after {
-    transform: rotateX(0deg);
-    z-index: -1;
-}
-.smoothXY:hover {
-    color: #fff;
-}
-
-/* stretch */
-.stretch {
-  border: 2px solid var(--main-color);
-  position: relative;
-  overflow: hidden;
-    color: var(--main-color);
-}
-.stretch:before {
-  content: 'YEAH!';
-  color: #fff;
-  background-color: var(--main-color);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  position: absolute;
+.sidebar_menu{
+  position: fixed;
   left: 0;
   top: 0;
   height: 100%;
-  width: 100%;
-  transform: translateY(-100%);
-  transition: all .5s;
-}
-.stretch:hover:before {
-  transform: translateY(0);
-}
-
-/* glowing */
-.glowing {
-  color: var(--main-color);
-  border: 2px solid var(--main-color);
-  position: relative;
-  overflow: hidden;
-}
-.glowing:hover {
-  background-color: var(--main-color);
-    color: #fff;
-}
-.glowing:before {
-  content: '';
-  background-color: #fff;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  position: absolute;
-  transform: translateX(-100%) rotate(45deg);
-  transition: all 0.3s;
-}
-.glowing:hover:before {
-  transform: translateX(100%) rotate(45deg);
+  width: 138px;
+  background: black;
+  padding: 6px 14px;
+  z-index: 99;
+  transition: all 0.5s ease;
 }
 
-/*  swapping */
-.swapping {
-  background-color: #62C570;
-  color: #fff;
-  border: 2px solid var(--main-color);
+.sidebar_menu .Logo{
+  height: 60px;
+  display: flex;
+  align-items: center;
   position: relative;
-  color: transparent;
-  overflow: hidden;
-}
-.swapping:before {
-  content: 'Hover me (swapping)';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-    background-color: var(--main-color);
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s;
-}
-.swapping:after {
-  content: 'Hover me (swapping)';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: #62C570;
-  color: #fff;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: all 0.5s;
-  transform: translate(-100%, 100%);
-}
-.swapping:hover:before {
-  transform: translate(100%, -100%);
-}
-.swapping:hover:after {
-  transform: translate(0, 0);
 }
 
-/* scaling */
-.scaling {
-  text-decoration: none;
-  color: var(--main-color);
-  border: 2px solid var(--main-color);
-  position: relative;
-  overflow: hidden;
-}
-.scaling:before {
-  content: 'Hover me';
-  position: absolute;
-  top: 0;
-  left: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--main-color);
-  color: white;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transform: scale(5);
+.sidebar_menu .Logo .Text_Logo{
+  color: #fff;
+  font-size: 20px;
+  font-weight: 600;
   opacity: 0;
-  transition: all .5s;
+  transition: all 0.5s ease;
 }
-.scaling:hover:before {
-  transform: scale(1);
+
+.sidebar_menu.open{
+  width: 260px;
+}
+
+.sidebar_menu .Logo #Button{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  transition: all 0.4s ease;
+  font-size: 23px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.5s ease;
+}
+
+.sidebar_menu .Logo .icon{
+  opacity: 0;
+  transition: all 0.5s ease;
+}
+
+.sidebar_menu.open .Logo .icon,
+.sidebar_menu.open .Logo .Text_Logo{
   opacity: 1;
 }
 
+
+.sidebar_menu.open .Logo #Button{
+  text-align: right;
+}
+
+.sidebar_menu i{
+  color: #fff;
+  height: 60px;
+  min-width: 50px;
+  font-size: 28px;
+  text-align: center;
+  line-height: 60px;
+}
+
+.sidebar_menu .Nav_Item{
+  margin-top: 20px;
+  height: 100%;
+}
+
+.sidebar_menu li{
+  position: relative;
+  margin: 8px 0;
+  list-style: none;
+}
+
+.sidebar_menu li .Menu_btn{
+  position: absolute;
+  top: -20px;
+  left: calc(100% + 15px);
+  z-index: 3;
+  background: #fff;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.382);
+  padding: 6px 12px;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 400;
+  opacity: 0;
+  white-space: nowrap;
+  pointer-events: none;
+  transition: 0s;
+}
+
+.sidebar_menu li:hover .Menu_btn{
+  opacity: 1;
+  pointer-events: auto;
+  transition: all 0.4s ease;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.sidebar_menu.open li .Menu_btn{
+  display: none;
+}
+
+.sidebar_menu input{
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.382);
+  font-weight: 400;
+  outline: none;
+  height: 50px;
+  width: 100%;
+  width: 50px;
+  border: none;
+  border-radius: 17px;
+  transition: all 0.5s ease;
+  background: #e5d7e9;
+}
+
+.sidebar_menu.open input{
+  padding: 0 20px 0 50px;
+  width: 100%;
+}
+
+.sidebar_menu .bx-search{
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  font-size: 22px;
+  background: #bb00fd;
+  color: #FFF;
+}
+
+.sidebar_menu.open .bx-search:hover{
+  background: #bb00fd;
+  color: #FFF;
+}
+
+.sidebar_menu .bx-search:hover{
+  background: #FFF;
+  color: #bb00fd;
+}
+
+.sidebar_menu li a{
+  display: flex;
+  height: 100%;
+  width: 100%;
+  border-radius: 17px;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.4s ease;
+  background: rgb(111, 66, 66);
+}
+
+.sidebar_menu li a:hover{
+  background: #FFF;
+}
+
+.sidebar_menu li a .Item_Name{
+  color: #fff;
+  font-size: 15px;
+  font-weight: 400;
+  white-space: nowrap;
+  opacity: 0;
+  pointer-events: none;
+  transition: 0.4s;
+}
+
+.sidebar_menu.open li a .Item_Name{
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.sidebar_menu li a:hover .Item_Name,
+.sidebar_menu li a:hover i{
+  transition: all 0.5s ease;
+  color: #bb00fd;
+}
+
+.sidebar_menu li i{
+  height: 50px;
+  line-height: 50px;
+  font-size: 18px;
+  border-radius: 17px;
+}
+
+.sidebar_menu li.Details{
+  position: fixed;
+  height: 60px;
+  width: 78px;
+  left: 0;
+  bottom: -8px;
+  padding: 10px 14px;
+  background:black;
+  transition: all 0.5s ease;
+  overflow: hidden;
+}
+
+.sidebar_menu.open li.Details{
+  width: 250px;
+}
+
+.sidebar_menu li .Child_Details{
+  display: flex;
+  align-items: center;
+  flex-wrap: nowrap;
+}
+
+.sidebar_menu li img{
+  height: 45px;
+  width: 45px;
+  object-fit: cover;
+  border-radius: 14px;
+  margin-right: 10px;
+}
+
+.sidebar_menu li.Details .Name,
+.sidebar_menu li.Details .Roll{
+  font-size: 15px;
+  font-weight: 400;
+  color: #fff;
+  white-space: nowrap;
+}
+
+.sidebar_menu li.Details .Roll{
+  font-size: 12px;
+}
+
+.sidebar_menu .Details #log_out{
+  position: absolute;
+  top: 50%;
+  right: 0;
+  transform: translateY(-50%);
+  background: black;
+  width: 100%;
+  height: 60px;
+  line-height: 60px;
+  border-radius: 0px;
+  transition: all 0.5s ease;
+}
+
+.sidebar_menu.open .Details #log_out{
+  width: 50px;
+  background: none;
+}
+
+.Dashboard_Text{
+  position: relative;
+  background: #e3f2ee;
+  min-height: 100vh;
+  top: 0;
+  left: 78px;
+  width: calc(100% - 78px);
+  transition: all 0.5s ease;
+  z-index: 2;
+}
+
+.sidebar_menu.open ~ .Dashboard_Text{
+  left: 250px;
+  width: calc(100% - 250px);
+}
+
+.Dashboard_Text .Child_Text{
+  display: inline-block;
+  color: #ae1e97;
+  font-size: 22px;
+  font-weight: 450;
+  margin: 14px;
+}
+
+@media (max-width: 420px) {
+  .sidebar_menu li .Menu_btn{
+    display: none;
+  }
+}
+.dashboardicons{
+  color: #e5d7e9;
+}
+.chartbox{
+  margin-left: 6vh;
+}
 
 

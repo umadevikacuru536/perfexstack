@@ -51,7 +51,7 @@ function About() {
             });
   
             setTimeout(function () {
-              navigate("/home");
+              navigate("/dashbord");
             }, 3000);
           }
         })

@@ -13,6 +13,7 @@ import { AiOutlineClose } from "react-icons/ai";
 import sidebarData from "./SidebarData";
 import { IconContext } from "react-icons";
 import { useNavigate } from "react-router-dom";
+import Sidebar from "./sidebar/sidebar";
 function Users({  onDelete }){
   const [sidebar, setSidebar] = useState(false);
 
@@ -223,33 +224,7 @@ function Users({  onDelete }){
       
     return(
         <div className="d-flex flex-row">
-            <IconContext.Provider value={{ color: "#fff" }}>
-      <div className="navbar">
-        <Link to="#" className="menu-bars">
-          <FaBars onClick={showSidebar} />
-        </Link>
-      </div>
-      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-        <ul className="nav-menu-items" onClick={showSidebar}>
-          <li className="navbar-toggle">
-            <Link to="#" className="menu-bars">
-              <AiOutlineClose />
-            </Link>
-          </li>
-          {sidebarData.map((item, index) => {
-            const { title, path, icon, cName } = item;
-            return (
-              <li key={index} className={cName}>
-                <Link to={path}>
-                  {icon}
-                  <span>{title}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </IconContext.Provider>
+        <Sidebar/>
              <div className="admin">
                 <div className="d-flex flex-row">
               <h5>Filter Users</h5>

@@ -1,26 +1,85 @@
-import React from 'react'
-import './sidebar.css'
+import React, { useState } from 'react';
+import './sidebar.css'; // Ensure the correct CSS file is imported
+import { Link, useNavigate } from 'react-router-dom';
 function Sidebar() {
+  const [isSidebarOpen, setIsSidebarOpen] = useState(false);
+let navigate=useNavigate()
+  const toggleSidebar = () => {
+    setIsSidebarOpen(!isSidebarOpen);
+  };
+
+  const menuBtnChange = () => {
+    if (isSidebarOpen) {
+      return 'bxs-x-circle';
+    } else {
+      return 'bx-menu';
+    }
+  };
+  const chartbox =()=>{
+    navigate("/chat")
+  }
   return (
+    <div className={`sidebar_menu ${isSidebarOpen ? 'open' : ''}`}>
+      <div className="Logo">
+        <i className='bx bxl-slack icon'></i>
+        <div className="Text_Logo">Logo</div>
+        <i className={`bx ${menuBtnChange()}`} id="Button" onClick={toggleSidebar}></i>
+      </div>
 
-   <div>
-            <section>
-  
+      <ul className="Nav_Item">
+        <li>
+          
+          <input type="text" placeholder="Search...." />
+          <span className="Menu_btn">Search</span>
+        </li>
 
-<a href="#" class="item rotate">Hover me (rotate)</a>
-      <button class="item swipeX">Hover me (swipeX)</button>
-      <a href="#" class="item swipeY">Hover me (swipeY)</a>
-      <a href="#" class="item smoothX">Hover me (smoothX)</a>
-      <a href="#" class="item smoothXY">Hover me (smoothXY)</a>
-      <a href="#" class="item stretch">Hover me (stretch)</a>
-      <a href="#" class="item glowing">Hover me (glowing)</a>
-      <a href="#" class="item swapping">Hover me (swapping)</a>
-      <a href="#" class="item scaling">Hover me (scaling)</a>
-</section>
+        <li>
+          <Link to="/dashbord">
+          <span class="material-symbols-outlined dashboardicons">dashboard</span>
+            <span className="Item_Name">Dashboard</span>
+            </Link>
+          <span className="Menu_btn">Dashboard</span>
+        </li>
 
-   </div>
+        <li>
+        <Link to="/">
+          <span class="material-symbols-outlined dashboardicons">home</span>
+            <span className="Item_Name">Home</span>
+            </Link>
+          <span className="Menu_btn">Home</span>
+        </li>
 
-  )
+        <li>
+        <Link to="/admin">
+          <span class="material-symbols-outlined dashboardicons">group</span>
+            <span className="Item_Name">Users</span>
+            </Link>
+          <span className="Menu_btn">Users</span>
+        </li>
+
+        <li>
+        <Link to="/assessment">
+          <span class="material-symbols-outlined dashboardicons">folder</span>
+            <span className="Item_Name">Assessment</span>
+            </Link>
+      
+          <span className="Menu_btn">Assessment</span>
+        </li> 
+
+        <li className="Details">
+          <div className="Child_Details">
+         
+            <div className="Name_Roll">
+              <div className="Name">Uma Devi</div>
+              <div className="Roll">Developer</div>
+            </div>
+            <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox"onClick={chartbox} />
+          </div>
+          <i className='bx bxs-info-circle' id="log_out"></i>
+        </li>
+      </ul>
+    </div>
+  );
 }
 
 export default Sidebar;

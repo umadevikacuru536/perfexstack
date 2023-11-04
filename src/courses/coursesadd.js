@@ -11,6 +11,7 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import ClassicEditor from '@ckeditor/ckeditor5-build-classic';
 import "./course.css";
+import Sidebar from "../sidebar/sidebar";
 function Coursesadd(){
   const [sidebar, setSidebar] = useState(false);
 
@@ -124,34 +125,7 @@ function Coursesadd(){
     return(
         <div>
 <div className="d-flex flex-row">
-<IconContext.Provider value={{ color: "#fff" }}>
-      <div className="navbar">
-        <Link to="#" className="menu-bars">
-          <FaBars onClick={showSidebar} />
-        </Link>
-        <img src="https://cdn-icons-png.flaticon.com/512/2899/2899298.png" className="chartbox" onClick={chartbox}/>
-      </div>
-      <nav className={sidebar ? "nav-menu active" : "nav-menu"}>
-        <ul className="nav-menu-items" onClick={showSidebar}>
-          <li className="navbar-toggle">
-            <Link to="#" className="menu-bars">
-              <AiOutlineClose />
-            </Link>
-          </li>
-          {sidebarData.map((item, index) => {
-            const { title, path, icon, cName } = item;
-            return (
-              <li key={index} className={cName}>
-                <Link to={path}>
-                  {icon}
-                  <span>{title}</span>
-                </Link>
-              </li>
-            );
-          })}
-        </ul>
-      </nav>
-    </IconContext.Provider>
+<Sidebar/>
     <div class="coursers ">
                     <div class="modal-content">
                         {/* <!-- Modal Header --> */}

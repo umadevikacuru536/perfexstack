@@ -266,6 +266,7 @@ padding: 3vh;
 .admin {
    background-color: lavender; 
   height: 86vh;
+  margin-left: 300px;
   margin-top: 5vh;
   border-radius: 10px;
   width: 80vw;
@@ -456,7 +457,8 @@ margin-top: 5vh;
   margin-top: 5vh;
   border-radius: 10px;
   padding: 20px;
-  margin-left: 10vh;
+  height: 90vh;
+margin-left: 30vh;
 }
 .seach{
   margin-left: 102vh;
@@ -484,7 +486,7 @@ margin-top: 5vh;
   background-image:linear-gradient(lightblue,lightgray,rgb(174, 224, 174),lavender);
   width: 50vw;
   margin-top: 5vh;
-  margin-left: 15vh;
+  margin-left: 300px;
   border-radius: 20px;
  
 } 
@@ -580,15 +582,11 @@ margin-top: 3vh;
 span {
   margin-left: 16px;
 }
-.chartbox{
-  color: #1a83ff;
- width: 70px;
- margin-top: 74vh;
- margin-left: 7vh;
-}
+
 .dashborcard{
   margin-top: 3vh;
-  margin-left: 3vh;
+  margin-left: 300px;
+ height: 100vh;
 background-image: linear-gradient(lightblue,lavender,grey);
 border-radius: 10px;
 padding-right: 50vh;
@@ -603,7 +601,21 @@ padding-right: 50vh;
   color:#4c3b88;
   padding: 2vh;
 }
+.seachbut{
+  color: white;
+  background-color: darkorchid;
+}
+.dashbord {
+background-color: white;
+border-color: white;
+border-radius: 10px;
+box-shadow: 2px 2px 2px whitesmoke;
+padding: 10px;
+}
+.dashbord:hover{
 
+  background-color: darkslategray;
+}
 
 
 
