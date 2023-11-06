@@ -1,0 +1,7 @@
+.dropdown-menu.scrollbar {
+    max-height: 200px; 
+    overflow-y: auto; 
+  }
+  .left-align-select{
+   align-self:self-end;
+  }

@@ -111,3 +111,21 @@ Content-Type: application/json
 }
 ###
 GET http://localhost:5020/allcourses
+###
+POST http://localhost:5020/categoris
+Content-Type: application/json
+
+{
+       "sno":"2",
+      "name":"uma",
+      "description":"java",
+      "tag":"20",
+      "accesstype":"ksks",
+      "accessplan":"ddd",
+      "display":"dd"
+      
+}
+###
+GET http://localhost:5020/allcategoris
+###
+DELETE  http://localhost:5020/deletcategoris/6548b7987f064fd33c5def90

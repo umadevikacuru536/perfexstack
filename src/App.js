@@ -17,6 +17,10 @@ import Assessmentadd from './assessmentadd';
 import SimpleForm from './form/Simple';
 import Dashboard from './dashbord';
 import Sidebar from './sidebar/sidebar';
+import Adminadd from './adminadd';
+import Categories from './categories/categories';
+import Categoriesadd from './categories/categoriesadd';
+ 
 function App() {
   return (
     <div className="App">
@@ -26,6 +30,7 @@ function App() {
   <Route path="/forget" element={<About1/>}/>
   <Route path='/home' element={<Home/>}/>
   <Route path='/admin' element={<Admin/>}/>
+  <Route path='/adminadd' element={<Adminadd/>}/>
   <Route path='/crate' element={<Profile/>}/>
   <Route path='/eye' element={<Eye/>}/>
   <Route path='/users' element={<Users/>}/>
@@ -38,6 +43,10 @@ function App() {
   <Route path='/chat' element={<SimpleForm />}/>
   <Route path='/dashbord' element={<Dashboard/>}/>
   <Route path='/sidebar' element={<Sidebar/>}/>
+  <Route path='/categories' element={<Categories/>}/>
+  <Route path='/categoriesadd' element={<Categoriesadd/>}/>
+ 
+ 
  </Routes>
  </BrowserRouter>
     </div>

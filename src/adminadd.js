@@ -1,120 +1,86 @@
-
-import React, { useState } from "react";
-import { Link, BrowserRouter as Router, useNavigate } from "react-router-dom";
-
-import Sidebar from "./sidebar/sidebar";
-function Dashboard() {
+import React from 'react'
+import "./App.css"; // You can create an App.css file for styling
+import { Link } from "react-router-dom";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import axios from "axios";
+import { useState } from 'react';
+function Adminadd() {
+    const [sno, setsno] = useState("");
+    const [name, setname] = useState("");
+    const [email, setemail] = useState("");
+    const [head, sethead] = useState("");
+    const [secondaryemail, setsecondaryemail] = useState("");
+    const [userscount, setuserscount] = useState("");
+    const [primarycontact, setprimarycontact] = useState("");
+    const [secondarycontact, setsecondarycontact] = useState("");
+    const [address, setaddress] = useState("");
+    const [city, setcity] = useState("");
+    const [password, setpassword] = useState("");
+    const [code, setcode] = useState("");
+    const [InstitutionType, setInstitutionType] = useState("");
+    const [Accessplan, setAccessplan] = useState("");
   
-const navigate= useNavigate()
-  
-
+    const [data2, setdata2] = useState([]);
+    const useData2 = {
+        sno: sno,
+        name: name,
+        email: email,
+        head: head,
+        secondaryemail: secondaryemail,
+        userscount: userscount,
+        primarycontact: primarycontact,
+        secondarycontact: secondarycontact,
+        address: address,
+        city: city,
+        password: password,
+        code: code,
+        InstitutionType: InstitutionType,
+        Accessplan: Accessplan
+      };
+    const onSubmitForm3 = (e) => {
+        e.preventDefault();
+    
+        if (sno, name, email, head, secondaryemail, userscount, primarycontact, secondarycontact, address, city, password,
+        code,InstitutionType,Accessplan !== "") {
+          axios
+            .post("http://localhost:5020/admin", useData2)
+            .then((response) => {
+              setdata2(response.data);
+    
+              console.log(response.data);
+              toast.success("Registration Successfull");
+            })
+            .catch((error) => {
+              console.log(error.message);
+            });
+        } else {
+          toast.warning("Enter the Required Details");
+        }
+      };
   return (
-    <>
-    <div className="d-flex flex-row">
-    <Sidebar/>
-    <div className="dashborcard">
-        <h6 className="dashbordheading">Welcome back!</h6>
-        <h3 className="dashbordheading"> GSB Gold Standard</h3>
-        <div className="container">
-            <div className=" d-flex flex-row ">
-                <button className="col-md-3 dashbord">
-                <Link to="/admin"> <p className="bashbordname">Instutions</p></Link>
-                    <span className="dashbordpara">1</span>
-                </button >
-                <div className="col-md-1"></div>
-                <button className="col-md-3 dashbord">
-                <Link to="/users">   <p className="bashbordname">Users</p></Link>
-                    <span className="dashbordpara">0</span>
-                </button>
-                <div className="col-md-1"></div>
-                <button className="col-md-3 dashbord">
-                    <p className="bashbordname">Active Users</p>
-                    <span className="dashbordpara">0</span>
-                </button>
-                <div className="col-md-1"></div>
-                <button className="col-md-3 dashbord">
-                <Link to="/assessment"> <p className="bashbordname">Assessments</p></Link>
-                    <span className="dashbordpara">0</span>
-                </button>
-                <div className="col-md-2"></div>
-               <button className="col-md-3 dashbord">
-               <Link to="/courses"> <p className="bashbordname">Courses</p></Link>
-                    <span className="dashbordpara">0</span>
-                </button>
-                <div className="col-md-2"></div>
-                <button className="col-md-3 dashbord">
-                    <p className="bashbordname">Qustions</p>
-                    <span className="dashbordpara">0</span>
-                </button>
-            </div><br/>
+    <div>
+       
+              <div class="card23">
+                <div class="modal-content">
+                  {/* <!-- Modal Header --> */}
+                  <div class="modal-header">
 
-        </div>
-        <div className=" d-flex flex-row" style={{marginTop:"100px"}}>
-                <button className="col-md-2 mx-2 dashbord">
-                    <p className="bashbordname">Assessment Participation</p>
-                    <span className="dashbordpara">0</span>
-                </button >
-                <div className="col-md-1"></div>
-                <button className="col-md-2 dashbord">
-                    <p className="bashbordname">Questions Attempted</p>
-                    <span className="dashbordpara">0</span>
-                </button>
-                <div className="col-md-1"></div>
-                <button className="col-md-2 dashbord">
-                    <p className="bashbordname">Coding Submissions</p>
-                    <span className="dashbordpara">0</span>
-                </button>
-                <div className="col-md-1"></div>
-                <button className="col-md-2 dashbord">
-                    <p className="bashbordname">Testcases Executed</p>
-                    <span className="dashbordpara">0</span>
-                </button>
-                <div className="col-md-1"></div>
-                <button className="col-md-2 dashbord">
-                    <p className="bashbordname">Courses Enrolles</p>
-                    <span className="dashbordpara">1</span>
-                </button>
-            </div>
-            <div className=" d-flex flex-row" style={{marginTop:"100px"}}>
-                <button className="col-md-2  mx-4 dashbord">
-                    <p className="bashbordname">Rt Tests</p>
-                    <span className="dashbordpara">0</span>
-                </button >
-                <div className="col-md-1"></div>
-                <button className="col-md-6 dashbord">
-                    <p className="bashbordname">Speaking Evaluations</p>
-                    <div className="d-flex flex-row mx-5">
-                    <span className="dashbordpara"> 0/0</span>
-                    <span className="dashbordpara">Usage/Limit</span>
-                    
-                    <div className="mx-5">
-                        <span className="dashbordpara">RS .0</span>
-                        <span className="dashbordpara">Usage/Limit</span>
-                    </div>
-                    </div>
-                </button>
-                <div className="col-md-1"></div>
-                <button className="col-md-6 dashbord">
-                <p className="bashbordname">Writing Evaluations</p>                   
-                 <div className="d-flex flex-row mx-5">
-                    <span className="dashbordpara">0/0</span>
-                    <span className="dashbordpara">Usage/Limit</span>
-                    
-                    <div className="mx-5">
-                        <span className="dashbordpara">RS .0</span>
-                        <span className="dashbordpara">Usage/Limit</span>
-                    </div>
-                    </div>
-                </button>
-            </div>
-    </div> 
-    </div>
-  </>
-  )
-}
+                    <button
+                      type="button"
+                      class="btn-close"
+                      data-bs-dismiss="modal"
+                     
+                    ></button>
+                 
+                  </div>
 
-export default Dashboard;
-  {/* <form class="">
+                  {/* <!-- Modal body --> */}
+                  <div class="modal-body">
+                    <div class="container text-start">
+                      <div class="row">
+                        <div class="col-md-7">
+                          <form class="">
                             <label for="" class="profilename">
                               S.NO
                             </label>
@@ -281,4 +247,17 @@ export default Dashboard;
 
                           
                             <button class="profilebutton" onClick={onSubmitForm3}>Add Details</button>
-                          </form> */}
+                          </form>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+              </div>
+           
+    </div>
+  )
+}
+
+export default Adminadd

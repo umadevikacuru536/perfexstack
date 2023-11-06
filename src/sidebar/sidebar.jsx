@@ -18,11 +18,15 @@ let navigate=useNavigate()
   const chartbox =()=>{
     navigate("/chat")
   }
+  const displayfildes = () => {
+    const subMenu = document.getElementById("categoriesSubMenu");
+    subMenu.style.display = "block";
+  }
   return (
     <div className={`sidebar_menu ${isSidebarOpen ? 'open' : ''}`}>
       <div className="Logo">
         <i className='bx bxl-slack icon'></i>
-        <div className="Text_Logo">Logo</div>
+        <div className="Text_Logo">Instack</div>
         <i className={`bx ${menuBtnChange()}`} id="Button" onClick={toggleSidebar}></i>
       </div>
 
@@ -57,14 +61,18 @@ let navigate=useNavigate()
           <span className="Menu_btn">Users</span>
         </li>
 
+       
         <li>
-        <Link to="/assessment">
-          <span class="material-symbols-outlined dashboardicons">folder</span>
-            <span className="Item_Name">Assessment</span>
-            </Link>
-      
-          <span className="Menu_btn">Assessment</span>
-        </li> 
+  <Link to="/assessment">
+    <span class="material-symbols-outlined dashboardicons">folder</span>
+    <span className="Item_Name">Assessment</span>
+  </Link>
+  <span className="Menu_btn">Assessment</span>
+  <ul style={{ display: "none" }} onClick={displayfildes} id="categoriesSubMenu">
+    <span className='Item_Name'>Categories</span>
+  </ul>
+</li>
+
 
         <li className="Details">
           <div className="Child_Details">
