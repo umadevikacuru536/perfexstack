@@ -20,6 +20,10 @@ import Sidebar from './sidebar/sidebar';
 import Adminadd from './adminadd';
 import Categories from './categories/categories';
 import Categoriesadd from './categories/categoriesadd';
+import Access from './categories/access';
+import Paticipationreport from './Reports/paticipationreport';
+import AssessmentReport from './Reports/assessmentReport';
+import Compare from './compare/compare';
  
 function App() {
   return (
@@ -45,7 +49,10 @@ function App() {
   <Route path='/sidebar' element={<Sidebar/>}/>
   <Route path='/categories' element={<Categories/>}/>
   <Route path='/categoriesadd' element={<Categoriesadd/>}/>
- 
+  <Route path='/access' element={<Access/>}/>
+  <Route path='/paticipation' element={<Paticipationreport/>}/>
+ <Route path='/assessmentreport' element={<AssessmentReport/>}/>
+ <Route path='/compare' element={<Compare/>}/>
  
  </Routes>
  </BrowserRouter>

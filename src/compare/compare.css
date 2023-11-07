@@ -1,0 +1,126 @@
+.card-container{
+    text-align: start;
+    padding: 1px;
+    border: 1px solid gainsboro;
+    border-radius: 10px;
+    margin: 20px;
+   
+}
+
+.form-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    
+  }
+  
+  .form-group {
+    flex: 1;
+    margin-right: 10px;
+  }
+  
+  .options {
+    width: 50%;
+    padding: 5px;
+    margin: 5px 5px;
+    height: 5vh;
+    box-shadow: 0px 8px 24px hsla(0, 0%, 0%, .15);
+  }
+  
+  .btn {
+   margin-left: 40%;
+    padding: 15px;
+    background-color:blue;
+    color: white;
+    border: none;
+    cursor: pointer;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    border-radius: 10px;
+    width: 7%;
+  }
+
+  .btn.no-hover {
+    background-color: #007BFF;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: none; 
+  }
+
+  .head{
+    color: rgb(53, 50, 50);
+    font-weight: 600;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 15px;
+    margin: 5px 5px;
+    
+
+  }
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  box-shadow: 2px 2px 4px rgba(0.2, 0.3, 0.3, 0.3);
+  text-align: start;
+  padding: 20px;
+}
+
+.card h4 {
+  color: #333;
+  font-weight: 500;
+}
+
+.card-title {
+  margin-top: 15px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  font-weight: 500;
+  font-size: 15px;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+}
+.num{
+  margin-bottom: 30px;
+  margin-top: 20px;
+}
+
+.num2{
+  margin-top: 11px;
+  margin-bottom: 18px;
+}
+.container-btn{
+  margin-left: 25%;
+  margin-top: 10vh;
+}
+.container-btn1{
+width: 15vw;
+height: 40vh;
+background-image: linear-gradient(to top, rgb(21, 113, 233),rgb(76, 235, 76));
+border: none;
+border-radius: 5px;
+}
+
+.container-btn2{
+  width: 15vw;
+  height: 40vh;
+ background-color: rgb(221, 221, 92);
+  border: none;
+  border-radius: 5px;
+  }
+  .container-btn3{
+    width: 15vw;
+    height: 40vh;
+    background-color: palevioletred;
+    border: none;
+    border-radius: 5px;
+    }
+    .compare{
+        margin-left: 300px;
+        margin-right: 100px;
+        margin-top: 5vh;
+    }
