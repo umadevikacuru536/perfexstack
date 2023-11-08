@@ -2,6 +2,18 @@ import React, { useState } from 'react';
 import './sidebar.css'; // Ensure the correct CSS file is imported
 import { Link, useNavigate } from 'react-router-dom';
 function Sidebar() {
+  const [userSubfolderVisible, setUserSubfolderVisible] = useState(false);
+  const [userSubfolderVisible1, setUserSubfolderVisible1] = useState(false);
+  const [userSubfolderVisible2, setUserSubfolderVisible2] = useState(false);
+  const toggleUserSubfolder = () => {
+    setUserSubfolderVisible(!userSubfolderVisible);
+  };
+  const toggleUserSubfolder1 = () => {
+    setUserSubfolderVisible1(!userSubfolderVisible1);
+  };
+  const toggleUserSubfolder2 = () => {
+    setUserSubfolderVisible2(!userSubfolderVisible2);
+  };
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   let navigate = useNavigate()
   const toggleSidebar = () => {
@@ -61,22 +73,56 @@ function Sidebar() {
           <span className="Menu_btn">Users</span>
         </li>
 
+      
+        <li onClick={toggleUserSubfolder}>
+        <a href="#">
+          <span className="material-symbols-outlined dashboardicons">folder</span>
+          <span className="Item_Name">Assessment</span>
+          <i className="fa fa-caret-down"></i>
+        </a>
+        <span className="Menu_btn">Assessment</span>
+        <ul className={`subfolders ${userSubfolderVisible ? 'active' : ''}`}>
+          <li>
+          <Link to="/assessment/categories"> <a href="#">Categories</a></Link> 
+          </li>
+          <li>
+            <Link to="/assessment"><a href="#">Assessments</a></Link>
+          </li>
+        </ul>
+      </li>
 
-        <li>
-          <Link to="/assessment">
-            <span class="material-symbols-outlined dashboardicons">folder</span>
-            <span className="Item_Name">Assessment</span><i class="fa fa-caret-down"></i>
-
-          </Link>
-          <div class="dropdown-container">
-            <a href="#">Link 1</a>
-            <a href="#">Link 2</a>
-            <a href="#">Link 3</a>
-          </div>
-          <span className="Menu_btn">Assessment</span>
-        </li>
-
-
+      <li onClick={toggleUserSubfolder1}>
+        <a href="#">
+          <span className="material-symbols-outlined dashboardicons">folder</span>
+          <span className="Item_Name">Reports</span>
+          <i className="fa fa-caret-down"></i>
+        </a>
+        <span className="Menu_btn">Reports</span>
+        <ul className={`subfolders ${userSubfolderVisible1 ? 'active' : ''}`}>
+          <li>
+          <Link to="/assessmentreport"> <a href="#">Assessment Report</a></Link> 
+          </li>
+          <li>
+          <Link to="/paticipation"> <a href="#">Participation Report</a></Link> 
+          </li>
+        </ul>
+      </li>
+      <li onClick={toggleUserSubfolder2}>
+        <a href="#">
+        <span class="material-symbols-outlined dashboardicons">group</span>
+          <span className="Item_Name">Assigned Assessments</span>
+          <i className="fa fa-caret-down"></i>
+        </a>
+        <span className="Menu_btn">Assigned Assessments</span>
+        <ul className={`subfolders ${userSubfolderVisible2 ? 'active' : ''}`}>
+          <li>
+          <Link to="/assingedcategories"> <a href="#">Categories</a></Link> 
+          </li>
+          <li>
+          <Link to="/assingesassessment"> <a href="#">Assessments</a></Link> 
+          </li>
+        </ul>
+      </li>
         <li className="Details">
           <div className="Child_Details">
 

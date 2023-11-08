@@ -30,6 +30,10 @@ sno:{
         type: String,
         require: true,
       },
+      attempts:{
+        type: String,
+        require: true,
+      }
      
    
 })

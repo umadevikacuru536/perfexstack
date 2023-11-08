@@ -122,7 +122,8 @@ Content-Type: application/json
       "tag":"20",
       "accesstype":"ksks",
       "accessplan":"ddd",
-      "display":"dd"
+      "display":"dd",
+      "attempts":"2"
       
 }
 ###
@@ -156,3 +157,8 @@ Content-Type: application/json
       "display":"dd"
       
 }
+
+
+
+###
+GET http://localhost:5020/allindividualcategoris/6549ddc71bba094f29cd3966

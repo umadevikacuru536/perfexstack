@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import logo from '../src/img/_94715d91-9ccb-448a-a29a-a52b3610949f.jpeg';
+import logo from '../src/img/_7bf5af82-4de7-426c-b2c9-1a833c87c4ba.png';
 import { Link } from "react-router-dom";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
@@ -69,7 +69,7 @@ function About() {
     <div className="">
       <div className="container5">
         <div className="row">
-         
+{/*          
           <div className="col-12  col-md-4 remove ">
             <button className="img">
             <img
@@ -77,9 +77,9 @@ function About() {
               alt=""
               className='image2'
             /></button>
-          </div>
-<div className="col-md-1"></div>
-          <div className="col-12 col-md-6 card">
+          </div> */}
+
+          <div className="col-12 col-md-4 card" style={{marginLeft:"500px"}}>
           <ToastContainer
                   position="top-right"
                   autoClose={5000}

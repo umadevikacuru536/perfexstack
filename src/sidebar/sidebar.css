@@ -168,10 +168,7 @@
 .sidebar_menu li a:hover{
   background: #FFF;
   opacity: 1;
-  pointer-events: auto;
-  transition: all 0.4s ease;
- left: 50%;
-  transform: translateX(-50%);
+ 
 }
 
 .sidebar_menu li a .Item_Name{
@@ -298,5 +295,36 @@
   margin-left: 6vh;
 }
 
+/* Add this CSS to your existing "sidebar.css" file */
+
+.sidebar_menu .subfolders {
+  display: none;
+  padding-left: 20px; /* Adjust the padding as needed */
+  transition: all 0.4s ease;
+}
+
+.sidebar_menu .subfolders.active {
+  display: block;
+}
+
+/* Style subfolder links */
+.sidebar_menu .subfolders li {
+  list-style: none;
+}
+
+.sidebar_menu .subfolders li a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  padding: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.sidebar_menu .subfolders li a:hover {
+  background: #444; /* Change the background color as desired */
+  border-radius: 4px;
+}
+
+/* Add any additional styling as needed for your subfolders */
 
 

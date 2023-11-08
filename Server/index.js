@@ -373,6 +373,7 @@ app.post("/categoris", async (req, res) => {
       tag,
       accesstype,
       accessplan,
+      attempts,
       display} = req.body;
 
 
@@ -383,6 +384,7 @@ app.post("/categoris", async (req, res) => {
       tag:tag,
       accesstype:accesstype,
       accessplan:accessplan,
+      attempts:attempts,
       display:display
   
       });
@@ -407,13 +409,19 @@ app.get("/allcategoris", async (req, res) => {
   res.status(200).send(allusers1)
 });
 
+app.get("/allindividualcategoris/:id", async (req, res) => {
+  const {id} = req.params
+  const allusers1 = await categories.findOne({_id:id})
+  res.status(200).send(allusers1)
+});
+
 app.put('/updatecategoris/:id', async (req, res) => {
   try {
-    const id = req.params.id;
+    const { id } = req.params;
     const updatedData = req.body; // Assuming you send updated data in the request body
 
     // Use findByIdAndUpdate to update the institute's data
-    const updatedInstitute = await categories.findByIdAndUpdate(id, updatedData, { new: true });
+    const updatedInstitute = await categories.findOneAndUpdate({_id:id}, updatedData, { new: true });
 
     if (updatedInstitute) {
       return res.status(200).send("Institute updated successfully");

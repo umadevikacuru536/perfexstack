@@ -4,13 +4,12 @@ import { Link } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import axios from 'axios';
-import { useParams } from "react-router-dom";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 function Categories() {
   let navigate = useNavigate();
-  const { id } = useParams();
+  const [gettingId, setGettingId] = useState("")
   const [blogslist, setblogslist] = useState([]);
   const [individualInstitute, setIndividualInstitute] = useState({
     sno: "",
@@ -34,9 +33,9 @@ function Categories() {
       display: individualInstitute.display,
     };
     console.log(UserData);
-    console.log(`http://localhost:5020/updatecategoris/${id}`);
+    console.log(`http://localhost:5020/updatecategoris/${gettingId}`);
     axios
-      .put(`http://localhost:5020/updatecategoris/${id}`, UserData)
+      .put(`http://localhost:5020/updatecategoris/${gettingId}`, UserData)
       .then((response) => {
         console.log(response.data);
         if (response.status === 200) {
@@ -91,6 +90,7 @@ function Categories() {
     setblogslist(filteredBlogs);
   };
   const [Error, setError] = useState("");
+  
 
   const handleDelete = async (id) => {
     try {
@@ -121,12 +121,27 @@ function Categories() {
       setError("An error occurred while deleting the institute.");
     }
   };
-
+ 
   console.log(individualInstitute);
+
+
   const update = async (id)=>{
     console.log(id);
+    setGettingId(id)
+    try {
+      const response = await axios.get(
+        "http://localhost:5020/allindividualcategoris/" + id
+      ); // Replace with your API endpoint
+      setIndividualInstitute(response.data);
+      // setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // setLoading(false);
+    }
 
   }
+
+  
   return (
     <div>
       <div className="d-flex flex-row">
@@ -150,7 +165,7 @@ function Categories() {
             </select>
 
             <label className="seach">Seach</label>
-            <input value={examname}
+            <input value={examname }
               onChange={(e) => setexamname(e.target.value)} />
             <button className="seachbut" onClick={searchBySkills}>seach</button>
           </div>
@@ -218,7 +233,7 @@ function Categories() {
                                     <label className="profilename1">Name</label>
                                     <br />
                                     <input className="input" placeholder="select category"
-                                      value={individualInstitute.sno}
+                                      value={individualInstitute.name}
                                       onChange={(e) =>
                                         setIndividualInstitute({
                                           ...individualInstitute,
@@ -290,7 +305,7 @@ function Categories() {
                                       <option >Yes</option>
                                     </select><br />
                                   </div>
-                                  <button className="creat12"onClick={() => onSubmitForm(blog._id)} >Submit</button>
+                                  <button className="creat12"onClick={onSubmitForm} >Submit</button>
                                 </form>
                               </div>
 

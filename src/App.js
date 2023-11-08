@@ -24,6 +24,10 @@ import Access from './categories/access';
 import Paticipationreport from './Reports/paticipationreport';
 import AssessmentReport from './Reports/assessmentReport';
 import Compare from './compare/compare';
+import AssignedCategories from './assignedassessment/categories';
+import AssignedAssessment from './assignedassessment/assessments';
+import Schedule from './assignedassessment/schedule';
+import AssessmentEye from './assignedassessment/assessment';
  
 function App() {
   return (
@@ -47,13 +51,16 @@ function App() {
   <Route path='/chat' element={<SimpleForm />}/>
   <Route path='/dashbord' element={<Dashboard/>}/>
   <Route path='/sidebar' element={<Sidebar/>}/>
-  <Route path='/categories' element={<Categories/>}/>
+  <Route path='/assessment/categories' element={<Categories/>}/>
   <Route path='/categoriesadd' element={<Categoriesadd/>}/>
   <Route path='/access' element={<Access/>}/>
   <Route path='/paticipation' element={<Paticipationreport/>}/>
  <Route path='/assessmentreport' element={<AssessmentReport/>}/>
  <Route path='/compare' element={<Compare/>}/>
- 
+ <Route path='/assingedcategories' element={<AssignedCategories/>}/>
+ <Route path='/assingesassessment' element={<AssignedAssessment/>}/>
+ <Route path='/schedule' element={<Schedule/>}/>
+ <Route path='/assingedeye' element={<AssessmentEye/>}/>
  </Routes>
  </BrowserRouter>
     </div>

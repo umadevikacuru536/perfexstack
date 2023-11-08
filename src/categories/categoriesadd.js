@@ -41,7 +41,7 @@ function Categoriesadd() {
                     console.log(response.data);
                     toast.success("Registration Successfull");
                     setTimeout(function () {
-                        navigate("/categories");
+                        navigate("/assessment/categories");
                       }, 3000);
                 })
                 

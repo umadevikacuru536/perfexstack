@@ -184,7 +184,7 @@ function Admin() {
                     <Link to={`/detial?email=${blog.email}`} className="fa-solid fa-eye " ></Link>
                    <Link to={`/Update/${blog.email}`}><span class="material-symbols-outlined editicon"
                        >edit_square</span></Link> 
-                    
+
                     <span class="material-symbols-outlined" onClick={() => handleDelete(blog._id)}>delete</span>
 
                   </div>

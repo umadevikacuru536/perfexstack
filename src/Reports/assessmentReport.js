@@ -5,7 +5,7 @@ function AssessmentReport() {
   return (
     <>
     <Sidebar/>
-      <div className="bg-container ">
+      <div className="bg-container main-container">
         
        
         <div className="card-container2">
