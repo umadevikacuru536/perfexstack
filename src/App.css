@@ -242,7 +242,8 @@ height: fit-content;
   color: white;
 }
 .editicon{
-  color: #282c34;
+  
+  background-color: skyblue;
 }
 .fa-eye{
   color: #282c34;
@@ -287,7 +288,7 @@ height: fit-content;
 }
 
 .table th {
-  background-color: #615880;
+  background-color: rgb(23, 17, 17);
   color: rgb(246, 241, 241);
   font-size: 22px;
   font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
@@ -449,12 +450,13 @@ margin-right: 100vh;
 margin-top: 5vh;
 }
 .card21{
- background:#ede1f4 ;
+ background:white ;
   margin-top: 5vh;
   border-radius: 10px;
   padding: 20px;
   height: 90vh;
-margin-left: 30vh;
+
+border: 1px solid rgb(217, 205, 205);
 }
 .seach{
   margin-left: 102vh;
@@ -473,17 +475,20 @@ margin-left: 30vh;
 .input1{
   border-radius: 5px;
   border-color: grey;
+
 }
 .showoption{
   font-size: 18px;
   font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
  .ram{
-  background-image:linear-gradient(lightblue,lightgray,rgb(174, 224, 174),lavender);
-  width: 50vw;
+  /* background-image:linear-gradient(lightblue,lightgray,rgb(174, 224, 174),lavender); */
+  background-color: white;
+  border: 1px solid rgb(196, 190, 190);
+  width: 55vw;
   margin-top: 5vh;
-  margin-left: 300px;
   border-radius: 20px;
+  padding: 20px;
  
 } 
 
@@ -577,9 +582,10 @@ span {
 
 .dashborcard{
   margin-top: 3vh;
-  margin-left: 300px;
+  margin-left: 400px;
  height: 100vh;
-background-image: linear-gradient(lightblue,lavender,grey);
+ background-color:white;
+ border: 1px solid rgb(201, 193, 193);
 border-radius: 10px;
 padding-right: 50vh;
 }
@@ -595,7 +601,11 @@ padding-right: 50vh;
 }
 .seachbut{
   color: white;
-  background-color: darkorchid;
+ padding: 5px;
+ margin: 5px;
+ width: 80px;
+ height: 43px;
+ border-radius: 10px;
 }
 .dashbord {
 background-color: white;
@@ -613,10 +623,28 @@ padding: 10px;
   font-weight: bold;
 }
 .eyeicon{
-  background-color: rgb(94, 94, 156);
-  color: white;
+  background-color:orange;
+  color: rgb(32, 28, 28);
   border-radius: 10px;
-  padding: 1vh;
+  padding: 10px;
+  height: 40px;
+  width: 40px;
+}
+.editicon1{
+  background-color:pink;
+  color: rgb(32, 28, 28);
+  border-radius: 10px;
+  padding: 5px;
+  height: 40px;
+  width: 40px;
+}
+.deleteicon{
+  background-color: red;
+  color: rgb(34, 33, 33);
+  border-radius: 10px;
+  padding: 5px;
+  height: 40px;
+  width: 40px;
 }
 .scheduleicon{
   color: white;
@@ -628,4 +656,7 @@ padding: 10px;
   background-color: #282c34;
   color: white;
 }
-
+.main-coniner{
+  margin-left: 100px;
+  padding: 20px;
+}

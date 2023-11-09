@@ -85,8 +85,10 @@ function Assessmentadd() {
     return (
         <div className="d-flex flex-row">
        <Sidebar/>
-            
-            <div className="ram">
+       <div className='container'>
+          <div className='row'>
+            <div className="col-md-12">
+            <div className="ram shadow">
                 <div class="modal-dialog99">
                     <div class="modal-content">
                         {/* <!-- Modal Header --> */}
@@ -112,77 +114,85 @@ function Assessmentadd() {
                                         theme="colored"
                                     />
                                     <form>
-                                        <div class="col-md-7">
+                                        <div class="col-md-12">
                                         <label className="profilename1">Sno</label>
                                             <br />
-                                            <input className="input" placeholder="select category" onChange={(e) => setsno(e.target.value)}
-                                                value={sno} />
+                                            <input className="p-2 w-75" style={{borderRadius:"10px",borderColor:"gray"}} placeholder="select category" onChange={(e) => setsno(e.target.value)}
+                                                value={sno} /><br/>
 
                                            <label className="profilename1">EmailId</label>
                                             <br />
-                                            <input className="input" placeholder="select category" onChange={(e) => setexamid(e.target.value)}
-                                                value={examid} />
+                                            <input className="p-2 w-75"style={{borderRadius:"10px",borderColor:"gray"}}  placeholder="select category" onChange={(e) => setexamid(e.target.value)}
+                                                value={examid} /><br/>
 
                                             <label className="profilename1">Category</label>
                                             <br />
-                                            <input className="input" placeholder="select category" onChange={(e) => setCategory(e.target.value)}
-                                                value={category} />
+                                            <input className="p-2 w-75" style={{borderRadius:"10px",borderColor:"gray"}} placeholder="select category" onChange={(e) => setCategory(e.target.value)}
+                                                value={category} /><br/>
 
                                             <div className="d-flex flex-row">
+                                                <div className="col-md-4">
                                                 <div className="d-flex flex-column">
                                                     <label className="profilename1">Assement Name</label><br />
-                                                    <input placeholder="Enter assessment name" className="input1" onChange={(e) => setAssessmentName(e.target.value)}
+                                                    <input placeholder="Enter assessment name" className="p-2 w-75" style={{borderRadius:"10px",borderColor:"gray"}} onChange={(e) => setAssessmentName(e.target.value)}
                                                         value={assessmentname} />
                                                 </div>
-                                                <div className="col-md-2"></div>
+                                                </div>
+                                                <div className="col-md-4">
                                                 <div className="d-flex flex-column">
                                                     <label className="profilename1">No of Times</label><br />
-                                                    <input placeholder="Enter Time" className="input1" onChange={(e) => setNoOfTimes(e.target.value)}
+                                                    <input placeholder="Enter Time" className="p-2 w-75"style={{borderRadius:"10px",borderColor:"gray"}} onChange={(e) => setNoOfTimes(e.target.value)}
                                                         value={nooftimes} />
                                                 </div>
-                                                <div className="col-md-2"></div>
+                                                </div>
+                                                <div className="col-md-4">
                                                 <div className="d-flex flex-column">
                                                     <label className="profilename1">Assement Password</label><br />
-                                                    <input placeholder="Enter password" className="input1" onChange={(e) => setAssessmentPassword(e.target.value)}
+                                                    <input placeholder="Enter password" className="p-2 w-75"style={{borderRadius:"10px",borderColor:"gray"}} onChange={(e) => setAssessmentPassword(e.target.value)}
                                                         value={assessmentpassword} />
+                                                </div>
                                                 </div>
 
                                             </div>
                                             <div className="d-flex flex-row">
+                                            <div className="col-md-4">
                                                 <div className="d-flex flex-column">
                                                     <label className="profilename1">Exame Type</label><br />
-                                                    <select className="input1" onChange={(e) => setExamType(e.target.value)}>
+                                                    <select className="p-2 w-75"style={{borderRadius:"10px",borderColor:"gray"}} onChange={(e) => setExamType(e.target.value)}>
                                                         <option>---select option--</option>
                                                         <option value=" Single Timer">  Single Timer</option>
                                                         <option value="Sectional wise timer">Sectional wise timer</option>
                                                     </select>
                                                 </div>
-                                                <div className="col-md-2"></div>
+                                                </div>
+                                                <div className="col-md-4">
                                                 <div className="d-flex flex-column">
                                                     <label className="profilename1">Cutoff Type</label><br />
-                                                    <select className="input1" onChange={(e) => setCutoffType(e.target.value)}
+                                                    <select className="p-2 w-75"style={{borderRadius:"10px",borderColor:"gray"}} onChange={(e) => setCutoffType(e.target.value)}
                                                     >
                                                         <option>---select option--</option>
                                                         <option value="Single Cutoff">Single Cutoff</option>
                                                         <option value="Sectional Cutoff">Sectional Cutoff</option>
                                                     </select>
                                                 </div>
-                                                <div className="col-md-2"></div>
-                                                <div className="d-flex flex-column col-md-5">
+                                                </div>
+                                                <div className="col-md-4">
+                                                <div className="d-flex flex-column">
                                                     <label className="profilename1">Question Selection</label><br />
-                                                    <select className="input1" onChange={(e) => setQuestionSelection(e.target.value)}>
+                                                    <select className="p-2 w-75"style={{borderRadius:"10px",borderColor:"gray"}} onChange={(e) => setQuestionSelection(e.target.value)}>
                                                         <option>---select option--</option>
                                                         <option value="Random">Random</option>
                                                     </select>
                                                 </div>
-
+                                                </div>
                                             </div>
                                             <label className="profilename1">Assessment Report Options</label><br />
                                             <div className="container showoption">
 
                                                 <div className="row">
+                                                    <div className="col-md-9">
                                                     <div className="d-flex flex-row">
-                                                        <div className="col-12 col-md-4 m-3">
+                                                        <div className="col-12 col-md-3 m-2">
                                                             <input
                                                                 type="checkbox"
                                                                 name="assessmentreport"
@@ -191,7 +201,7 @@ function Assessmentadd() {
                                                             />
                                                             <span>Show Reports</span>
                                                         </div>
-                                                        <div className="col-12 col-md-7 m-3">
+                                                        <div className="col-12 col-md-6 m-2">
                                                             <input
                                                                 type="checkbox"
                                                                 name="assessmentreport"
@@ -200,7 +210,7 @@ function Assessmentadd() {
                                                             />
                                                             <span>Show Qualifying percentage</span>
                                                         </div>
-                                                        <div className="col-12 col-md-6 m-3">
+                                                        <div className="col-12 col-md-6 m-2">
                                                             <input
                                                                 type="checkbox"
                                                                 name="assessmentreport"
@@ -209,7 +219,7 @@ function Assessmentadd() {
                                                             />
                                                             <span>Show Check answers</span>
                                                         </div>
-                                                        <div className="col-12 col-md-6 m-3">
+                                                        <div className="col-12 col-md-4 m-2">
                                                             <input
                                                                 type="checkbox"
                                                                 name="assessmentreport"
@@ -229,7 +239,7 @@ function Assessmentadd() {
                                                             />
                                                             <span>Show Chapter Wise Report</span>
                                                         </div>
-                                                        <div className="col-12 col-md-7 m-3">
+                                                        <div className="col-12 col-md-6 m-3">
                                                             <input
                                                                 type="checkbox"
                                                                 name="assessmentreport"
@@ -238,7 +248,7 @@ function Assessmentadd() {
                                                             />
                                                             <span>Show Accuracy Report</span>
                                                         </div>
-                                                        <div className="col-12 col-md-6 m-3">
+                                                        <div className="col-12 col-md-4 m-3">
                                                             <input
                                                                 type="checkbox"
                                                                 name="assessmentreport"
@@ -256,6 +266,7 @@ function Assessmentadd() {
                                                             onChange={(e) => setAssessmentReport(e.target.value)}
                                                         />
                                                         <span>Show Private Testcases Output</span>
+                                                    </div>
                                                     </div>
                                                 </div>
                                             </div>
@@ -298,6 +309,9 @@ function Assessmentadd() {
                         </div>
                     </div>
                 </div>
+            </div>
+            </div>
+            </div>
             </div>
         </div>
     );

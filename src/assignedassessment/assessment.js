@@ -1,11 +1,14 @@
 
 import './assigned.css';
 import Sidebar from '../sidebar/sidebar';
-function ExamsSettings() {
+function AssessmentEye() {
     return (
         <>
             <Sidebar />
-            <div className='assessmenteye'>
+            <div className='container'>
+          <div className='row'>
+            <div className='col-md-10 mt-3'>
+            <div className=''>
                 <p className='mcq'>Java MCQ Topwise<span> - Strings</span></p>
                 <p className='real'>Realtime Users: <span>0</span></p>
                 <div className='add'>
@@ -34,7 +37,7 @@ function ExamsSettings() {
                         <p>90</p>
                     </div>
                 </div>
-                <hr style={{marginRight:"40vh"}}/>
+                <hr style={{marginRight:"5vh"}}/>
                 <p className='action'>Actions</p>
                 <div className='actions d-flex flex-row'>
                     
@@ -96,7 +99,10 @@ function ExamsSettings() {
                     </table>
                 </div>
             </div>
+            </div>
+            </div>
+            </div>
         </>
     )
 }
-export default ExamsSettings;
+export default AssessmentEye;

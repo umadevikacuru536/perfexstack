@@ -146,7 +146,10 @@ function Categories() {
     <div>
       <div className="d-flex flex-row">
         <Sidebar />
-        <div className="card21">
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
+            <div className="card21">
           <div className="d-flex flex-row ">
             <p className="assement">Categories</p>
             <Link to="/categoriesadd"><button className="creat1">+ Create Categories</button></Link>
@@ -165,9 +168,9 @@ function Categories() {
             </select>
 
             <label className="seach">Seach</label>
-            <input value={examname }
+            <input value={examname } className='p-2'
               onChange={(e) => setexamname(e.target.value)} />
-            <button className="seachbut" onClick={searchBySkills}>seach</button>
+            <button className="seachbut p-2 bg-primary" onClick={searchBySkills}>seach</button>
           </div>
           <table className="table">
             <thead>
@@ -327,6 +330,10 @@ function Categories() {
           </table>
 
         </div>
+            </div>
+          </div>
+        </div>
+        
       </div>
     </div>
   )

@@ -5,10 +5,13 @@ function AssessmentReport() {
   return (
     <>
     <Sidebar/>
-      <div className="bg-container main-container">
+    <div className='container'>
+          <div className='row'>
+            <div className="col-md-12">
+      <div className="main-container">
         
        
-        <div className="card-container2">
+        <div className="card-container2 p-5">
           <div className='card3'>
           <h3>Accessment Reports</h3>
           <div className="text-start m-4">
@@ -20,9 +23,9 @@ function AssessmentReport() {
     <option>1</option>
     </select>
 
-        <label className="seach">Seach</label>
-        <input  />
-                <button className="seachbut" >seach</button>
+        <label className="seach ">Seach</label>
+        <input  className='p-2'/>
+                <button className="seachbut p-2 bg-primary" >seach</button>
       </div>
           </div>
          <div>
@@ -46,6 +49,9 @@ function AssessmentReport() {
           </table>
           </div>
           </div>  
+      </div>
+      </div>
+      </div>
       </div>
       </>
   )

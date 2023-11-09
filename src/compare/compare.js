@@ -14,7 +14,10 @@ function Compare() {
     <div className='d-flex flex-row'>
         <Sidebar/>
     </div>
-    <div className='compare'>
+    <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
+    <div className=''>
     <div className="bg-container">
       <div className="card-container">
         <h3 className='card2'>Compare</h3>
@@ -41,7 +44,7 @@ function Compare() {
             <h5 className='head'>Assessment</h5>
           </div>
           <div className="form-group">
-            <select className="options">
+            <select className="options ">
             <option value="Option 2">--select Institute---</option>
               <option value="Option 1">corporate office</option>
               
@@ -50,7 +53,7 @@ function Compare() {
             <h5 className='head'>Institutions</h5>
           </div>
         </div>
-        <button type="submit" className="btn no-hover" onClick={handleCompare}>
+        <button type="submit" className="bg-primary p-2 w-25" style={{borderRadius:"10px",marginLeft:"400px" ,marginTop:"100px"}} onClick={handleCompare}>
           Compare
         </button>
       </div>
@@ -138,6 +141,9 @@ function Compare() {
         </div>
       )}
       
+    </div>
+    </div>
+    </div>
     </div>
     </div>
     </>

@@ -1,9 +1,10 @@
 .card-container{
-    text-align: start;
-    padding: 1px;
+    margin: 10px;
+    padding: 20px;
     border: 1px solid gainsboro;
     border-radius: 10px;
-    margin: 20px;
+   width: 50vw;
+   height: 40vh;
    
 }
 
@@ -20,10 +21,11 @@
   }
   
   .options {
-    width: 50%;
+    width: 75%;
     padding: 5px;
     margin: 5px 5px;
     height: 5vh;
+    border-radius: 10px;
     box-shadow: 0px 8px 24px hsla(0, 0%, 0%, .15);
   }
   
@@ -120,7 +122,6 @@ border-radius: 5px;
     border-radius: 5px;
     }
     .compare{
-        margin-left: 300px;
-        margin-right: 100px;
         margin-top: 5vh;
+        
     }

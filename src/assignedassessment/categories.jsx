@@ -34,7 +34,12 @@ function AssignedCategories() {
     <div>
       <div className="d-flex flex-row">
         <Sidebar />
-        <div className="card21">
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
+            
+
+              <div className="card21">
           <div className="d-flex flex-row ">
             <p className="assement">Access</p>
           </div>
@@ -56,7 +61,7 @@ function AssignedCategories() {
                     <td>{blog.attempts}</td>
                     <td>
                       <div className="A">
-                        <Link to="/access"><button className='access'>Access</button></Link>
+                        <Link to="/access"><button className='access p-2 bg-primary'>Access</button></Link>
                       </div>
                     </td>
                   </tr>
@@ -71,6 +76,11 @@ function AssignedCategories() {
           </table>
 
         </div>
+            </div>
+            </div> 
+
+        </div>
+       
       </div>
     </div>
   )

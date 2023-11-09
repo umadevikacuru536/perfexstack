@@ -44,12 +44,6 @@ function Sidebar() {
 
       <ul className="Nav_Item">
         <li>
-
-          <input type="text" placeholder="Search...." />
-          <span className="Menu_btn">Search</span>
-        </li>
-
-        <li>
           <Link to="/dashbord">
             <span class="material-symbols-outlined dashboardicons">dashboard</span>
             <span className="Item_Name">Dashboard</span>
@@ -123,6 +117,13 @@ function Sidebar() {
           </li>
         </ul>
       </li>
+       <li>
+          <Link to="/compare">
+          <span class="material-symbols-outlined dashboardicons">repeat</span>
+            <span className="Item_Name">Compare</span>
+          </Link>
+          <span className="Menu_btn">Compare</span>
+        </li>
         <li className="Details">
           <div className="Child_Details">
 

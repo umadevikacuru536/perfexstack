@@ -34,6 +34,9 @@ function  AssignedAssessment() {
     <div>
       <div className="d-flex flex-row">
         <Sidebar />
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
         <div className="card21">
           <div className="d-flex flex-row ">
             <p className="assement">Access</p>
@@ -74,6 +77,9 @@ function  AssignedAssessment() {
 
           </table>
 
+        </div>
+        </div>
+        </div>
         </div>
       </div>
     </div>

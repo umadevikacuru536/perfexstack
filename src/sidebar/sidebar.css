@@ -9,11 +9,10 @@
 
 .sidebar_menu{
   position: fixed;
-  left: 0;
-  top: 0;
+  
   height: 100%;
   width: 138px;
-  background: black;
+  background: rgb(29, 27, 27);
   padding: 6px 14px;
   z-index: 99;
   transition: all 0.5s ease;
@@ -35,7 +34,7 @@
 }
 
 .sidebar_menu.open{
-  width: 260px;
+  width: 340px;
 }
 
 .sidebar_menu .Logo #Button{
@@ -121,7 +120,7 @@
   font-weight: 400;
   outline: none;
   height: 50px;
-  width: 100%;
+  width: 120%;
   width: 50px;
   border: none;
   border-radius: 17px;
@@ -202,7 +201,7 @@
 .sidebar_menu li.Details{
   position: fixed;
   height: 60px;
-  width: 78px;
+  width: 130px;
   left: 0;
   bottom: -8px;
   padding: 10px 14px;
@@ -212,7 +211,7 @@
 }
 
 .sidebar_menu.open li.Details{
-  width: 250px;
+  width: 340px;
 }
 
 .sidebar_menu li .Child_Details{
@@ -292,7 +291,8 @@
   color: #e5d7e9;
 }
 .chartbox{
-  margin-left: 6vh;
+  margin-left: 12vh;
+
 }
 
 /* Add this CSS to your existing "sidebar.css" file */
