@@ -103,7 +103,16 @@ function Categories() {
         " http://localhost:5020/deletcategoris/" + id
       );
       if (response.status === 200) {
-        alert("Success: Institute deleted");
+        toast.success("deleted Successfully", {
+          position: "top-right",
+          autoClose: 1000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "colored",
+        });
         fetchblogs();
 
         // Update your state or fetch updated data as needed
@@ -315,6 +324,18 @@ function Categories() {
                             </div>
                           </div>
                         </div>
+                        <ToastContainer
+                                  position="top-right"
+                                  autoClose={5000}
+                                  hideProgressBar={false}
+                                  newestOnTop={false}
+                                  closeOnClick
+                                  rtl={false}
+                                  pauseOnFocusLoss
+                                  draggable
+                                  pauseOnHover
+                                  theme="light"
+                                />
                         <span className="material-symbols-outlined delete" onClick={() => handleDelete(blog._id)}>delete</span>
                       </div>
                     </td>

@@ -395,7 +395,8 @@ margin-left: 52%;
 }
 .A{
   display: flex;
-  justify-content: space-around;
+  justify-content:40px space-around;
+ 
   margin: 0px;
 }
 .Pa{
@@ -616,7 +617,7 @@ padding: 10px;
 }
 .dashbord:hover{
 
-  background-color: darkslategray;
+  background-color: rgb(238, 208, 230);
 }
 .dashbordpara{
   font-size: 20px;

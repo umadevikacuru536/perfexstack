@@ -130,3 +130,9 @@
     border-radius: 10px;
     padding: 10px;
 }
+.eyecard{
+    background-color: white;
+    border: 1px soild rgb(78, 75, 75);
+    width: 74vw;
+    padding: 20px;
+}

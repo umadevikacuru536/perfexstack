@@ -116,13 +116,13 @@ POST http://localhost:5020/categoris
 Content-Type: application/json
 
 {
-       "sno":"2",
-      "name":"uma",
+       "sno":"7",
+      "name":"umadevi",
       "description":"java",
       "tag":"20",
       "accesstype":"ksks",
       "accessplan":"ddd",
-      "display":"dd",
+      "display":"NO",
       "attempts":"2"
       
 }
@@ -135,14 +135,29 @@ POST  http://localhost:5020/praticipation
 Content-Type: application/json
 
 {
-       "instion":"corpation",
-      "category":"java",
-      "assessment":"java",
+       "instion":"government office",
+      "category":"React",
+      "assessment":"React",
       "batchyear":"2020",
-      "batch":"k-batch"
+      "batch":"2020batch"
 }
 ###
+PUT http://localhost:5020/updatepraticipation/6549c7211bba094f29ccff3e
+Content-Type: application/json
+
+{
+      "instion":"corpation",
+      "category":"python",
+      "assessment":"python",
+      "batchyear":"2020",
+      "batch":"U-batch"
+}
+###
+DELETE  http://localhost:5020/deletpraticipation/6549c7211bba094f29ccff3e
+###
 GET http://localhost:5020/allpraticipation
+###
+GET http://localhost:5020/allindividualpraticipation/6549c7211bba094f29ccff3e
 ###
 PUT http://localhost:5020/updatecategoris/6549ff12e098c4417da8c198
 Content-Type: application/json

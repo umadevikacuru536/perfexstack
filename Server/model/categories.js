@@ -27,8 +27,9 @@ sno:{
         require: true,
       }, 
       display:{
-        type: String,
-        require: true,
+        type:String,
+        ear:["Yes","NO"],
+        require:true,
       },
       attempts:{
         type: String,

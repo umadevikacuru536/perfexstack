@@ -29,30 +29,19 @@ function Access() {
   };
 
   const [individualInstitute, setIndividualInstitute] = useState({
-    sno: "",
-    name: "",
-    description: "",
-    tag: "",
-    accesstype: "",
-    accessplan: "",
-    display: ""
+    batch: ""
+    
 
   });
   const onSubmitForm = (e) => {
     e.preventDefault();
     const UserData = {
-      sno: individualInstitute.sno,
-      name: individualInstitute.name,
-      description: individualInstitute.description,
-      tag: individualInstitute.tag,
-      accesstype: individualInstitute.accesstype,
-      accessplan: individualInstitute.accessplan,
-      display: individualInstitute.display,
+      batch: individualInstitute.batch,
     };
     console.log(UserData);
-    console.log(`http://localhost:5020/updatecategoris/${gettingId}`);
+    console.log(`http://localhost:5020/updatepraticipation/${gettingId}`);
     axios
-      .put(`http://localhost:5020/updatecategoris/${gettingId}`, UserData)
+      .put(`http://localhost:5020/updatepraticipation/${gettingId}`, UserData)
       .then((response) => {
         console.log(response.data);
         if (response.status === 200) {
@@ -67,7 +56,7 @@ function Access() {
             theme: "colored",
           });
           setTimeout(function () {
-            navigate("/admin");
+            navigate("");
           }, 3000);
         }
       })
@@ -99,7 +88,7 @@ function Access() {
       }
       console.log("Deleting institute with ID:", id);
       const response = await axios.delete(
-        " http://localhost:5020/deletcategoris/" + id
+        "http://localhost:5020/deletpraticipation/" + id
       );
       if (response.status === 200) {
         alert("Success: Institute deleted");
@@ -129,7 +118,7 @@ function Access() {
     setGettingId(id)
     try {
       const response = await axios.get(
-        "http://localhost:5020/allindividualcategoris/" + id
+        "http://localhost:5020/allindividualpraticipation/" + id
       ); // Replace with your API endpoint
       setIndividualInstitute(response.data);
       // setLoading(false);
@@ -248,11 +237,11 @@ function Access() {
                                     <label className="profilename1">Batches</label>
                                     <br />
                                     <input className="input" placeholder="select batches"
-                                      value={individualInstitute.sno}
+                                      value={individualInstitute.batch}
                                       onChange={(e) =>
                                         setIndividualInstitute({
                                           ...individualInstitute,
-                                          sno: e.target.value,
+                                          batch: e.target.value,
                                         })
                                       }
                                        />
@@ -265,7 +254,7 @@ function Access() {
                             </div>
                           </div>
                         </div>
-                        <span className="material-symbols-outlined delete">delete</span>
+                        <span className="material-symbols-outlined delete"onClick={() => handleDelete(blog._id)}>delete</span>
                       </div>
                   </td>
                 </tr>

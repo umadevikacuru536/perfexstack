@@ -47,7 +47,7 @@ function  AssignedAssessment() {
                 <th>S.NO</th>
                 <th>CATEGORY</th>
                 <th>ASSESSMENT</th>
-                <th>ATTEMPTS</th>
+                {/* <th>ATTEMPTS</th> */}
                 <th>ACTIONS</th>
               </tr>
             </thead>
@@ -58,7 +58,7 @@ function  AssignedAssessment() {
                     <td>{blog.sno}</td>
                     <td>{blog.name}</td>
                     <td>{blog.tag}</td>
-                    <td>{blog.attempts}</td>
+                    {/* <td>{blog.attempts}</td> */}
                     <td>
                       <div className="A">
                      <Link to="/assingedeye"> <span className="fa-solid fa-eye eyeicon"></span></Link>

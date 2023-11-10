@@ -39,7 +39,7 @@ function Categoriesadd() {
                     setdata2(response.data);
 
                     console.log(response.data);
-                    toast.success("Registration Successfull");
+                    toast.success("Add Categories Successfully");
                     setTimeout(function () {
                         navigate("/assessment/categories");
                       }, 3000);

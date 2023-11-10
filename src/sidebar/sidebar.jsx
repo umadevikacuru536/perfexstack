@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import './sidebar.css'; // Ensure the correct CSS file is imported
 import { Link, useNavigate } from 'react-router-dom';
+import logo from '../img/_7bf5af82-4de7-426c-b2c9-1a833c87c4ba.png';
 function Sidebar() {
   const [userSubfolderVisible, setUserSubfolderVisible] = useState(false);
   const [userSubfolderVisible1, setUserSubfolderVisible1] = useState(false);
@@ -38,8 +39,10 @@ function Sidebar() {
     <div className={`sidebar_menu ${isSidebarOpen ? 'open' : ''}`}>
       <div className="Logo">
         <i className='bx bxl-slack icon'></i>
-        <div className="Text_Logo">Instack</div>
-        <i className={`bx ${menuBtnChange()}`} id="Button" onClick={toggleSidebar}></i>
+        <div className="Text_Logo">
+          <img  className="sidebarlogo"src={logo}/>
+        </div>
+        <i className={`fa-solid fa-bars  ${menuBtnChange()}`} id="Button" onClick={toggleSidebar}></i>
       </div>
 
       <ul className="Nav_Item">
@@ -77,10 +80,19 @@ function Sidebar() {
         <span className="Menu_btn">Assessment</span>
         <ul className={`subfolders ${userSubfolderVisible ? 'active' : ''}`}>
           <li>
-          <Link to="/assessment/categories"> <a href="#">Categories</a></Link> 
+          <Link to="/assessment/categories">
+            <div className='d-flex flex-row'>
+              <span class="material-symbols-outlined" style={{fontSize:"25px"}}>fiber_manual_record</span> 
+              <a href="#">Categories</a>
+              </div>
+              </Link> 
           </li>
           <li>
-            <Link to="/assessment"><a href="#">Assessments</a></Link>
+            <Link to="/assessment">
+            <div className='d-flex flex-row'>
+              <span class="material-symbols-outlined" style={{fontSize:"25px"}}>fiber_manual_record</span> 
+              <a href="#">Assessments</a>
+              </div></Link>
           </li>
         </ul>
       </li>
@@ -94,10 +106,16 @@ function Sidebar() {
         <span className="Menu_btn">Reports</span>
         <ul className={`subfolders ${userSubfolderVisible1 ? 'active' : ''}`}>
           <li>
-          <Link to="/assessmentreport"> <a href="#">Assessment Report</a></Link> 
+          <Link to="/assessmentreport"> <div className='d-flex flex-row'>
+              <span class="material-symbols-outlined" style={{fontSize:"25px"}}>fiber_manual_record</span> 
+              <a href="#">Assessment Report</a>
+              </div></Link> 
           </li>
           <li>
-          <Link to="/paticipation"> <a href="#">Participation Report</a></Link> 
+          <Link to="/paticipation"> <div className='d-flex flex-row'>
+              <span class="material-symbols-outlined" style={{fontSize:"25px"}}>fiber_manual_record</span> 
+              <a href="#">Participation Report</a>
+              </div></Link> 
           </li>
         </ul>
       </li>
@@ -110,10 +128,16 @@ function Sidebar() {
         <span className="Menu_btn">Assigned Assessments</span>
         <ul className={`subfolders ${userSubfolderVisible2 ? 'active' : ''}`}>
           <li>
-          <Link to="/assingedcategories"> <a href="#">Categories</a></Link> 
+          <Link to="/assingedcategories"><div className='d-flex flex-row'>
+              <span class="material-symbols-outlined" style={{fontSize:"25px"}}>fiber_manual_record</span> 
+              <a href="#">Categories</a>
+              </div> </Link> 
           </li>
           <li>
-          <Link to="/assingesassessment"> <a href="#">Assessments</a></Link> 
+          <Link to="/assingesassessment"><div className='d-flex flex-row'>
+              <span class="material-symbols-outlined" style={{fontSize:"25px"}}>fiber_manual_record</span> 
+              <a href="#">Assessments</a>
+              </div> </Link> 
           </li>
         </ul>
       </li>

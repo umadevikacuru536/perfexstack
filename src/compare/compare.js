@@ -53,7 +53,7 @@ function Compare() {
             <h5 className='head'>Institutions</h5>
           </div>
         </div>
-        <button type="submit" className="bg-primary p-2 w-25" style={{borderRadius:"10px",marginLeft:"400px" ,marginTop:"100px"}} onClick={handleCompare}>
+        <button type="submit" className="bg-primary p-2 w-25" style={{borderRadius:"10px",marginLeft:"400px" ,marginTop:"100px",color:"white"}} onClick={handleCompare}>
           Compare
         </button>
       </div>
@@ -61,7 +61,7 @@ function Compare() {
       {showContainer5 && (
         <div className="container5">
           <div className="row">
-    <div className="col-md-6 mb-3">
+    <div className="col-md-4 mb-3">
       <div className="card">
         <div className="card-header d-flex justify-content-between">
           <h4>Attempts</h4>
@@ -84,7 +84,8 @@ function Compare() {
           <p className="card-title">Corporate Office</p>
         </div>
     </div>
-    <div className="col-md-6 mb-3">
+
+    <div className="col-md-4 mb-3">
       <div className="card">
         <div className="card-header d-flex justify-content-between">
           <h4>Avg Accuracy</h4>

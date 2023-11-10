@@ -478,6 +478,44 @@ app.post("/praticipation", async (req, res) => {
     res.status(500).json("Internal server error");
   }
 });
+app.put('/updatepraticipation/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedData = req.body; // Assuming you send updated data in the request body
+
+    // Use findByIdAndUpdate to update the institute's data
+    const updatedInstitute = await praticipation.findOneAndUpdate({_id:id}, updatedData, { new: true });
+
+    if (updatedInstitute) {
+      return res.status(200).send("Institute updated successfully");
+    } else {
+      return res.status(404).json("Institute not found");
+    }
+  } catch (e) {
+    console.error(e.message);
+    return res.status(500).json(e.message);
+  }
+});
+app.get("/allindividualpraticipation/:id", async (req, res) => {
+  const {id} = req.params
+  const allusers1 = await praticipation.findOne({_id:id})
+  res.status(200).send(allusers1)
+});
+app.delete("/deletpraticipation/:id", async (req, res) => {
+  try {
+    const id = req.params.id; // Use req.params.id to get the instituteId
+    const deletedInstitute = await praticipation.findByIdAndRemove(id);
+
+    if (deletedInstitute) {
+      return res.status(200).json("Institute deleted successfully");
+    } else {
+      return res.status(404).json("Institute not found");
+    }
+  } catch (e) {
+    console.error(e.message);
+    return res.status(500).json(e.message);
+  }
+});
 app.get("/allpraticipation", async (req, res) => {
 
   const allusers1 = await praticipation.find({})

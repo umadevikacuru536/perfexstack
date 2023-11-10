@@ -58,7 +58,7 @@ function AssignedCategories() {
                   <tr key={blog.id}>
                     <td>{blog.sno}</td>
                     <td>{blog.name}</td>
-                    <td>{blog.attempts}</td>
+                    <td>{blog.name}</td>
                     <td>
                       <div className="A">
                         <Link to="/access"><button className='access p-2 bg-primary'>Access</button></Link>

@@ -7,7 +7,7 @@ function AssessmentEye() {
             <Sidebar />
             <div className='container'>
           <div className='row'>
-            <div className='col-md-10 mt-3'>
+            <div className='eyecard shadow col-md-10 mt-3'>
             <div className=''>
                 <p className='mcq'>Java MCQ Topwise<span> - Strings</span></p>
                 <p className='real'>Realtime Users: <span>0</span></p>
