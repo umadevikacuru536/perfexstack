@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './sidebar.css'; // Ensure the correct CSS file is imported
 import { Link, useNavigate } from 'react-router-dom';
-import logo from '../img/_7bf5af82-4de7-426c-b2c9-1a833c87c4ba.png';
+import logo from 'my-app/src/sidebar/Skill hub.png';
 function Sidebar() {
   const [userSubfolderVisible, setUserSubfolderVisible] = useState(false);
   const [userSubfolderVisible1, setUserSubfolderVisible1] = useState(false);
