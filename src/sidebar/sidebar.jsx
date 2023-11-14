@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './sidebar.css'; // Ensure the correct CSS file is imported
 import { Link, useNavigate } from 'react-router-dom';
-import logo from 'my-app/src/sidebar/Skill hub.png';
+import logo from '../sidebar/Skill-hub.png';
 function Sidebar() {
   const [userSubfolderVisible, setUserSubfolderVisible] = useState(false);
   const [userSubfolderVisible1, setUserSubfolderVisible1] = useState(false);
@@ -40,7 +40,8 @@ function Sidebar() {
       <div className="Logo">
         <i className='bx bxl-slack icon'></i>
         <div className="Text_Logo">
-          <img  className="sidebarlogo"src={logo}/>
+          {/* <img  className="sidebarlogo"src={logo}/> */}
+          <h3>Skill<span className='sidebarlogo'>Hub</span></h3>
         </div>
         <i className={`fa-solid fa-bars  ${menuBtnChange()}`} id="Button" onClick={toggleSidebar}></i>
       </div>

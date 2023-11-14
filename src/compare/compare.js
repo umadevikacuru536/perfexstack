@@ -48,14 +48,15 @@ function Compare() {
             <option value="Option 2">--select Institute---</option>
               <option value="Option 1">corporate office</option>
               
-             
+             {/* //uma */}
             </select>
             <h5 className='head'>Institutions</h5>
           </div>
         </div>
-        <button type="submit" className="bg-primary p-2 w-25" style={{borderRadius:"10px",marginLeft:"400px" ,marginTop:"100px",color:"white"}} onClick={handleCompare}>
+        <button type="submit" className=" p-2 w-25" style={{borderRadius:"10px",backgroundColor : "#a509de",marginLeft:"400px" ,marginTop:"100px",color:"white"}} onClick={handleCompare}>
           Compare
         </button>
+        {/* //siva */}
       </div>
 
       {showContainer5 && (
