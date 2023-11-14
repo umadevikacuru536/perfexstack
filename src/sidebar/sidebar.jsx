@@ -6,6 +6,10 @@ function Sidebar() {
   const [userSubfolderVisible, setUserSubfolderVisible] = useState(false);
   const [userSubfolderVisible1, setUserSubfolderVisible1] = useState(false);
   const [userSubfolderVisible2, setUserSubfolderVisible2] = useState(false);
+  const [assessment1, setassessment1] = useState(false);
+  const assessment =()=>{
+    setassessment1(!assessment1);
+  }
   const toggleUserSubfolder = () => {
     setUserSubfolderVisible(!userSubfolderVisible);
   };
@@ -70,9 +74,12 @@ function Sidebar() {
           </Link>
           <span className="Menu_btn">Users</span>
         </li>
+<h4 className='text-white text-start' onClick={assessment}>Assessment</h4>
 
-      
-        <li onClick={toggleUserSubfolder}>
+{assessment1 && (
+  
+  <>
+    <li onClick={toggleUserSubfolder}>
         <a href="#">
           <span className="material-symbols-outlined dashboardicons">folder</span>
           <span className="Item_Name">Assessment</span>
@@ -149,6 +156,15 @@ function Sidebar() {
           </Link>
           <span className="Menu_btn">Compare</span>
         </li>
+  </>
+  
+
+)}
+
+
+
+      
+      
         <li className="Details">
           <div className="Child_Details">
 
