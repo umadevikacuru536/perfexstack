@@ -25,7 +25,7 @@ function AssessmentReport() {
 
         <label className="seach ">Seach</label>
         <input  className='p-2'/>
-                <button className="seachbut p-2 bg-primary" >seach</button>
+                <button className="seachbut p-2 " style={{backgroundColor:"#a509de"}} >seach</button>
       </div>
           </div>
          <div>

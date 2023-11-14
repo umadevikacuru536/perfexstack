@@ -61,7 +61,7 @@ function AssignedCategories() {
                     <td>{blog.name}</td>
                     <td>
                       <div className="A">
-                        <Link to="/access"><button className='access p-2 bg-primary'>Access</button></Link>
+                        <Link to="/access"><button className='access p-2 ' style={{backgroundColor:"#a509de"}}>Access</button></Link>
                       </div>
                     </td>
                   </tr>

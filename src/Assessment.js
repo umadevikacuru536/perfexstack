@@ -84,7 +84,7 @@ function Asssessment() {
             <label className="seach">Seach</label>
             <input value={examname} className="p-2"
               onChange={(e) => setexamname(e.target.value)} />
-            <button onClick={searchBySkills} className="seachbut p-2 bg-primary">seach</button>
+            <button onClick={searchBySkills} className="seachbut p-2" style={{backgroundColor : "#a509de"}}>seach</button>
           </div>
           <table className="table">
             <thead>

@@ -176,10 +176,10 @@ function Categories() {
               ))}
             </select>
 
-            <label className="seach">Seach</label>
+            <label className="seach" >Seach</label>
             <input value={examname } className='p-2'
               onChange={(e) => setexamname(e.target.value)} />
-            <button className="seachbut p-2 bg-primary" onClick={searchBySkills}>seach</button>
+            <button className="seachbut p-2"style={{backgroundColor : "#ae1e97"}} onClick={searchBySkills}>seach</button>
           </div>
           <table className="table">
             <thead>
