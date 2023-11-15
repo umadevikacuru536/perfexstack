@@ -1,26 +1,18 @@
 import React from 'react';
 import ChatBot from 'react-simple-chatbot';
 import Review from '../form/Review';
-import { FaBars } from "react-icons/fa"; // Import the hamburger icon from react-icons
-import { Link } from "react-router-dom";
-import { AiOutlineClose } from "react-icons/ai";
-import sidebarData from "../SidebarData";
-import { IconContext } from "react-icons";
 import { useState } from 'react';
-import Sidebar from '../sidebar/sidebar';
+import Sidebar from "../sidebar/sidebar";
 
 const SimpleForm = () => {
-  const [sidebar, setSidebar] = useState(false);
-
-  const showSidebar = () => {
-    setSidebar(!sidebar);
-  };
+ 
   return (
     <div >
+   <div>
+   <Sidebar/>
+   </div>
    
-   
-    <Sidebar/>
-  <div style={{marginTop:"40vh"}}>
+  <div >
           <ChatBot className="chatbot"
             steps={[
               {

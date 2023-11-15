@@ -1,0 +1,82 @@
+.logout {
+    background-color: #ae1e97;
+    color: white;
+    border-radius: 10px;
+    height: 4vh;
+    width: 4vw;
+}
+
+.Details {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5Rc4n9BuW_dDJ0gLI975J9sg6uNbBJ0Obvcph_H7yx6zgY1p8v2M_rBnTbns6BlX1Cs&usqp=CAU");
+    width: 40vw;
+    height: 20vh;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 4vh;
+}
+
+.Details1 {
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5Rc4n9BuW_dDJ0gLI975J9sg6uNbBJ0Obvcph_H7yx6zgY1p8v2M_rBnTbns6BlX1Cs&usqp=CAU");
+    width: 20vw;
+    height: 20vh;
+    background-size: cover;
+    border-radius: 20px;
+    padding: 20px;
+    margin-top: 4vh;
+}
+
+.progress {
+    width: 60%;
+    background-color: #ddd;
+    height: 20px;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+.progress11 {
+    width: 40%;
+    background-color: #ddd;
+    height: 8%;
+    border-radius: 10px;
+    overflow: hidden;
+    margin-left: 20px;
+    margin-top: 20px;
+}
+
+.progress-done {
+    height: 100%;
+    background: linear-gradient(to right, #ff8c00 70%, #ddd 0%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.progress1 {
+    font-size: 20px;
+}
+
+.cards {
+    border: 2px solid rgb(202, 195, 195);
+    margin-top: 5vh;
+    width: 20vw;
+    height: 20vh;
+    padding: 15px;
+}
+.cards1 {
+    border: 2px solid rgb(202, 195, 195);
+    margin-top: 5vh;
+    width: 35vw;
+    height: 35vh;
+    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBP-nT8jJ4vgoxdOLMD_LYx8L3RqS1PfpCfGOsmfkeM5ANhAqxfZHGQVXX46dPEci2w6I&usqp=CAU");
+ 
+}
+.changebtn{
+    background-color: rgb(110, 185, 159);
+    border-color: rgb(110, 185, 159);
+    color: white;
+    border-radius: 10px;
+    margin: 5px;
+}

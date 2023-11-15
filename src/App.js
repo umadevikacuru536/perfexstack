@@ -28,6 +28,7 @@ import AssignedCategories from './assignedassessment/categories';
 import AssignedAssessment from './assignedassessment/assessments';
 import Schedule from './assignedassessment/schedule';
 import AssessmentEye from './assignedassessment/assessment';
+import Dashbordhome from './UserDashbord/Dashbordhome';
  
 function App() {
   return (
@@ -61,6 +62,7 @@ function App() {
  <Route path='/assingesassessment' element={<AssignedAssessment/>}/>
  <Route path='/schedule' element={<Schedule/>}/>
  <Route path='/assingedeye' element={<AssessmentEye/>}/>
+ <Route path='/dashbordhome' element={<Dashbordhome/>}/>
  </Routes>
  </BrowserRouter>
     </div>
