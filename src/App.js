@@ -29,6 +29,10 @@ import AssignedAssessment from './assignedassessment/assessments';
 import Schedule from './assignedassessment/schedule';
 import AssessmentEye from './assignedassessment/assessment';
 import Dashbordhome from './UserDashbord/Dashbordhome';
+import Changepassword from './UserDashbord/changepassword';
+import Viewassements from './UserDashbord/viewassements';
+import Coursesactivity from './UserDashbord/coursesactivity';
+import Practiceactivity from './UserDashbord/practiceactivity';
  
 function App() {
   return (
@@ -63,6 +67,10 @@ function App() {
  <Route path='/schedule' element={<Schedule/>}/>
  <Route path='/assingedeye' element={<AssessmentEye/>}/>
  <Route path='/dashbordhome' element={<Dashbordhome/>}/>
+ <Route path='/changepassword' element={<Changepassword/>}/>
+ <Route path='/viewassements' element={< Viewassements/>}/>
+ <Route path='/Coursesactivity' element={<Coursesactivity/>}/>
+ <Route path='/Practiceactivity' element={<Practiceactivity/>}/>
  </Routes>
  </BrowserRouter>
     </div>

@@ -8,75 +8,232 @@
 
 .Details {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5Rc4n9BuW_dDJ0gLI975J9sg6uNbBJ0Obvcph_H7yx6zgY1p8v2M_rBnTbns6BlX1Cs&usqp=CAU");
-    width: 40vw;
-    height: 20vh;
     background-size: cover;
     border-radius: 20px;
     padding: 20px;
     margin-top: 4vh;
+    box-shadow: 1px soild black;
 }
 
 .Details1 {
     background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRE5Rc4n9BuW_dDJ0gLI975J9sg6uNbBJ0Obvcph_H7yx6zgY1p8v2M_rBnTbns6BlX1Cs&usqp=CAU");
     width: 20vw;
-    height: 20vh;
+    height: 22vh;
     background-size: cover;
     border-radius: 20px;
     padding: 20px;
+    box-shadow: 1px soild black;
     margin-top: 4vh;
 }
-
-.progress {
-    width: 60%;
-    background-color: #ddd;
-    height: 20px;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-left: 20px;
-    margin-top: 20px;
+.heading11{
+    background-color: white;
+  height: 70px;
+padding-top: 20px;
+  font-size: 20px;
+  font-style: oblique;
+  color: crimson;
 }
-.progress11 {
-    width: 40%;
-    background-color: #ddd;
-    height: 8%;
-    border-radius: 10px;
-    overflow: hidden;
-    margin-left: 20px;
-    margin-top: 20px;
-}
-
-.progress-done {
-    height: 100%;
-    background: linear-gradient(to right, #ff8c00 70%, #ddd 0%);
-    color: #fff;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.progress1 {
+.nav-item{
+    margin: 15px;
     font-size: 20px;
+    font-weight: bold;
 }
+
+
+
 
 .cards {
     border: 2px solid rgb(202, 195, 195);
     margin-top: 5vh;
-    width: 20vw;
+    width: 19vw;
     height: 20vh;
     padding: 15px;
+    box-shadow: 2px solid black;
+    border-radius: 20px;
 }
 .cards1 {
     border: 2px solid rgb(202, 195, 195);
     margin-top: 5vh;
-    width: 35vw;
-    height: 35vh;
-    background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBP-nT8jJ4vgoxdOLMD_LYx8L3RqS1PfpCfGOsmfkeM5ANhAqxfZHGQVXX46dPEci2w6I&usqp=CAU");
+    width: 29vw;
+    height: 38vh;
+    border-radius: 20px;
+    box-shadow: 2px solid black;
+    background-image: linear-gradient(to bottom right,beige,white);
+    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBP-nT8jJ4vgoxdOLMD_LYx8L3RqS1PfpCfGOsmfkeM5ANhAqxfZHGQVXX46dPEci2w6I&usqp=CAU"); */
+ 
+}
+.cards12 {
+    border: 2px solid rgb(202, 195, 195);
+    margin-top: 5vh;
+    width: 29vw;
+    height: 38vh;
+    border-radius: 20px;
+    box-shadow: 2px solid black;
+    /* background-color: rgb(158, 158, 224); */
+    background-image: linear-gradient(to bottom right,rgb(188, 188, 218),white);
+    /* background-image: url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRBP-nT8jJ4vgoxdOLMD_LYx8L3RqS1PfpCfGOsmfkeM5ANhAqxfZHGQVXX46dPEci2w6I&usqp=CAU"); */
  
 }
 .changebtn{
-    background-color: rgb(110, 185, 159);
-    border-color: rgb(110, 185, 159);
+    background-color:rgb(235, 127, 88);
     color: white;
     border-radius: 10px;
     margin: 5px;
+}
+.progress{
+    height: 70px;
+     width: 200px;
+  margin-left: 200px;
+}
+.progress1{
+    height: 70px;
+     width: 200px;
+
+}
+.detailsheading{
+font-weight: bold;
+font-size: 20px;
+font-style: oblique;
+}
+.detailspara{
+    font-size: 20px;
+font-style:italic;
+font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+}
+.umadevi{
+    position: relative;
+    width: 80px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: rgb(39, 39, 219);
+    font-size: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-left: 5px;
+}
+.umadevi2{
+    position: relative;
+    width: 80px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: rgb(74, 74, 150);
+    font-size: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-left: 5px;
+}
+.umadevi1{
+    position: relative;
+    width: 80px;
+    height: 50px;
+    background: transparent;
+    border: 2px solid rgba(255, 255, 255, .5);
+    border-right: 2px solid rgba(255, 255, 255, .2);
+    border-bottom: 2px solid rgba(255, 255, 255, .2);
+    border-radius: 10px;
+    color: purple;
+    font-size: 40px;
+    letter-spacing: 1px;
+    cursor: pointer;
+    overflow: hidden;
+    margin-left: 5px;
+}
+
+.umadevi::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50%;
+    background: rgba(223, 51, 51, 0);
+}
+.umadevi::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, .4), transparent);
+    transition: .5s;
+}
+.umadevi:hover::after {
+    left: 100%;
+}
+/* changepassword */
+.changepassword{
+    border: 2px solid rgb(202, 195, 195);
+    margin-top: 5vh;
+    width: 30vw;
+    height: 40vh;
+    padding: 15px;
+    box-shadow: 2px solid black;
+    border-radius: 20px;
+margin-left: 700px;
+text-align: start;
+margin-bottom: 200px;
+margin-top: 13vh;
+
+}
+.dot{
+    font-size: 20px;
+font-style: oblique;
+color: rgb(207, 57, 57);
+text-align: center;
+
+}
+.assementbutton{
+    background-color: white;
+    border: 2px solid rgb(202, 195, 195);
+    margin-top: 5vh;
+    width: 70vw;
+    height: 12vh;
+    box-shadow: 0px 8px 24px hsla(0, 0%, 0%, .3);
+    border-radius: 10px;
+    text-align: start;
+    padding: 20px;
+    display:flex ;
+    flex-direction: row;
+    margin-left: 300px;
+}
+.resume{
+    margin-left: 95vh;
+    margin-top: 1vh;
+    background-color: #ae1e97;
+    color: white;
+    height: 5vh;
+    width: 6vw;
+    border-radius: 10px;
+}
+.resume1{
+    margin-left: 95vh;
+    margin-top: 1vh;
+    background-color: green;
+    color: white;
+    height: 5vh;
+    width: 6vw;
+    border-radius: 10px;
+}
+.scoll{
+    width: 90vw;
+    height: 80vh;
+   margin-top: 30px;
+    background: #FFFFFF 0% 0% no-repeat padding-box;
+    box-shadow: 0px 0px 15px #00000012;
+    border-radius: 20px;
+    overflow-y: scroll; 
+    overflow-x: hidden;
+   
+
 }
