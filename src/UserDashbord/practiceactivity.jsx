@@ -1,47 +1,48 @@
 import React from 'react'
 import './userdashbord.css'
+import { Link } from "react-router-dom";
 import logo1 from '../sidebar/Skill-hub.png'
 function Practiceactivity() {
   return (
     <div>
     <nav class="navbar navbar-expand-sm shadow bg-light navbar-light">
-          <div class="container-fluid">
-              <a class="navbar-brand" href="#"><img src={logo1} className='w-25' /></a>
-              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
-                  <span class="navbar-toggler-icon"></span>
-              </button>
-              <div class="collapse navbar-collapse" id="collapsibleNavbar">
-                  <ul class="navbar-nav">
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Assessment</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Courses</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Code</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Practice</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Blogs</a>
-                      </li>
-                      <li class="nav-item">
-                          <a class="nav-link" href="#">Dashboard</a>
-                      </li>
-                      <li class="nav-item">
-                          <button className='logout'>Logout</button>
-                      </li>
-                  </ul>
-              </div>
-          </div>
-      </nav>
+                <div class="container-fluid">
+                    <a class="navbar-brand" href="#"><img src={logo1} className='w-25' /></a>
+                    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
+                        <span class="navbar-toggler-icon"></span>
+                    </button>
+                    <div class="collapse navbar-collapse" id="collapsibleNavbar">
+                        <ul class="navbar-nav">
+                            <li class="nav-item">
+                              <Link to="/userAssessment" style={{textDecoration:"none"}}>  <a class="nav-link" href="#">Assessment</a></Link>
+                            </li>
+                            <li class="nav-item">
+                            <Link to="/usersCourses" style={{textDecoration:"none"}}> <a class="nav-link" href="#">Courses</a></Link>
+                            </li>
+                            <li class="nav-item">
+                               <a class="nav-link" href="#">Code</a>
+                            </li>
+                            <li class="nav-item">
+                            <Link to="/Userpratice" style={{textDecoration:"none"}}> <a class="nav-link" href="#">Practice</a></Link>
+                            </li>
+                            <li class="nav-item">
+                            <Link to="/Usersblogs" style={{textDecoration:"none"}}> <a class="nav-link" href="#">Blogs</a></Link>
+                            </li>
+                            <li class="nav-item">
+                            <Link to="/dashbordhome" style={{textDecoration:"none"}}>  <a class="nav-link" href="#">Dashboard</a></Link>
+                            </li>
+                            <li class="nav-item">
+                                <button className='logout'>Logout</button>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </nav>
       <div className='scoll'>
       <h1 className='text-center'>Your Recent Practice</h1>
       <button className='assementbutton'>
           <div >
-            <p>JAVA LAB ->> Right Angle Triangle Patterns</p>
+            <p>JAVA LAB -<i class="fa-solid fa-greater-than"></i><i class="fa-solid fa-greater-than"></i> Right Angle Triangle Patterns</p>
          <h6>Right Angle Triangle Patterns Set - 1</h6>
           <p>Attempted on:Nov 15 2023, 10:44:39 AM</p>
           </div>
@@ -51,7 +52,7 @@ function Practiceactivity() {
       </button>
       <button className='assementbutton'>
           <div >
-        <p>JAVA LAB -.. Basic Number Programs</p>
+        <p>JAVA LAB - <i class="fa-solid fa-greater-than"></i> <i class="fa-solid fa-greater-than"></i> Basic Number Programs</p>
           <h6>Basic Number Programs Set - 1</h6>
           <p>Attempted on:Nov 15 2023, 10:44:39 AM</p>
           </div>

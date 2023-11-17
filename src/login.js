@@ -51,13 +51,13 @@ function About() {
             });
   
             setTimeout(function () {
-              navigate("/dashbord");
+              navigate("/dashbordhome");
             }, 3000);
           }
         })
         .catch((error) => {
           console.error(error);
-          toast.error("Login failed. Check your credentials.", {
+          toast.success("Login failed. Check your credentials.", {
             // ... (your error notification settings)
           });
         });
@@ -65,6 +65,7 @@ function About() {
       toast.warning("Enter both email and password");
     }
   };
+
   return (
     <div className="">
       <div className="container5">

@@ -47,7 +47,11 @@ app.post("/login", async (req, res) => {
   }
 });
 
+app.get("/alllogin", async (req, res) => {
 
+  const allusers1 = await perfexdata.find({})
+  res.status(200).send(allusers1)
+});
 app.post("/admin", async (req, res) => {
   try {
     const {

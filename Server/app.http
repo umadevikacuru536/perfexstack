@@ -5,9 +5,11 @@ POST http://localhost:5020/login
 Content-Type: application/json
 
 {
-      "email":"uma@gmail.com",
+      "email":"uma3433@gmail.com",
       "password":"Umadevi@12"
 }
+###
+GET http://localhost:5020/alllogin
 ###
 POST http://localhost:5020/admin
 Content-Type: application/json

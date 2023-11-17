@@ -1,6 +1,7 @@
 import React from 'react'
 import logo1 from '../sidebar/Skill-hub.png'
 import './userdashbord.css'
+import { Link } from "react-router-dom";
 function Changepassword() {
     return (
         <>
@@ -14,22 +15,22 @@ function Changepassword() {
                         <div class="collapse navbar-collapse" id="collapsibleNavbar">
                             <ul class="navbar-nav">
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Assessment</a>
+                                    <Link to="/userAssessment" style={{ textDecoration: "none" }}>  <a class="nav-link" href="#">Assessment</a></Link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Courses</a>
+                                    <Link to="/usersCourses" style={{ textDecoration: "none" }}> <a class="nav-link" href="#">Courses</a></Link>
                                 </li>
                                 <li class="nav-item">
                                     <a class="nav-link" href="#">Code</a>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Practice</a>
+                                    <Link to="/Userpratice" style={{ textDecoration: "none" }}> <a class="nav-link" href="#">Practice</a></Link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Blogs</a>
+                                    <Link to="/Usersblogs" style={{ textDecoration: "none" }}> <a class="nav-link" href="#">Blogs</a></Link>
                                 </li>
                                 <li class="nav-item">
-                                    <a class="nav-link" href="#">Dashboard</a>
+                                    <Link to="/dashbordhome" style={{ textDecoration: "none" }}>  <a class="nav-link" href="#">Dashboard</a></Link>
                                 </li>
                                 <li class="nav-item">
                                     <button className='logout'>Logout</button>
@@ -40,25 +41,31 @@ function Changepassword() {
                 </nav>
                 <div className='changepassword '>
                     <h2 className='text-center'>Change Password ?</h2>
-                    <label className='profilename'> Password<span style={{ color: "red",fontSize:"20px" }}>*</span></label><br />
+                    <label className='profilename'> Password<span style={{ color: "red", fontSize: "20px" }}>*</span></label><br />
                     <input className='input1 w-75' />
                     <h6 className='detailsheading'>Password should contain:</h6>
                     <div className='dot'>
                         <div className='container'>
-                            <div className='row'>
-                                <div className='col-md-7'>
-                                <p>Minumun 8 Charaters</p>
-                        <p>1 Small Letter</p>
-                        <p>1 Capital Letter</p>
+                            <div className="row">
+                                <div className="col-md-6">
+                                    <h5>Password Requirements:</h5>
+                                    <ul>
+                                        <li>Minimum 8 Characters</li>
+                                        <li>1 Small Letter</li>
+                                        <li>1 Capital Letter</li>
+                                    </ul>
                                 </div>
-                                <div className='col-md-5'>
-                                <p>1 Number</p>
-                        <p>1 Spacial Character</p>
+                                <div className="col-md-6">
+                                    <h5>Additional Requirements:</h5>
+                                    <ul>
+                                        <li>1 Number</li>
+                                        <li>1 Special Character</li>
+                                    </ul>
                                 </div>
                             </div>
-                       
+
                         </div>
-                      
+
                     </div>
                 </div>
 
@@ -96,7 +103,7 @@ function Changepassword() {
                                 ></i>
                                 <span style={{ color: "white" }}>Services</span>
                             </p>
-                            <p style={{marginLeft:"82px"}}>
+                            <p style={{ marginLeft: "82px" }}>
                                 <i
                                     class="fa-solid fa-greater-than"
                                     style={{ color: "white", margin: "10px" }}

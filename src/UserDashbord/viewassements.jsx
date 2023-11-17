@@ -1,5 +1,6 @@
 import React from 'react'
 import './userdashbord.css'
+import { Link } from "react-router-dom";
 import logo1 from '../sidebar/Skill-hub.png'
 function Viewassements() {
   return (
@@ -13,22 +14,22 @@ function Viewassements() {
                     <div class="collapse navbar-collapse" id="collapsibleNavbar">
                         <ul class="navbar-nav">
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Assessment</a>
+                              <Link to="/userAssessment" style={{textDecoration:"none"}}>  <a class="nav-link" href="#">Assessment</a></Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Courses</a>
+                            <Link to="/usersCourses" style={{textDecoration:"none"}}> <a class="nav-link" href="#">Courses</a></Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Code</a>
+                               <a class="nav-link" href="#">Code</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Practice</a>
+                            <Link to="/Userpratice" style={{textDecoration:"none"}}> <a class="nav-link" href="#">Practice</a></Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Blogs</a>
+                            <Link to="/Usersblogs" style={{textDecoration:"none"}}> <a class="nav-link" href="#">Blogs</a></Link>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="#">Dashboard</a>
+                            <Link to="/dashbordhome" style={{textDecoration:"none"}}>  <a class="nav-link" href="#">Dashboard</a></Link>
                             </li>
                             <li class="nav-item">
                                 <button className='logout'>Logout</button>

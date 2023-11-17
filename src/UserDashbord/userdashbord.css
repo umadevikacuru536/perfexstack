@@ -12,7 +12,16 @@
     border-radius: 20px;
     padding: 20px;
     margin-top: 4vh;
+    margin-right: 10px;
     box-shadow: 1px soild black;
+}
+.range{
+    margin-left: 300px;
+     font-size: 25px;
+}
+.range1{
+    margin-left:300px; 
+    font-size: 25px;
 }
 
 .Details1 {
@@ -37,11 +46,14 @@ padding-top: 20px;
     margin: 15px;
     font-size: 20px;
     font-weight: bold;
+    text-decoration: none;
+
 }
 
 
-
-
+.nav-link:hover {
+    color: #007bff; 
+}
 .cards {
     border: 2px solid rgb(202, 195, 195);
     margin-top: 5vh;
@@ -50,6 +62,7 @@ padding-top: 20px;
     padding: 15px;
     box-shadow: 2px solid black;
     border-radius: 20px;
+  
 }
 .cards1 {
     border: 2px solid rgb(202, 195, 195);
@@ -198,7 +211,7 @@ text-align: center;
     border: 2px solid rgb(202, 195, 195);
     margin-top: 5vh;
     width: 70vw;
-    height: 12vh;
+    height: 15vh;
     box-shadow: 0px 8px 24px hsla(0, 0%, 0%, .3);
     border-radius: 10px;
     text-align: start;
@@ -206,6 +219,11 @@ text-align: center;
     display:flex ;
     flex-direction: row;
     margin-left: 300px;
+}
+.readicon{
+    color: #007bff;
+    font-size: 40px;
+    margin-right: 20px;
 }
 .resume{
     margin-left: 95vh;
@@ -236,4 +254,50 @@ text-align: center;
     overflow-x: hidden;
    
 
+}
+.assementbtn{
+   margin: 5px;
+   margin-top: 30px;
+    padding: 10px;
+    height: 50px;
+    width: 180px;
+    background-color: white;
+    border-radius: 10px;
+    border-color: white;
+    border: 2px solid rgb(231, 224, 224);
+    box-shadow: 0px 8px 24px hsla(0, 0%, 0%, .2);
+}
+.assementcard{
+    background-color: white;
+    border-radius: 10px;
+    height: 29vh;
+    width: 15vw;
+    border: 2px solid black;
+    box-shadow: 0px 8px 24px hsla(0, 0%, 0%, .5);
+    border-color: white;
+  margin-bottom: 150px;
+  margin-top: 100px;
+}
+.program{
+    background-color: rgb(107, 96, 161);
+    color:white;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 5px;
+}
+.program1{
+    background-color: rgb(75, 161, 75);
+    color:white;
+    border-radius: 10px;
+    padding: 4px;
+    margin: 5px;
+    margin-left: 120px;
+}
+.open{
+    background-color: #ae1e97;
+    color: white;
+    border-radius: 10px;
+    padding: 10px;
+    width: 80px;
+    margin: 5vh;
 }

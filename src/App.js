@@ -33,6 +33,11 @@ import Changepassword from './UserDashbord/changepassword';
 import Viewassements from './UserDashbord/viewassements';
 import Coursesactivity from './UserDashbord/coursesactivity';
 import Practiceactivity from './UserDashbord/practiceactivity';
+import Assessment from './UserDashbord/assement';
+import UserCourses from './UserDashbord/courses';
+import Userpratice from './UserDashbord/userpratice';
+import Usersblogs from './UserDashbord/usersblogs';
+import Accuracy from './UserDashbord/Accuracy';
  
 function App() {
   return (
@@ -71,6 +76,11 @@ function App() {
  <Route path='/viewassements' element={< Viewassements/>}/>
  <Route path='/Coursesactivity' element={<Coursesactivity/>}/>
  <Route path='/Practiceactivity' element={<Practiceactivity/>}/>
+ <Route path='/userAssessment' element={<Assessment/>}/>
+ <Route path='/usersCourses' element={<UserCourses/>}/>
+ <Route path='/Userpratice' element={<Userpratice/>}/>
+ <Route path='/Usersblogs' element={<Usersblogs/>}/>
+ <Route path='/Accuracy' element={<Accuracy/>}/>
  </Routes>
  </BrowserRouter>
     </div>
