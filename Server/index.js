@@ -46,7 +46,25 @@ app.post("/login", async (req, res) => {
     return res.status(500).json({ message: "Internal server error" });
   }
 });
+app.post('/login-change-password', async (req, res) => {
+  try {
+    const { email, password } = req.body;
 
+    // Find the user in your MongoDB database based on the email
+    const user = await perfexdata.findOne({ email });
+
+    // Update the user's password
+    user.password = password;
+
+    // Save the updated user document
+    await user.save();
+
+    res.json({ success: true, message: 'Password updated successfully' });
+  } catch (error) {
+    console.error('Error changing password:', error);
+    res.status(500).json({ success: false, message: 'Password change failed' });
+  }
+});
 app.get("/alllogin", async (req, res) => {
 
   const allusers1 = await perfexdata.find({})

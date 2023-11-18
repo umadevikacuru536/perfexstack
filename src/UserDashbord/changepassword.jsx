@@ -1,8 +1,100 @@
-import React from 'react'
+import React, { useState } from 'react'
 import logo1 from '../sidebar/Skill-hub.png'
 import './userdashbord.css'
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+import { useEffect } from 'react';
 function Changepassword() {
+    const [password, setpassword] = useState('');
+    const [newPassword, setNewPassword] = useState('');
+   
+    // let navigate=useNavigate()
+    // useEffect(() => {
+    //     fetchblogs();
+    //   }, []);
+    //   const fetchblogs = async () => {
+    //     const api = "http://localhost:5020/alllogin";
+    //     const authToken =
+    //       "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGNjZDBhMGJhOTZkMTA5YTFhNzZkNzMiLCJpYXQiOjE2OTExNDQzOTV9.tX4qCPXSptfwgk1C6dIhOVgB6ffWwGhOgClGkZluU9s";
+      
+    //     try {
+    //       const response = await axios.get(api, {
+    //         headers: {
+    //           Authorization: `Bearer ${authToken}`,
+    //         },
+    //       });
+    //       if (response.data && Array.isArray(response.data)) {
+    //         if (response.data.length > 0) {
+    //           const lastIndex = response.data.length - 1;
+    //           const lastMobileEl = response.data[lastIndex].password;
+    //           console.log("Mobile Number at the last index:", lastMobileEl);
+    //           setpassword(lastMobileEl)
+    
+              
+    //         } else {
+    //           console.error("The array is empty.");
+    //         }
+    //       } else {
+    //         console.error("API response does not contain a valid array.");
+    //       }
+    //       toast.success("Data fetched successfully", {
+    //         position: "top-right",      
+    //         hideProgressBar: false, 
+    //         closeOnClick: true,     
+    //         pauseOnHover: true,     
+    //         draggable: true, 
+    //         autoClose: 1000,
+    //         theme: "colored", 
+                  
+    //       });
+    //       setTimeout(function () {
+    //         navigate("");
+    //       }, 3000);
+    //     } catch (error) {
+    //       console.error("Error fetching blogs:", error);
+    //       toast.error("Error fetching data");
+    //     }
+    //   };
+      const handleChangePassword = async () => {
+        const api = 'http://localhost:5020/login-change-password';
+        const authToken =
+          'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjY1NTcyY2NiMzA5N2JjMTUwNzk2MDAxYyIsImlhdCI6MTcwMDI4NDQ4NSwiZXhwIjoxNzAwMzcwODg1fQ.1kDLxIGgj7_9snw7HmghhaAma5bzjvjWiV1v6Xj1mjM'; // Replace with your actual JWT token
+    
+        try {
+          const response = await axios.post(
+            api,
+            { newPassword },
+            {
+              headers: {
+                Authorization: `Bearer ${authToken}`,
+              },
+            }
+          );
+    
+          if (response.data.success) {
+            toast.success('Password changed successfully', {
+              position: 'top-right',
+              hideProgressBar: false,
+              closeOnClick: true,
+              pauseOnHover: true,
+              draggable: true,
+              autoClose: 1000,
+              theme: 'colored',
+            });
+    
+            // Redirect or perform any other action after successful password change
+          } else {
+            toast.error('Error changing password');
+          }
+        } catch (error) {
+          console.error('Error changing password:', error);
+          toast.error('Error changing password');
+        }
+      };
+    
     return (
         <>
             <div>
@@ -42,7 +134,12 @@ function Changepassword() {
                 <div className='changepassword '>
                     <h2 className='text-center'>Change Password ?</h2>
                     <label className='profilename'> Password<span style={{ color: "red", fontSize: "20px" }}>*</span></label><br />
-                    <input className='input1 w-75' />
+                    <input className='input1 w-75' 
+                     
+                      />
+                    {/* <button className='btn btn-primary mt-3' onClick={handleChangePassword}>
+            Change Password
+          </button> */}
                     <h6 className='detailsheading'>Password should contain:</h6>
                     <div className='dot'>
                         <div className='container'>

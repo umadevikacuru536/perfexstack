@@ -9,6 +9,15 @@ Content-Type: application/json
       "password":"Umadevi@12"
 }
 ###
+POST http://localhost:5020/login-change-password
+Content-Type: application/json
+
+{
+
+      "email":"uma3433@gmail.com",
+      "password":"Umadevi@123"
+}
+###
 GET http://localhost:5020/alllogin
 ###
 POST http://localhost:5020/admin

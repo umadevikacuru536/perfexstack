@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import logo from '../src/img/_7bf5af82-4de7-426c-b2c9-1a833c87c4ba.png';
 import { Link } from "react-router-dom";
 import axios from "axios";
@@ -12,6 +12,16 @@ function About() {
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
+ useEffect(()=>{
+  const token=Cookies.get("jwt-token")
+  if(token){
+    navigate("/dashbordhome")
+  }
+ })
+
+//  const gotoDashboard=()=>{
+//     navigate("/dashbordhome")
+//  }
   let navigate = useNavigate();
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -128,7 +138,7 @@ function About() {
                 />
               </div>
             <Link to="/forget"><p className="loginforgot">Forgot password?</p></Link>  
-              <button className="loginbutton">Sign In</button>
+              <button className="loginbutton" >Sign In</button>
             </form>
           </div>
         </div>

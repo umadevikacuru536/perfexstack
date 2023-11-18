@@ -3,7 +3,89 @@ import logo1 from '../sidebar/Skill-hub.png'
 import './userdashbord.css'
 import { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import Cookies from 'js-cookie';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 function Dashbordhome() {
+  let navigate=useNavigate()
+  const [email, setemail] = useState('');
+  const [password, setpassword] = useState('');
+  const token=Cookies.get('jwt-token');
+      // useEffect(()=>{
+      //   if(token === undefined){
+      //     navigate("/")
+      //   }
+      // })  
+      const onClicklogout=()=>{
+        Cookies.remove('jwt-token')
+        navigate("/")
+      }
+  useEffect(() => {
+    fetchblogs();
+    if(token === undefined){
+      navigate("/dashbordhome")
+    }
+  }, []);
+  const fetchblogs = async () => {
+    const api = "http://localhost:5020/alllogin";
+    const authToken =
+      "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NGNjZDBhMGJhOTZkMTA5YTFhNzZkNzMiLCJpYXQiOjE2OTExNDQzOTV9.tX4qCPXSptfwgk1C6dIhOVgB6ffWwGhOgClGkZluU9s";
+  
+    try {
+      const response = await axios.get(api, {
+        headers: {
+          Authorization: `Bearer ${authToken}`,
+        },
+      });
+  
+      if (response.data && Array.isArray(response.data)) {
+        if (response.data.length > 0) {
+          const lastIndex = response.data.length - 1;
+          const lastMobileEl = response.data[lastIndex].email;
+          console.log("Mobile Number at the last index:", lastMobileEl);
+          setemail(lastMobileEl)
+
+          
+        } else {
+          console.error("The array is empty.");
+        }
+      } else {
+        console.error("API response does not contain a valid array.");
+      }
+      if (response.data && Array.isArray(response.data)) {
+        if (response.data.length > 0) {
+          const lastIndex = response.data.length - 1;
+          const lastMobileEl = response.data[lastIndex].password;
+          console.log("Mobile Number at the last index:", lastMobileEl);
+          setpassword(lastMobileEl)
+
+          
+        } else {
+          console.error("The array is empty.");
+        }
+      } else {
+        console.error("API response does not contain a valid array.");
+      }
+      toast.success("Data fetched successfully", {
+        position: "top-right",      
+        hideProgressBar: false, 
+        closeOnClick: true,     
+        pauseOnHover: true,     
+        draggable: true, 
+        autoClose: 1000,
+        theme: "colored", 
+              
+      });
+      setTimeout(function () {
+        navigate("");
+      }, 3000);
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+      toast.error("Error fetching data");
+    }
+  };
     const [rangeValue, setRangeValue] = useState(0);
 
     // Step 3: Set up an event handler function to update the state
@@ -46,7 +128,7 @@ function Dashbordhome() {
                             <Link to="/dashbordhome" style={{textDecoration:"none"}}>  <a class="nav-link" href="#">Dashboard</a></Link> 
                             </li>
                             <li class="nav-item">
-                                <button className='logout'>Logout</button>
+                                <button className='logout' onClick={onClicklogout}>Logout</button>
                             </li>
                         </ul>
                     </div>
@@ -56,8 +138,8 @@ function Dashbordhome() {
   <div className='container Details'>
     <div className='row'>
       <div className='col-md-12 col-lg-5 mb-3 '>
-        <h3 className='detailsheading'>Welcome ashok</h3>
-        <p className='detailsheading'>Email: ashok76@gmail.com</p>
+        <h3 className='detailsheading'>Welcome </h3>
+        <p className='detailsheading'>Email:{email}</p>
         <div className='d-flex flex-column flex-sm-row'>
           <button className='changebtn'>Reported Issues</button>
           <Link to="/changepassword" style={{ textDecoration: "none" }}>
@@ -69,7 +151,7 @@ function Dashbordhome() {
       <div className='col-md-12 col-lg-5 mx-4'>
         <p className='detailspara'>Organization: Corporate Office</p>
         <p className='detailspara'>Batch: 2023_10_Batch_001-2023</p>
-        <p className='detailspara'>ID No: gsb021</p>
+        <p className='detailspara'>ID No: {password}</p>
       </div>
     </div>
   </div>
