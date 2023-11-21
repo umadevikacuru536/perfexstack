@@ -65,7 +65,7 @@ function UserCourses() {
                     <span class="material-symbols-outlined readicon" >local_library</span>
                      <p className="text-start detailspara">12 Topics</p>
                      </div>
-                    <button className="open">open</button>
+                    <button className="open123">open</button>
                 </div>
             ) : null}
 
@@ -81,7 +81,7 @@ function UserCourses() {
                     <span class="material-symbols-outlined readicon" >local_library</span>
                      <p className="text-start detailspara">13 Topics</p>
                      </div>
-                    <button className="open">open</button>
+                    <button className="open123">open</button>
                 </div>
             ) : null}
  {selectedCategory === 'All' || selectedCategory === 'Programming' ? (
@@ -96,7 +96,7 @@ function UserCourses() {
                     <span class="material-symbols-outlined readicon" >local_library</span>
                      <p className="text-start detailspara">12 Topics</p>
                      </div>
-                    <button className="open">open</button>
+                    <button className="open123">open</button>
                 </div>
             ) : null}
              {selectedCategory === 'All' || selectedCategory === 'Programming' ? (
@@ -111,7 +111,7 @@ function UserCourses() {
                     <span class="material-symbols-outlined readicon" >local_library</span>
                      <p className="text-start detailspara">10 Topics</p>
                      </div>
-                    <button className="open">open</button>
+                    <button className="open123">open</button>
                 </div>
             ) : null}
           

@@ -61,7 +61,7 @@ function Assessment() {
                             </div>
                             <h3>java mcq topicwise</h3>
                             <p className="text-start detailspara">By Your Vendor</p>
-                            <button className="open">open</button>
+                            <button className="open123">open</button>
                         </div>
                     ) : null}
 
@@ -73,7 +73,7 @@ function Assessment() {
                             </div>
                             <h3>java mock tests</h3>
                             <p className="text-start detailspara">By Your Vendor</p>
-                            <button className="open">open</button>
+                            <button className="open123">open</button>
                         </div>
                     ) : null}
 
@@ -85,7 +85,7 @@ function Assessment() {
                             </div>
                             <h3>React</h3>
                             <p className="text-start detailspara">By Your Vendor</p>
-                            <button className="open">open</button>
+                            <button className="open123">open</button>
                         </div>
                     ) : null}
                 </div>

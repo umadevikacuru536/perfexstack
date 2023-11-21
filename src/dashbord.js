@@ -1,12 +1,10 @@
 
 import React, { useState } from "react";
 import { Link, BrowserRouter as Router, useNavigate } from "react-router-dom";
-
+import { useEffect } from "react";
 import Sidebar from "./sidebar/sidebar";
+import Cookies from 'js-cookie';
 function Dashboard() {
-  
-const navigate= useNavigate()
-  
 
   return (
     <>

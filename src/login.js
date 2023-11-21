@@ -7,21 +7,20 @@ import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import img from "./img/6333204.jpg";
 import Cookies from 'js-cookie';
+
 function About() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [showPassword, setShowPassword] = useState(false);
   const [passwordError, setPasswordError] = useState("");
+  
  useEffect(()=>{
-  const token=Cookies.get("jwt-token")
+  const token=Cookies.get("token")
   if(token){
-    navigate("/dashbordhome")
+    navigate("/sidebar")
   }
  })
 
-//  const gotoDashboard=()=>{
-//     navigate("/dashbordhome")
-//  }
   let navigate = useNavigate();
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);
@@ -61,7 +60,7 @@ function About() {
             });
   
             setTimeout(function () {
-              navigate("/dashbordhome");
+              navigate("/");
             }, 3000);
           }
         })

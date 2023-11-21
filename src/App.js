@@ -38,6 +38,11 @@ import UserCourses from './UserDashbord/courses';
 import Userpratice from './UserDashbord/userpratice';
 import Usersblogs from './UserDashbord/usersblogs';
 import Accuracy from './UserDashbord/Accuracy';
+import Subject from './QustionsBank/Subject';
+import Chapaters from './QustionsBank/chapaters';
+import McqCreat from './QustionsBank/Mcqcreat';
+import Meqview from './QustionsBank/meqview';
+import Upload from './QustionsBank/upload';
  
 function App() {
   return (
@@ -81,6 +86,11 @@ function App() {
  <Route path='/Userpratice' element={<Userpratice/>}/>
  <Route path='/Usersblogs' element={<Usersblogs/>}/>
  <Route path='/Accuracy' element={<Accuracy/>}/>
+ <Route path='/Subject' element={<Subject/>}/>
+ <Route path='/Chapaters' element={<Chapaters/>}/>
+ <Route path='/McqCreat' element={<McqCreat/>}/>
+ <Route path='/Meqview' element={<Meqview/>}/>
+ <Route path='/Upload' element={<Upload/>}/>
  </Routes>
  </BrowserRouter>
     </div>

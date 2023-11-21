@@ -212,6 +212,8 @@
 
 .sidebar_menu.open li.Details{
   width: 340px;
+  height: fit-content;
+  margin-bottom: 2vh;
 }
 
 .sidebar_menu li .Child_Details{
@@ -242,7 +244,7 @@
 
 .sidebar_menu .Details #log_out{
   position: absolute;
-  top: 50%;
+  top: 40%;
   right: 0;
   transform: translateY(-50%);
   background: black;
@@ -330,7 +332,8 @@
 .sidebarlogo{
  background-color:#a509de;
  border-radius: 5px;
- padding: 2px;
+ padding: 3px;
+ text-shadow: 2px 2px 4px #000000;
  
  
   

@@ -12,20 +12,11 @@ function Dashbordhome() {
   let navigate=useNavigate()
   const [email, setemail] = useState('');
   const [password, setpassword] = useState('');
-  const token=Cookies.get('jwt-token');
-      // useEffect(()=>{
-      //   if(token === undefined){
-      //     navigate("/")
-      //   }
-      // })  
-      const onClicklogout=()=>{
-        Cookies.remove('jwt-token')
-        navigate("/")
-      }
+  const token = Cookies.get('token');
   useEffect(() => {
-    fetchblogs();
-    if(token === undefined){
-      navigate("/dashbordhome")
+    fetchblogs()
+    if (token == undefined) {
+      navigate("/")
     }
   }, []);
   const fetchblogs = async () => {
@@ -128,7 +119,7 @@ function Dashbordhome() {
                             <Link to="/dashbordhome" style={{textDecoration:"none"}}>  <a class="nav-link" href="#">Dashboard</a></Link> 
                             </li>
                             <li class="nav-item">
-                                <button className='logout' onClick={onClicklogout}>Logout</button>
+                                <button className='logout'>Logout</button>
                             </li>
                         </ul>
                     </div>
@@ -226,6 +217,7 @@ function Dashbordhome() {
         <p style={{ color: "white" }}>Powered by Instacks</p>
         <p style={{ color: "white" }}>Loading Assessment Provider in India</p>
         <div className="d-flex flex-row p-3">
+          
           <button className="umadevi">
             <i class="fa-brands fa-facebook"></i>
           </button>

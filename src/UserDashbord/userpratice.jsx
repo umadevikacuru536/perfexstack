@@ -62,7 +62,7 @@ const handleCategoryClick = (category) => {
                     <h3>JAVA LAB</h3>
                     <hr style={{marginTop:"40px"}}/>
                     <p className="text-start detailspara">12 Topics</p>
-                    <button className="open">open</button>
+                    <button className="open123">open</button>
                 </div>
             ) : null}
 
