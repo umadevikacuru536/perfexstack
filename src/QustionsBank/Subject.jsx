@@ -10,7 +10,9 @@ function Subject() {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-            <div className="card21">
+              <div class="box">
+              <div class="content">
+              <div className="">
           <div className="d-flex flex-row ">
             <p className="assement">Subjects</p>
           <button className="creat1" data-bs-toggle="modal" data-bs-target="#myModal11" >+ Create Subjects</button>
@@ -110,6 +112,9 @@ function Subject() {
           </table>
 
         </div>
+  </div>
+  </div>
+         
             </div>
           </div>
         </div>

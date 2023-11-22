@@ -21,6 +21,8 @@ function Sidebar() {
   const [userSubfolderVisible2, setUserSubfolderVisible2] = useState(false);
   const [userSubfolderVisible3, setUserSubfolderVisible3] = useState(false);
   const [userSubfolderVisible4, setUserSubfolderVisible4] = useState(false);
+  const [userSubfolderVisible5, setUserSubfolderVisible5] = useState(false);
+  const [userSubfolderVisible6, setUserSubfolderVisible6] = useState(false);
   const [assessment1, setassessment1] = useState(false);
   const assessment = () => {
     setassessment1(!assessment1);
@@ -39,6 +41,12 @@ function Sidebar() {
   };
   const toggleUserSubfolder4 = () => {
     setUserSubfolderVisible4(!userSubfolderVisible4);
+  };
+  const toggleUserSubfolder5 = () => {
+    setUserSubfolderVisible5(!userSubfolderVisible5);
+  };
+  const toggleUserSubfolder6 = () => {
+    setUserSubfolderVisible6(!userSubfolderVisible6);
   };
   const [isSidebarOpen, setIsSidebarOpen] = useState(false);
   let navigate = useNavigate()
@@ -66,7 +74,7 @@ function Sidebar() {
         <i className='bx bxl-slack icon'></i>
         <div className="Text_Logo">
           {/* <img  className="sidebarlogo"src={logo}/> */}
-          <h3 style={{textShadow: "2px 2px 4px white",fontSize:"40px",marginTop:"10px"}}>Skill<span className='sidebarlogo'>Hub</span></h3>
+          <h3 style={{ textShadow: "2px 2px 4px white", fontSize: "40px", marginTop: "10px" }}>Skill<span className='sidebarlogo'>Hub</span></h3>
         </div>
         <i className={`fa-solid fa-bars  ${menuBtnChange()}`} id="Button" onClick={toggleSidebar}></i>
       </div>
@@ -87,7 +95,7 @@ function Sidebar() {
           </Link>
           <span className="Menu_btn">Home</span>
         </li>
-      
+
         <li>
           <Link to="/admin">
             <span class="material-symbols-outlined dashboardicons">group</span>
@@ -96,38 +104,38 @@ function Sidebar() {
           <span className="Menu_btn">Users</span>
         </li>
         <h4 className='text-white text-start' >QUESTION BANK</h4>
+        <>
         <li onClick={toggleUserSubfolder3}>
-              <a href="#">
-              <span class="material-symbols-outlined dashboardicons">stacks</span>
-                <span className="Item_Name">Self Created QB</span>
-                <i className="fa fa-caret-down"></i>
-              </a>
-              <span className="Menu_btn">Self Created QB</span>
-              <ul className={`subfolders ${userSubfolderVisible3 ? 'active' : ''}`}>
-                <li>
-                  <Link to="/Subject">
-                    <div className='d-flex flex-row'>
-                      <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
-                      <a href="#">Subjects</a>
-                    </div>
-                  </Link>
-                </li>
-                <li>
-                  <Link to="/Chapaters">
-                    <div className='d-flex flex-row'>
-                      <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
-                     <a href="#">Chapters</a>
-                    </div></Link>
-                </li>
-              </ul>
+          <a href="#">
+            <span class="material-symbols-outlined dashboardicons">stacks</span>
+            <span className="Item_Name">Self Created QB</span>
+            <i className="fa fa-caret-down"></i>
+          </a>
+          <span className="Menu_btn">Self Created QB</span>
+          <ul className={`subfolders ${userSubfolderVisible3 ? 'active' : ''}`}>
+            <li>
+              <Link to="/Subject">
+                <div className='d-flex flex-row'>
+                  <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                  <a href="#">Subjects</a>
+                </div>
+              </Link>
+            </li>
+            <li>
+              <Link to="/Chapaters">
+                <div className='d-flex flex-row'>
+                  <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                  <a href="#">Chapters</a>
+                </div></Link>
             </li>
             <li onClick={toggleUserSubfolder4}>
-              <a href="#">
-                <span className="material-symbols-outlined dashboardicons">folder</span>
-                <span className="Item_Name">MCQ Qustions</span>
+            <div className='d-flex flex-row'>
+            
+                <span class="material-symbols-outlined" style={{ fontSize: "25px" ,color:"white"}}>fiber_manual_record</span>
+                <a href="#">MCQ Questions</a>
                 <i className="fa fa-caret-down"></i>
-              </a>
-              <span className="Menu_btn">MCQ Qustions</span>
+              
+              </div>
               <ul className={`subfolders ${userSubfolderVisible4 ? 'active' : ''}`}>
                 <li>
                   <Link to="/McqCreat">
@@ -153,92 +161,155 @@ function Sidebar() {
                 </li>
               </ul>
             </li>
-        <h4 className='text-white text-start' onClick={assessment}>Assessment</h4>
-
-       
-
-          <>
-            <li onClick={toggleUserSubfolder}>
-              <a href="#">
-                <span className="material-symbols-outlined dashboardicons">folder</span>
-                <span className="Item_Name">Assessment</span>
+            <li onClick={toggleUserSubfolder5}>
+            <div className='d-flex flex-row'>
+                <span class="material-symbols-outlined" style={{ fontSize: "25px",color:"white" }}>fiber_manual_record</span>
+                <a href="#"> Parag MCQ Questions</a>
                 <i className="fa fa-caret-down"></i>
-              </a>
-              <span className="Menu_btn">Assessment</span>
-              <ul className={`subfolders ${userSubfolderVisible ? 'active' : ''}`}>
+              </div>
+
+              <ul className={`subfolders ${userSubfolderVisible5 ? 'active' : ''}`}>
                 <li>
-                  <Link to="/assessment/categories">
+                  <Link to="/Paragquestioncreate">
                     <div className='d-flex flex-row'>
                       <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
-                      <a href="#">Categories</a>
+                      <a href="#">Create</a>
                     </div>
                   </Link>
                 </li>
                 <li>
-                  <Link to="/assessment">
+                  <Link to="/Paragview">
                     <div className='d-flex flex-row'>
                       <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
-                      <a href="#">Assessments</a>
+                      <a href="#">View</a>
                     </div></Link>
                 </li>
               </ul>
             </li>
-
-            <li onClick={toggleUserSubfolder1}>
-              <a href="#">
-                <span className="material-symbols-outlined dashboardicons">folder</span>
-                <span className="Item_Name">Reports</span>
+            <li onClick={toggleUserSubfolder6}>
+            <div className='d-flex flex-row'>
+                <span class="material-symbols-outlined" style={{ fontSize: "25px",color:"white" }}>fiber_manual_record</span>
+                <a href="#"> Coding Questions</a>
                 <i className="fa fa-caret-down"></i>
-              </a>
-              <span className="Menu_btn">Reports</span>
-              <ul className={`subfolders ${userSubfolderVisible1 ? 'active' : ''}`}>
+              </div>
+              <ul className={`subfolders ${userSubfolderVisible6 ? 'active' : ''}`}>
                 <li>
-                  <Link to="/assessmentreport"> <div className='d-flex flex-row'>
-                    <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
-                    <a href="#">Assessment Report</a>
-                  </div></Link>
+                  <Link to="/Codingcreate">
+                    <div className='d-flex flex-row'>
+                      <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                      <a href="#">Create</a>
+                    </div>
+                  </Link>
                 </li>
                 <li>
-                  <Link to="/paticipation"> <div className='d-flex flex-row'>
-                    <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
-                    <a href="#">Participation Report</a>
-                  </div></Link>
+                  <Link to="/Codingview
+                  ">
+                    <div className='d-flex flex-row'>
+                      <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                      <a href="#">View</a>
+                    </div></Link>
                 </li>
+
               </ul>
             </li>
-            <li onClick={toggleUserSubfolder2}>
-              <a href="#">
-                <span class="material-symbols-outlined dashboardicons">group</span>
-                <span className="Item_Name">Assigned Assessments</span>
-                <i className="fa fa-caret-down"></i>
-              </a>
-              <span className="Menu_btn">Assigned Assessments</span>
-              <ul className={`subfolders ${userSubfolderVisible2 ? 'active' : ''}`}>
-                <li>
-                  <Link to="/assingedcategories"><div className='d-flex flex-row'>
+          </ul>
+        </li>
+
+        <li>
+          <Link to="/Upload">
+            <div className='d-flex flex-row'>
+              <span class="material-symbols-outlined dashboardicons">search</span>
+              <span className="Item_Name">Assigned QB</span>
+
+            </div></Link>
+        </li>
+        </>
+        <h4 className='text-white text-start' onClick={assessment}>Assessment</h4>
+
+
+
+        <>
+          <li onClick={toggleUserSubfolder}>
+            <a href="#">
+              <span className="material-symbols-outlined dashboardicons">folder</span>
+              <span className="Item_Name">Assessment</span>
+              <i className="fa fa-caret-down"></i>
+            </a>
+            <span className="Menu_btn">Assessment</span>
+            <ul className={`subfolders ${userSubfolderVisible ? 'active' : ''}`}>
+              <li>
+                <Link to="/assessment/categories">
+                  <div className='d-flex flex-row'>
                     <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
                     <a href="#">Categories</a>
-                  </div> </Link>
-                </li>
-                <li>
-                  <Link to="/assingesassessment"><div className='d-flex flex-row'>
+                  </div>
+                </Link>
+              </li>
+              <li>
+                <Link to="/assessment">
+                  <div className='d-flex flex-row'>
                     <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
                     <a href="#">Assessments</a>
-                  </div> </Link>
-                </li>
-              </ul>
-            </li>
-            <li>
-              <Link to="/compare">
-                <span class="material-symbols-outlined dashboardicons">repeat</span>
-                <span className="Item_Name">Compare</span>
-              </Link>
-              <span className="Menu_btn">Compare</span>
-            </li>
-          </>
+                  </div></Link>
+              </li>
+            </ul>
+          </li>
+
+          <li onClick={toggleUserSubfolder1}>
+            <a href="#">
+              <span className="material-symbols-outlined dashboardicons">folder</span>
+              <span className="Item_Name">Reports</span>
+              <i className="fa fa-caret-down"></i>
+            </a>
+            <span className="Menu_btn">Reports</span>
+            <ul className={`subfolders ${userSubfolderVisible1 ? 'active' : ''}`}>
+              <li>
+                <Link to="/assessmentreport"> <div className='d-flex flex-row'>
+                  <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                  <a href="#">Assessment Report</a>
+                </div></Link>
+              </li>
+              <li>
+                <Link to="/paticipation"> <div className='d-flex flex-row'>
+                  <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                  <a href="#">Participation Report</a>
+                </div></Link>
+              </li>
+            </ul>
+          </li>
+          <li onClick={toggleUserSubfolder2}>
+            <a href="#">
+              <span class="material-symbols-outlined dashboardicons">group</span>
+              <span className="Item_Name">Assigned Assessments</span>
+              <i className="fa fa-caret-down"></i>
+            </a>
+            <span className="Menu_btn">Assigned Assessments</span>
+            <ul className={`subfolders ${userSubfolderVisible2 ? 'active' : ''}`}>
+              <li>
+                <Link to="/assingedcategories"><div className='d-flex flex-row'>
+                  <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                  <a href="#">Categories</a>
+                </div> </Link>
+              </li>
+              <li>
+                <Link to="/assingesassessment"><div className='d-flex flex-row'>
+                  <span class="material-symbols-outlined" style={{ fontSize: "25px" }}>fiber_manual_record</span>
+                  <a href="#">Assessments</a>
+                </div> </Link>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <Link to="/compare">
+              <span class="material-symbols-outlined dashboardicons">repeat</span>
+              <span className="Item_Name">Compare</span>
+            </Link>
+            <span className="Menu_btn">Compare</span>
+          </li>
+        </>
 
 
-    
+
         <li className="Details">
           <div className="Child_Details">
 

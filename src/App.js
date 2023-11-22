@@ -43,6 +43,10 @@ import Chapaters from './QustionsBank/chapaters';
 import McqCreat from './QustionsBank/Mcqcreat';
 import Meqview from './QustionsBank/meqview';
 import Upload from './QustionsBank/upload';
+import Paragquestioncreate from './QustionsBank/paragquestioncreate';
+import Paragview from './QustionsBank/paragview';
+import Codingcreate from './QustionsBank/codingcreate';
+import Codingview from './QustionsBank/codingview';
  
 function App() {
   return (
@@ -91,6 +95,10 @@ function App() {
  <Route path='/McqCreat' element={<McqCreat/>}/>
  <Route path='/Meqview' element={<Meqview/>}/>
  <Route path='/Upload' element={<Upload/>}/>
+ <Route path='/Paragquestioncreate' element={<Paragquestioncreate/>}/>
+ <Route path='/Paragview' element={<Paragview/>}/>
+ <Route path='/Codingcreate' element={<Codingcreate/>}/>
+ <Route path='/Codingview' element={<Codingview/>}/>
  </Routes>
  </BrowserRouter>
     </div>
