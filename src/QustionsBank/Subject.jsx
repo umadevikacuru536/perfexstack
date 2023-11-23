@@ -18,10 +18,10 @@ function Subject() {
           <button className="creat1" data-bs-toggle="modal" data-bs-target="#myModal11" >+ Create Subjects</button>
         <div class="modal" id="myModal11">
   <div class="modal-dialog">
-    <div class="modal-content" style={{ width: "40vw" }}>
+    <div class="modal-content text-start" style={{ width: "40vw" }}>
 
       <div class="modal-header">
-        <h4 class="modal-title">Edit Subject</h4>
+        <h4 class="modal-title">Add Subject</h4>
         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
       </div>
 
@@ -29,13 +29,13 @@ function Subject() {
      
         <form >
         <label>Name</label><br/>
-        <input/><br/>
+        <input className='input' style={{height:"4vh"}}/><br/>
         <label>Description</label><br/>
-        <input/><br/>
+        <input className='input' style={{height:"4vh"}}/><br/>
         <label>Subject Tag</label><br/>
-        <input/><br/>
+        <input className='input'style={{height:"4vh"}}/><br/>
         <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
-          <button className="creat12" >Update</button>
+          <button className="creat12" >ADD</button>
         </form>
       </div>
 
@@ -91,11 +91,11 @@ function Subject() {
      
         <form >
         <label>Name</label><br/>
-        <input/><br/>
+        <input className='input' style={{height:"4vh"}}/><br/>
         <label>Description</label><br/>
-        <input/><br/>
+        <input className='input' style={{height:"4vh"}}/><br/>
         <label>Subject Tag</label><br/>
-        <input/><br/>
+        <input className='input'style={{height:"4vh"}}/><br/>
         <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
           <button className="creat12" >Update</button>
         </form>

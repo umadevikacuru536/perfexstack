@@ -47,6 +47,7 @@ import Paragquestioncreate from './QustionsBank/paragquestioncreate';
 import Paragview from './QustionsBank/paragview';
 import Codingcreate from './QustionsBank/codingcreate';
 import Codingview from './QustionsBank/codingview';
+import Assignedqb from './QustionsBank/assignedqb';
  
 function App() {
   return (
@@ -99,6 +100,7 @@ function App() {
  <Route path='/Paragview' element={<Paragview/>}/>
  <Route path='/Codingcreate' element={<Codingcreate/>}/>
  <Route path='/Codingview' element={<Codingview/>}/>
+ <Route path='/Assignedqb' element={<Assignedqb/>}/>
  </Routes>
  </BrowserRouter>
     </div>

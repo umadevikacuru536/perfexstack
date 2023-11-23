@@ -44,10 +44,10 @@ function Chapaters() {
                                     <button className="creat1" data-bs-toggle="modal" data-bs-target="#myModal11" >+ Create Chapters</button>
                                     <div class="modal" id="myModal11">
                                         <div class="modal-dialog">
-                                            <div class="modal-content" style={{ width: "40vw" }}>
+                                            <div class="modal-content text-start " style={{ width: "40vw" }}>
 
                                                 <div class="modal-header">
-                                                    <h4 class="modal-title">Edit Chapters</h4>
+                                                    <h4 class="modal-title">Add Chapters</h4>
                                                     <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                                 </div>
 
@@ -55,13 +55,14 @@ function Chapaters() {
 
                                                     <form >
                                                         <label>Name</label><br />
-                                                        <input /><br />
+                                                        <input className='input' style={{height:"4vh"}}/><br />
                                                         <label>Description</label><br />
-                                                        <input /><br />
-                                                        <label>Subject Tag</label><br />
-                                                        <input /><br />
-                                                        <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
-                                                        <button className="creat12" >Update</button>
+                                                        <input className='input'  style={{height:"4vh"}}/><br />
+                                                        <label>Subject</label><br />
+                                                        <input  className='input'  style={{height:"4vh"}}/><br />
+                                                        <label>Chapter tag</label><br />
+                                                        <p>Note:Updating Chapter Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
+                                                        <button className="creat12" >ADD</button>
                                                     </form>
                                                 </div>
 
@@ -117,12 +118,13 @@ function Chapaters() {
 
                                                             <form >
                                                                 <label>Name</label><br />
-                                                                <input /><br />
+                                                                <input className='input'  style={{height:"4vh"}}/><br />
                                                                 <label>Description</label><br />
-                                                                <input /><br />
-                                                                <label>Subject Tag</label><br />
-                                                                <input /><br />
-                                                                <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
+                                                                <input className='input'  style={{height:"4vh"}}/><br />
+                                                                <label>Subject </label><br />
+                                                                <input className='input'  style={{height:"4vh"}}/><br />
+                                                                <label>Chapter Tag </label><br />
+                                                                <p>Note:Updating Chapter Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
                                                                 <button className="creat12" >Update</button>
                                                             </form>
                                                         </div>

@@ -216,7 +216,7 @@ function Sidebar() {
         </li>
 
         <li>
-          <Link to="/Upload">
+          <Link to="/Assignedqb">
             <div className='d-flex flex-row'>
               <span class="material-symbols-outlined dashboardicons">search</span>
               <span className="Item_Name">Assigned QB</span>
