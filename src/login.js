@@ -116,6 +116,7 @@ function About() {
                   placeholder="Enter your email ID"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
+                  style={{height:"5vh"}}
                 /><br />
                 <label htmlFor="password" className="loginemail">Password</label><br />
                 <input
@@ -126,6 +127,7 @@ function About() {
                   value={password}
                    placeholder="Minimum 6 characters"
                    onChange={handlePasswordChange}
+                   style={{height:"5vh"}}
                 /><br />
                  {passwordError && (
                       <span className="error mes">{passwordError}</span>

@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700&display=swap');
 
 *{
   margin: 0;
@@ -297,11 +297,11 @@
 
 }
 
-/* Add this CSS to your existing "sidebar.css" file */
+
 
 .sidebar_menu .subfolders {
   display: none;
-  padding-left: 20px; /* Adjust the padding as needed */
+  padding-left: 20px;
   transition: all 0.4s ease;
 }
 
@@ -309,7 +309,7 @@
   display: block;
 }
 
-/* Style subfolder links */
+
 .sidebar_menu .subfolders li {
   list-style: none;
 }
@@ -323,11 +323,11 @@
 }
 
 .sidebar_menu .subfolders li a:hover {
-  background: #444; /* Change the background color as desired */
+  background: #444; 
   border-radius: 4px;
 }
 
-/* Add any additional styling as needed for your subfolders */
+
 
 .sidebarlogo{
  background-color:#a509de;
@@ -337,4 +337,155 @@
  
  
   
+}
+@media screen and (max-width: 768px) {
+  .sidebar_menu {
+    display: none; 
+    background-color: black;
+    color: white;
+  }
+
+  .open {
+    display: block; 
+    background-color: black;
+    color: white;
+  }
+
+  .Logo {
+    flex-direction: column; 
+  }
+}
+
+ */
+
+ 
+
+
+
+
+nav {
+  position: fixed;
+  width: 100px;
+  height: 100%;
+  color: white;
+  background: var(--bg-secondary);
+  transition: .5s;
+  overflow: hidden;
+}
+
+nav.active {
+  width: 300px;
+}
+
+/* nav:hover {
+  width: 300px;
+} */
+
+nav ul {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+nav ul li {
+  list-style: none;
+  width: 100%;
+  position: relative;
+
+}
+
+nav ul li a:hover {
+  color: var(--bg-primary);
+}
+
+nav ul li:hover a::before {
+  background-color: var(--bg-active);
+  width: 100%;
+}
+
+nav ul li a {
+  position: relative;
+  display: block;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  color: var(--cl-text);
+  transition: .2s;
+}
+
+nav ul li a::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 0;
+  height: 100%;
+  transition: .2s;
+}
+
+nav ul li a .icon {
+  position: relative;
+  display: block;
+  min-width: 60px;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+}
+
+nav ul li a .title {
+  position: relative;
+  font-size: .85em;
+}
+
+nav ul li a .icon * {
+  font-size: 1.1em;
+}
+
+nav ul li a.toggle {
+  border-bottom: 3px solid var(--bg-primary);
+}
+
+.toggle {
+  cursor: pointer;
+}
+
+header {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  header {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      background: var(--bg-secondary);
+      color: var(--cl-text);
+  }
+
+  header a {
+      color: var(--cl-text)
+  }
+
+  nav {
+      left: -60px;
+  }
+
+  nav.active {
+      left: 0;
+      width: 100%;
+  }
+
+  nav ul li a.toggle {
+      display: none;
+  }
+}
+
+:root {
+  --bg-primary: #41444b;
+  --bg-secondary: #52575d;
+  --bg-active: #fddb3a;
+  --cl-text: #f6f4e6;
 }

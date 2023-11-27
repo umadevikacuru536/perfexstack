@@ -81,7 +81,7 @@ function McqCreat() {
         </div>
         </div>
         <label className="qustionlabel">Reference <span className="star">*</span></label><br/>
-        <input/><br/>
+        <input className="input" style={{height:"4vh"}}/><br/>
         <label className="qustionlabel">Question <span className="star">*</span></label>
         <CKEditor 
         editor={ClassicEditor}
@@ -253,7 +253,7 @@ function McqCreat() {
       </div>
       </div>
       <label className="qustionlabel">Reference <span className="star">*</span></label><br/>
-      <input/><br/>
+      <input className="input" style={{height:"4vh"}}/><br/>
       <label className="qustionlabel">Question <span className="star">*</span></label>
       <CKEditor 
       editor={ClassicEditor}
@@ -424,7 +424,7 @@ function McqCreat() {
       </div>
       </div>
       <label className="qustionlabel">Reference <span className="star">*</span></label><br/>
-      <input/><br/>
+      <input className="input" style={{height:"4vh"}}/><br/>
       <label className="qustionlabel">Question <span className="star">*</span></label>
       <CKEditor 
       editor={ClassicEditor}
@@ -594,7 +594,7 @@ function McqCreat() {
         </div>
         </div>
         <label className="qustionlabel">Reference <span className="star">*</span></label><br/>
-        <input/><br/>
+        <input className="input" style={{height:"4vh"}}/><br/>
         <label className="qustionlabel">Question <span className="star">*</span></label>
         <CKEditor 
         editor={ClassicEditor}
@@ -765,7 +765,7 @@ function McqCreat() {
         </div>
         </div>
         <label className="qustionlabel">Reference <span className="star">*</span></label><br/>
-        <input/><br/>
+        <input className="input" style={{height:"4vh"}}/><br/>
         <label className="qustionlabel">Question <span className="star">*</span></label>
         <CKEditor 
         editor={ClassicEditor}
@@ -935,7 +935,7 @@ function McqCreat() {
         </div>
         </div>
         <label className="qustionlabel">Reference <span className="star">*</span></label><br/>
-        <input/><br/>
+        <input className="input" style={{height:"4vh"}}/><br/>
         <label className="qustionlabel">Question <span className="star">*</span></label>
         <CKEditor 
         editor={ClassicEditor}
@@ -1105,7 +1105,7 @@ function McqCreat() {
         </div>
         </div>
         <label className="qustionlabel">Reference <span className="star">*</span></label><br/>
-        <input/><br/>
+        <input className="input" style={{height:"4vh"}}/><br/>
         <label className="qustionlabel">Question <span className="star">*</span></label>
         <CKEditor 
         editor={ClassicEditor}

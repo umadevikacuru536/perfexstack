@@ -30,9 +30,9 @@ function Codingcreate() {
       </select><br/>
     
       <label className="qustionlabel">Title <span className="star">*</span></label><br/>
-      <input/><br/>
+      <input className="input" style={{height:"4vh"}}/><br/>
       <label className="qustionlabel">Programming Languages <span className="star">*</span></label><br/>
-      <input/><br/>
+      <input className="input" style={{height:"4vh"}}/><br/>
       <label className="qustionlabel">Description <span className="star">*</span></label>
       <CKEditor 
       editor={ClassicEditor}
