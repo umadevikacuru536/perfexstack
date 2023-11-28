@@ -8,8 +8,10 @@ function Dashboard() {
 
   return (
     <>
+    
     <div className="d-flex flex-row">
     <Sidebar/>
+    
     <div className="dashborcard shadow w-75" >
         <h6 className="dashbordheading">Welcome back!</h6>
         <h3 className="dashbordheading"> GSB Gold Standard</h3>
