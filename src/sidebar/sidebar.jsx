@@ -3,7 +3,6 @@ import './sidebar.css'; // Ensure the correct CSS file is imported
 import { Link, useNavigate } from 'react-router-dom';
 import logo from '../sidebar/Skill-hub.png';
 import Cookies from 'js-cookie';
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 function Sidebar() {
@@ -56,6 +55,11 @@ function Sidebar() {
   const showAssign = () => {
     setShow(!showassign)
   }
+  const [isSwitchOn, setSwitchOn] = useState(false);
+
+  const onClickHandler = () => {
+    setSwitchOn(!isSwitchOn);
+  };
   return (
 
     <>
@@ -318,7 +322,7 @@ function Sidebar() {
       <div
         className={`content-container ${isActive ? "shifted-content" : ""}`}
       >
-        
+    
         </div>
     </>
   );

@@ -9,6 +9,17 @@ import "react-toastify/dist/ReactToastify.css";
 import { useNavigate } from "react-router-dom";
 function Categories() {
   let navigate = useNavigate();
+  const [isChecked, setChecked] = React.useState(false);
+
+  const handleCheckboxChange = () => {
+    setChecked(!isChecked);
+
+    if (isChecked) {
+      toast.success('enabled is ON');
+    } else {
+      toast.info('disabled is OFF');
+    }
+  };
   const [gettingId, setGettingId] = useState("")
   const [blogslist, setblogslist] = useState([]);
   const [individualInstitute, setIndividualInstitute] = useState({
@@ -60,7 +71,7 @@ function Categories() {
         console.log(error.message);
       });
   }
-
+const[apiStatus,setApiStatus]=useState("")
   useEffect(() => {
     fetchblogs();
   }, []);
@@ -90,7 +101,7 @@ function Categories() {
     setblogslist(filteredBlogs);
   };
   const [Error, setError] = useState("");
-  
+
 
   const handleDelete = async (id) => {
     try {
@@ -130,11 +141,11 @@ function Categories() {
       setError("An error occurred while deleting the institute.");
     }
   };
- 
+
   console.log(individualInstitute);
 
 
-  const update = async (id)=>{
+  const update = async (id) => {
     console.log(id);
     setGettingId(id)
     try {
@@ -150,7 +161,7 @@ function Categories() {
 
   }
 
-  
+
   return (
     <div>
       <div className="d-flex flex-row">
@@ -158,203 +169,211 @@ function Categories() {
         <div className='container'>
           <div className='row'>
             <div className='col-md-12'>
-            <div className="card21">
-          <div className="d-flex flex-row ">
-            <p className="assement">Categories</p>
-            <Link to="/categoriesadd"><button className="creat1">+ Create Categories</button></Link>
-          </div>
+              <div className="card21">
+                <div className="d-flex flex-row ">
+                  <p className="assement">Categories</p>
+                  <Link to="/categoriesadd"><button className="creat1">+ Create Categories</button></Link>
+                </div>
 
-          <div className="text-start m-4">
-            <label className="showname">Show</label><br />
-
-
-            <select className="show">
-              {blogslist.map((serialNo) => (
-                <option key={serialNo.id} value={serialNo.sno}>
-                  {serialNo.sno}
-                </option>
-              ))}
-            </select>
-
-            <label className="seach" >Seach</label>
-            <input value={examname } className='p-2'
-              onChange={(e) => setexamname(e.target.value)} />
-            <button className="seachbut p-2"style={{backgroundColor : "#ae1e97"}} onClick={searchBySkills}>seach</button>
-          </div>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>S.NO</th>
-                <th>Categories</th>
-                <th>AccessType</th>
-                <th>Assessment </th>
-                <th>DISPLAY</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-              {blogslist.length > 0 ? (
-                blogslist.map((blog) => (
-                  <tr key={blog.id}>
-                    <td>{blog.sno}</td>
-                    <td>{blog.name}</td>
-                    <td>{blog.accesstype}</td>
-                    <td>{blog.tag}</td>
-                    <td>{blog.display}</td>
-                    <td>
-                      <div className="A">
-                        <Link to="/access"><button className='access'>Access</button></Link>
-                        <span className="material-symbols-outlined editicon" data-bs-toggle="modal" data-bs-target="#myModal" onClick={()=>update(blog._id)}>edit_square</span>
+                <div className="text-start m-4">
+                  <label className="showname">Show</label><br />
 
 
-                        <div class="modal" id="myModal">
-                          <div class="modal-dialog">
-                            <div class="modal-content" style={{ width: "40vw" }}>
+                  <select className="show">
+                    {blogslist.map((serialNo) => (
+                      <option key={serialNo.id} value={serialNo.sno}>
+                        {serialNo.sno}
+                      </option>
+                    ))}
+                  </select>
 
-                              <div class="modal-header">
-                                <h4 class="modal-title">Modal Heading</h4>
-                                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-                              </div>
+                  <label className="seach" >Seach</label>
+                  <input value={examname} className='p-2'
+                    onChange={(e) => setexamname(e.target.value)} />
+                  <button className="seachbut p-2" style={{ backgroundColor: "#ae1e97" }} onClick={searchBySkills}>seach</button>
+                </div>
+                <table className="table">
+                  <thead>
+                    <tr>
+                      <th>S.NO</th>
+                      <th>Categories</th>
+                      <th>AccessType</th>
+                      <th>Assessment </th>
+                      <th>DISPLAY</th>
+                      <th>ACTIONS</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {blogslist.length > 0 ? (
+                      blogslist.map((blog,index) => (
+                        <tr key={blog.id}>
+                          <td>{index+1}</td>
+                          <td>{blog.name}</td>
+                          <td>{blog.accesstype}</td>
+                          <td>{blog.tag}</td>
+                          <td>  
+                        <div>
+                        <span>
+     
+        <input type="checkbox" className="checkboxtype"checked={isChecked} onChange={handleCheckboxChange} />
+      </span>
+      <ToastContainer />
+    </div>
+                          </td>
+                          <td>
+                            <div className="A">
+                              <Link to="/access"><button className='access'>Access</button></Link>
+                              <span className="material-symbols-outlined editicon" data-bs-toggle="modal" data-bs-target="#myModal" onClick={() => update(blog._id)}>edit_square</span>
 
-                              <div class="modal-body">
-                                <ToastContainer
-                                  position="top-right"
-                                  autoClose={5000}
-                                  hideProgressBar={false}
-                                  newestOnTop={false}
-                                  closeOnClick
-                                  rtl={false}
-                                  pauseOnFocusLoss
-                                  draggable
-                                  pauseOnHover
-                                  theme="light"
-                                />
-                                <form >
-                                  <div class="col-md-7">
-                                    <label className="profilename1">Sno</label>
-                                    <br />
-                                    <input className="input" placeholder="select category"
-                                      value={individualInstitute.sno}
-                                      onChange={(e) =>
-                                        setIndividualInstitute({
-                                          ...individualInstitute,
-                                          sno: e.target.value,
-                                        })
-                                      } />
 
-                                    <label className="profilename1">Name</label>
-                                    <br />
-                                    <input className="input" placeholder="select category"
-                                      value={individualInstitute.name}
-                                      onChange={(e) =>
-                                        setIndividualInstitute({
-                                          ...individualInstitute,
-                                          sno: e.target.value,
-                                        })
-                                      } />
+                              <div class="modal" id="myModal">
+                                <div class="modal-dialog">
+                                  <div class="modal-content" style={{ width: "40vw" }}>
 
-                                    <label className="profilename1">Description</label>
-                                    <br />
-                                    <textarea rows="4" cols="50"
-                                      value={individualInstitute.description}
-                                      onChange={(e) =>
-                                        setIndividualInstitute({
-                                          ...individualInstitute,
-                                          description: e.target.value,
-                                        })
-                                      } ></textarea> <br />
-                                    <label className="profilename1">AccessType</label> <br />
-                                    <select value={individualInstitute.accesstype}
-                                      onChange={(e) =>
-                                        setIndividualInstitute({
-                                          ...individualInstitute,
-                                          accesstype: e.target.value,
-                                        })
-                                      } >
-                                      <option value="AccessType">AccessType</option>
-                                      <option value="All">All</option>
-                                      <option value="Restricted">Restricted</option>
-                                    </select><br />
-                                    <label className="profilename1">Tag</label> <br />
-                                    <div className='dropdown dropend'>
-                                      <select className="left-align-select" value={individualInstitute.tag}
-                                        onChange={(e) =>
-                                          setIndividualInstitute({
-                                            ...individualInstitute,
-                                            tag: e.target.value,
-                                          })
-                                        }>
-                                        <option value="Physics">Physics</option>
-                                        <option value="Police">Police</option>
-                                        <option value="Programming">Programming</option>
-                                        <option value="Railways">Railways</option>
-                                        <option value="Screening Test">Screening Test</option>
-                                        <option value="Software Testing">Software Testing</option>
-                                        <option value="SSC">SSC</option>
-                                        <option value="Teaching">Teaching</option>
-                                        <option value="UPSC">UPSC</option>
-                                        <option value="Verbal Communications">Verbal Communications</option>
-                                        <option value="Web Development">Web Development</option>
-                                      </select>
-
+                                    <div class="modal-header">
+                                      <h4 class="modal-title">Modal Heading</h4>
+                                      <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                                     </div>
-                                    <label className="profilename1">Accessplan</label> <br />
-                                    <select value={individualInstitute.display}
-                                      onChange={(e) =>
-                                        setIndividualInstitute({
-                                          ...individualInstitute,
-                                          display: e.target.value,
-                                        })
-                                      }>
-                                      <option value="Accessplan">Accessplan</option>
-                                      <option value="free">free</option>
-                                      <option value="Retail">Retail</option>
-                                    </select><br />
-                                    <label className="profilename1">Display</label> <br />
-                                    <select >
-                                      <option >Status</option>
-                                      <option >No</option>
-                                      <option >Yes</option>
-                                    </select><br />
+
+                                    <div class="modal-body">
+                                      <ToastContainer
+                                        position="top-right"
+                                        autoClose={5000}
+                                        hideProgressBar={false}
+                                        newestOnTop={false}
+                                        closeOnClick
+                                        rtl={false}
+                                        pauseOnFocusLoss
+                                        draggable
+                                        pauseOnHover
+                                        theme="light"
+                                      />
+                                      <form >
+                                        <div class="col-md-7">
+                                          <label className="profilename1">Sno</label>
+                                          <br />
+                                          <input className="input" placeholder="select category"
+                                            value={individualInstitute.sno}
+                                            onChange={(e) =>
+                                              setIndividualInstitute({
+                                                ...individualInstitute,
+                                                sno: e.target.value,
+                                              })
+                                            } />
+
+                                          <label className="profilename1">Name</label>
+                                          <br />
+                                          <input className="input" placeholder="select category"
+                                            value={individualInstitute.name}
+                                            onChange={(e) =>
+                                              setIndividualInstitute({
+                                                ...individualInstitute,
+                                                sno: e.target.value,
+                                              })
+                                            } />
+
+                                          <label className="profilename1">Description</label>
+                                          <br />
+                                          <textarea rows="4" cols="50"
+                                            value={individualInstitute.description}
+                                            onChange={(e) =>
+                                              setIndividualInstitute({
+                                                ...individualInstitute,
+                                                description: e.target.value,
+                                              })
+                                            } ></textarea> <br />
+                                          <label className="profilename1">AccessType</label> <br />
+                                          <select value={individualInstitute.accesstype}
+                                            onChange={(e) =>
+                                              setIndividualInstitute({
+                                                ...individualInstitute,
+                                                accesstype: e.target.value,
+                                              })
+                                            } >
+                                            <option value="AccessType">AccessType</option>
+                                            <option value="All">All</option>
+                                            <option value="Restricted">Restricted</option>
+                                          </select><br />
+                                          <label className="profilename1">Tag</label> <br />
+                                          <div className='dropdown dropend'>
+                                            <select className="left-align-select" value={individualInstitute.tag}
+                                              onChange={(e) =>
+                                                setIndividualInstitute({
+                                                  ...individualInstitute,
+                                                  tag: e.target.value,
+                                                })
+                                              }>
+                                              <option value="Physics">Physics</option>
+                                              <option value="Police">Police</option>
+                                              <option value="Programming">Programming</option>
+                                              <option value="Railways">Railways</option>
+                                              <option value="Screening Test">Screening Test</option>
+                                              <option value="Software Testing">Software Testing</option>
+                                              <option value="SSC">SSC</option>
+                                              <option value="Teaching">Teaching</option>
+                                              <option value="UPSC">UPSC</option>
+                                              <option value="Verbal Communications">Verbal Communications</option>
+                                              <option value="Web Development">Web Development</option>
+                                            </select>
+
+                                          </div>
+                                          <label className="profilename1">Accessplan</label> <br />
+                                          <select value={individualInstitute.display}
+                                            onChange={(e) =>
+                                              setIndividualInstitute({
+                                                ...individualInstitute,
+                                                display: e.target.value,
+                                              })
+                                            }>
+                                            <option value="Accessplan">Accessplan</option>
+                                            <option value="free">free</option>
+                                            <option value="Retail">Retail</option>
+                                          </select><br />
+                                          <label className="profilename1">Display</label> <br />
+                                          <select >
+                                            <option >Status</option>
+                                            <option >No</option>
+                                            <option >Yes</option>
+                                          </select><br />
+                                        </div>
+                                        <button className="creat12" onClick={onSubmitForm} >Submit</button>
+                                      </form>
+                                    </div>
+
                                   </div>
-                                  <button className="creat12"onClick={onSubmitForm} >Submit</button>
-                                </form>
+                                </div>
                               </div>
-
+                              <ToastContainer
+                                position="top-right"
+                                autoClose={5000}
+                                hideProgressBar={false}
+                                newestOnTop={false}
+                                closeOnClick
+                                rtl={false}
+                                pauseOnFocusLoss
+                                draggable
+                                pauseOnHover
+                                theme="light"
+                              />
+                              <span className="material-symbols-outlined delete" onClick={() => handleDelete(blog._id)}>delete</span>
                             </div>
-                          </div>
-                        </div>
-                        <ToastContainer
-                                  position="top-right"
-                                  autoClose={5000}
-                                  hideProgressBar={false}
-                                  newestOnTop={false}
-                                  closeOnClick
-                                  rtl={false}
-                                  pauseOnFocusLoss
-                                  draggable
-                                  pauseOnHover
-                                  theme="light"
-                                />
-                        <span className="material-symbols-outlined delete" onClick={() => handleDelete(blog._id)}>delete</span>
-                      </div>
-                    </td>
-                  </tr>
-                ))
-              ) : (
-                <tr>
-                  <td colSpan="18">No data available</td>
-                </tr>
-              )}
-            </tbody>
+                          </td>
+                        </tr>
+                      ))
+                    ) : (
+                      <tr>
+                        <td colSpan="18">No data available</td>
+                      </tr>
+                    )}
+                  </tbody>
 
-          </table>
+                </table>
 
-        </div>
+              </div>
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   )

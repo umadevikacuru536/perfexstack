@@ -5,12 +5,15 @@ import { Link, useNavigate } from 'react-router-dom';
 import logo from '../sidebar/Skill-hub.png';
 import Cookies from 'js-cookie';
 import { useState } from 'react';
+import axios from 'axios';
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import { useEffect } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars, faSignOutAlt } from '@fortawesome/free-solid-svg-icons';
 function Subject() {
   const [isActive, setIsActive] = useState(false);
-
+  const [blogslist, setblogslist] = useState([]);
   const handleToggle = () => {
     setIsActive(!isActive);
   };
@@ -58,6 +61,118 @@ function Subject() {
   const showAssign = () => {
     setShow(!showassign)
   }
+  useEffect(() => {
+    fetchblogs();
+  }, []);
+  const fetchblogs = async () => {
+    const api = "http://localhost:5020/allsubjects";
+    try {
+      const response = await axios.get(api, {
+
+      });
+      setblogslist(response.data);
+
+
+    } catch (error) {
+      console.error("Error fetching blogs:", error);
+    }
+  };
+  const [gettingId, setGettingId] = useState("")
+  const[error,setError]=useState("")
+  const [individualInstitute, setIndividualInstitute] = useState({
+    name: "",
+    Tag: "",
+    totalqustions: "",
+    Description: ""
+    
+
+  });
+  const onSubmitForm = (e) => {
+    e.preventDefault();
+    const UserData = {
+      name: individualInstitute.name,
+      Tag: individualInstitute.Tag,
+      totalqustions: individualInstitute.totalqustions,
+      Description: individualInstitute.Description,
+  
+    };
+    console.log(UserData);
+    console.log(`http://localhost:5020/updatesubjects/${gettingId}`);
+    axios
+      .put(`http://localhost:5020/updatesubjects/${gettingId}`, UserData)
+      .then((response) => {
+        console.log(response.data);
+        if (response.status === 200) {
+          toast.success("Update Successful", {
+            position: "top-right",
+            autoClose: 1000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "colored",
+          });
+          setTimeout(function () {
+            // navigate("/admin");
+          }, 3000);
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        setError("An error occurred while updating the institute.");
+        console.log(error.message);
+      });
+  }
+  const[Chapters,setChapters]=useState('')
+  const[name,setname]=useState('')
+  const[Tag,setTag]=useState('')
+  const[totalqustions,settotalqustions]=useState('')
+  const useData2={
+    Chapters:Chapters,
+    name:name,
+    Tag:Tag,
+    totalqustions:totalqustions
+  }
+  const[data2,setdata2]=useState("")
+  const onSubmitForm3 = (e) => {
+    e.preventDefault();
+
+    if (Chapters, name, Tag, totalqustions !== "") {
+        axios
+            .post("http://localhost:5020/subjects", useData2)
+            .then((response) => {
+                setdata2(response.data);
+
+                console.log(response.data);
+                toast.success("Add Subjects Successfully");
+                setTimeout(function () {
+                    // navigate("/assessment/categories");
+                  }, 3000);
+            })
+            
+            .catch((error) => {
+                console.log(error.message);
+            });
+    } else {
+        toast.warning("Enter the Required Details");
+    }
+};
+const update = async (id) => {
+  console.log(id);
+  setGettingId(id)
+  try {
+    const response = await axios.get(
+      "http://localhost:5020/allindividualsubject/" + id
+    ); // Replace with your API endpoint
+    setIndividualInstitute(response.data);
+    // setLoading(false);
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    // setLoading(false);
+  }
+
+}
   return (
     <div>
       <header>
@@ -335,14 +450,31 @@ function Subject() {
       </div>
 
       <div class="modal-body">
-     
-        <form >
+      <ToastContainer
+                                            position="top-right"
+                                            autoClose={1000}
+                                            hideProgressBar={false}
+                                            newestOnTop={false}
+                                            closeOnClick
+                                            rtl={false}
+                                            pauseOnFocusLoss
+                                            draggable
+                                            pauseOnHover
+                                            theme="colored"
+                                        />
+        <form onSubmit={onSubmitForm3} >
         <label>Name</label><br/>
-        <input className='input' style={{height:"4vh"}}/><br/>
+        <input className='input' style={{height:"4vh"}} onChange={(e) => setname(e.target.value)}
+                                                    value={name}/><br/>
         <label>Description</label><br/>
-        <input className='input' style={{height:"4vh"}}/><br/>
+        <input className='input' style={{height:"4vh"}} onChange={(e) => setChapters(e.target.value)}
+                                                    value={Chapters}/><br/>
         <label>Subject Tag</label><br/>
-        <input className='input'style={{height:"4vh"}}/><br/>
+        <input className='input'style={{height:"4vh"}} onChange={(e) => setTag(e.target.value)}
+                                                    value={Tag}/><br/>
+                                                    <label>Totalqustions</label><br/>
+        <input className='input' style={{height:"4vh"}} onChange={(e) => settotalqustions(e.target.value)}
+                                                    value={totalqustions}/><br/>
         <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
           <button className="creat12" >ADD</button>
         </form>
@@ -378,13 +510,16 @@ function Subject() {
               </tr>
             </thead>
             <tbody>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
-             <td></td>
+            {blogslist.length > 0 ? (
+                      blogslist.map((blog,index) => (
+                        <tr key={blog.id}>
+                          <td>{index+1}</td>
+                          <td>{blog.name}</td>
+                          <td>{blog.Tag}</td>
+                          <td>{blog.Chapters}</td>
+                          <td>{blog.totalqustions}</td>
              <td><div>
-             <span className="material-symbols-outlined editicon" data-bs-toggle="modal" data-bs-target="#myModal" >edit_square</span>
+             <span className="material-symbols-outlined editicon" data-bs-toggle="modal" data-bs-target="#myModal"onClick={() => update(blog._id)} >edit_square</span>
 
 
 <div class="modal" id="myModal">
@@ -398,15 +533,37 @@ function Subject() {
 
       <div class="modal-body">
      
-        <form >
+        <form>
         <label>Name</label><br/>
-        <input className='input' style={{height:"4vh"}}/><br/>
+        <input className='input' value={individualInstitute.name}
+                                            onChange={(e) =>
+                                              setIndividualInstitute({
+                                                ...individualInstitute,
+                                                name: e.target.value,
+                                              }) }style={{height:"4vh"}}/><br/>
         <label>Description</label><br/>
-        <input className='input' style={{height:"4vh"}}/><br/>
+        <input className='input' style={{height:"4vh"}} value={individualInstitute.Description}
+        onChange={(e) =>
+          setIndividualInstitute({
+            ...individualInstitute,
+            Description: e.target.value,
+          })}/><br/>
         <label>Subject Tag</label><br/>
-        <input className='input'style={{height:"4vh"}}/><br/>
+        <input className='input'style={{height:"4vh"}} value={individualInstitute.Tag}
+        onChange={(e) =>
+          setIndividualInstitute({
+            ...individualInstitute,
+            Tag: e.target.value,
+          })}/><br/>
+           <label>Subject Tag</label><br/>
+        <input className='input'style={{height:"4vh"}} value={individualInstitute.totalqustions}
+        onChange={(e) =>
+          setIndividualInstitute({
+            ...individualInstitute,
+            totalqustions: e.target.value,
+          })}/><br/>
         <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
-          <button className="creat12" >Update</button>
+          <button className="creat12"onClick={onSubmitForm} >Update</button>
         </form>
       </div>
 
@@ -416,6 +573,13 @@ function Subject() {
 
 <span className="material-symbols-outlined delete" >delete</span>
                 </div></td>
+                </tr>
+                ))
+                ) : (
+                  <tr>
+                    <td colSpan="18">No data available</td>
+                  </tr>
+                )}
             </tbody>
 
           </table>

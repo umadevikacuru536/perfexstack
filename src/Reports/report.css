@@ -31,4 +31,10 @@
 }
 .paticipationimg{
     width: 30vw;
+    margin-left: 40px;
+    margin-top: 5vh;
+    clip-path: circle(50%);
+    opacity: 0.6;
+ 
 }
+

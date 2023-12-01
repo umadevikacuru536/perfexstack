@@ -188,3 +188,33 @@ Content-Type: application/json
 
 ###
 GET http://localhost:5020/allindividualcategoris/6549ddc71bba094f29cd3966
+###
+POST http://localhost:5020/subjects
+Content-Type: application/json
+
+{
+     
+      "name":"java",
+      "Tag":"dddd",
+      "Chapters":"class",
+      "totalqustions":"5",
+"Description":"cuddc"
+}
+###
+PUT http://localhost:5020/updatesubjects/6569bfb4735d3cbd05ace76a
+Content-Type: application/json
+
+{
+      
+      "name":"java",
+      "Tag":"dddd",
+      "Chapters":"class",
+      "totalqustions":"5",
+      "Description":"cuddc"
+      
+}
+
+###
+GET http://localhost:5020/allsubjects
+###
+GET http://localhost:5020/allindividualsubject/6569bc10735d3cbd05ace74b

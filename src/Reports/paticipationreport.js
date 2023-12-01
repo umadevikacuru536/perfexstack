@@ -100,7 +100,7 @@ function Paticipationreport() {
          <button className="download"onClick={exportToExcel}>Download</button>
      </div>
      <div>
-         <img className='paticipationimg' src="https://img.freepik.com/free-vector/edit-photo-concept-illustration_114360-4440.jpg?w=740&t=st=1699278441~exp=1699279041~hmac=71aeeada00562aee15731cb16735a692fd4a598daebb5699f4e44291a62f07c4"/>
+         <img className='paticipationimg'src="https://img.freepik.com/free-vector/flat-design-financial-consultancy-annual-report_23-2150838104.jpg?w=826&t=st=1701412988~exp=1701413588~hmac=631c82a9161804cb145dfae831fbc13565a82a0671d4b00e525bac3c41cdef03"/>
      </div>
  </div>
 

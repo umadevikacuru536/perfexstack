@@ -8,6 +8,7 @@ const courses = require("./model/courses");
 const jwt= require("jsonwebtoken");
 const categories = require("./model/categories");
 const praticipation= require("./model/praticipation")
+const Subject=require("./model/subject")
 const app = express()
 app.use(express.json())  // ACCEPTING JSON FORMAT DATA AND PARSING TO LOCAL USER
 app.use(cors({ origin: "*" }))
@@ -541,6 +542,66 @@ app.delete("/deletpraticipation/:id", async (req, res) => {
 app.get("/allpraticipation", async (req, res) => {
 
   const allusers1 = await praticipation.find({})
+  res.status(200).send(allusers1)
+});
+
+// Subject
+app.post("/subjects", async (req, res) => {
+  try {
+    const {
+      name,
+      Tag,
+      Chapters,
+      Description,
+      totalqustions} = req.body;
+
+      let newUser = new Subject({
+        name:name,
+        Tag:Tag,
+        Chapters:Chapters,
+        Description,
+        totalqustions:totalqustions
+      });
+
+      // const isUserExist = await assessment.findOne({ '':'' });
+
+      // if (isUserExist) {
+      //   return res.status(400).json("User already registered");
+      // }
+    newUser.save();
+
+     return res.status(200).json("User created successfully");
+  } catch (error) {
+    console.error(error.message);
+    res.status(500).json("Internal server error");
+  }
+});
+app.get("/allsubjects", async (req, res) => {
+
+  const allusers1 = await Subject.find({})
+  res.status(200).send(allusers1)
+});
+app.put('/updatesubjects/:id', async (req, res) => {
+  try {
+    const { id } = req.params;
+    const updatedData = req.body; // Assuming you send updated data in the request body
+
+    // Use findByIdAndUpdate to update the institute's data
+    const updatedInstitute = await Subject.findOneAndUpdate({_id:id}, updatedData, { new: true });
+
+    if (updatedInstitute) {
+      return res.status(200).send(" updated successfully");
+    } else {
+      return res.status(404).json("not found");
+    }
+  } catch (e) {
+    console.error(e.message);
+    return res.status(500).json(e.message);
+  }
+});
+app.get("/allindividualsubject/:id", async (req, res) => {
+  const {id} = req.params
+  const allusers1 = await Subject.findOne({_id:id})
   res.status(200).send(allusers1)
 });
 app.listen(5020, () => {

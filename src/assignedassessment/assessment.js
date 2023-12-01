@@ -11,7 +11,7 @@ function AssessmentEye() {
             <div className=''>
                 <p className='mcq'>Java MCQ Topwise<span> - Strings</span></p>
                 <p className='real'>Realtime Users: <span>0</span></p>
-                <div className='add'>
+                <div className='add2'>
                     <div className="attempt">
                         <p className='attempts'>Total Attempts</p>
                         <p>9</p>
