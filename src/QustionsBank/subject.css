@@ -1,18 +1,4 @@
-/* .card213{
-   
-    margin-top: 5vh;
-    border-radius: 10px;
-    padding: 20px;
-    height: fit-content;
-  border: 1px solid rgb(217, 205, 205);
-  background:white;
-  padding: 3px;
-  position: relative;
-  border-radius: 6px;
-  color: black;
-  cursor: pointer;
 
-} */
 .editor-container {
     height: 500px;  
   }
@@ -44,83 +30,20 @@
   .card213:hover:before, .card213:hover:after {
     animation: none;
     opacity: 0;
-  }
-  
-/*   
-  .card213::before {
-    content: "";
-    width: 104%;
-    height: 102%;
-    border-radius: 8px;
-    background-image: linear-gradient(
-      var(--rotate)
-      , #8dc3d2, #8493c3 43%, #a790ca);
-      position: absolute;
-      z-index: -1;
-      top: -1%;
-      left: -2%;
-      animation: spin 2.5s linear infinite;
-  }
-  
-  .card213::after {
-    position: absolute;
-    content: "";
-    top: calc(var(--card-height) / 6);
-    left: 0;
-    right: 0;
-    z-index: -1;
-    height: 100%;
-    width: 100%;
-    margin: 0 auto;
-    transform: scale(0.8);
-    filter: blur(calc(var(--card-height) / 6));
-    background-image: linear-gradient(
-      var(--rotate)
-      , #94cbda, #778ac3 43%, rgb(173, 153, 202));
-      opacity: 1;
-    transition: opacity .5s;
-    animation: spin 2.5s linear infinite;
-  }
-  
-  @keyframes spin {
-    0% {
-      --rotate: 0deg;
-    }
-    100% {
-      --rotate: 360deg;
-    }
-  }
-  
-  a {
-    color: #212534;
-    text-decoration: none;
-    font-family: sans-serif;
-    font-weight: bold;
-    margin-top: 2rem;
-  } */
- 
-  
-
-  
- 
-  
+  } 
   .subjectcard {
 padding: 50px;
 border-radius: 10px;
     color: black;
     margin-top: 30px;
-    /* background:
-      url(https://source.unsplash.com/E8Ufcyxz514/2400x1823)
-      center / cover no-repeat fixed; */
       background-image: linear-gradient(to top,rgb(108, 171, 108) ,lavender);
   }
   
   .card213 {
-   
     max-width: fit-content;
     height: fit-content;
     padding: 10px;
-    border: 1px solid rgba(255, 255, 255, .25);
+    border: 1px solid rgba(48, 43, 43, 0.25);
     border-radius: 20px;
     background-color: rgba(255, 255, 255, 0.45);
     box-shadow: 0 0 10px 1px rgba(0, 0, 0, 0.25);
@@ -159,7 +82,6 @@ border-radius: 10px;
     padding: 5px;
     justify-content: center;
     height: 35px;
-    /* margin-left: 50px; */
  }
   .create{
     background-color:blue;
@@ -169,7 +91,7 @@ border-radius: 10px;
     margin: 10px;
   }
 .option12{
-  width: 220px;
+ 
   border-color: rgb(177, 165, 165);
   border-radius: 10px;
   height: 50px;
@@ -263,3 +185,128 @@ border-radius: 10px;
   text-align: center;
   text-transform: uppercase;
 }
+
+  /* Common styles for all screen sizes */
+  body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+  }
+
+  .container {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /* Styles for mobile screens */
+  @media only screen and (max-width: 767px) {
+    header {
+      font-size: 20px;
+    }
+
+    .sidebar_menu {
+      width: 100%;
+      position: absolute;
+      top: 60px;
+      left: -100%;
+      transition: all 0.3s ease;
+    }
+
+    .content-container.shifted-content {
+      transform: translateX(0);
+    }
+
+    .content-container {
+      width: 100%;
+      margin-left: 0;
+    }
+  }
+
+  /* Styles for tablet screens */
+  @media only screen and (min-width: 768px) and (max-width: 1023px) {
+    header {
+      font-size: 24px;
+    }
+
+    .sidebar_menu {
+      width: 250px;
+    }
+
+    .content-container {
+      margin-left: 250px;
+    }
+  }
+
+  /* Styles for desktop screens */
+  @media only screen and (min-width: 1024px) {
+    header {
+      font-size: 28px;
+    }
+
+    .sidebar_menu {
+      width: 100px;
+    }
+
+    .content-container {
+      margin-left: 150px;
+    }
+  }
+
+  @media (max-width: 768px) {
+    header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 60px;
+        width: 320%;
+        background: var(--bg-secondary);
+        color: var(--cl-text);
+    }
+  
+    header a {
+        color: var(--cl-text)
+    }
+  
+    nav {
+        left: -60px;
+    }
+  
+    nav.active {
+        left: 0;
+        width: 100%;
+    }
+  
+    nav ul li a.toggle {
+        display: none;
+    }
+  }
+  
+  @media (max-width: 1024px) {
+    header {
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        height: 60px;
+        width: 150%;
+        background: var(--bg-secondary);
+        color: var(--cl-text);
+    }
+  
+    header a {
+        color: var(--cl-text)
+    }
+  
+    nav {
+        left: -60px;
+    }
+  
+    nav.active {
+        left: 0;
+        width: 100%;
+    }
+  
+    nav ul li a.toggle {
+        display: none;
+    }
+  }

@@ -323,12 +323,11 @@ function Meqview() {
     <div className='container'>
       <div className='row'>
         <div className='col-md-12 '>
-         <div className='col-md-12'>
       <div className="card-container1">
         <h3 className='card2'>Filter Text Questions:</h3>
         <hr className="line" />
         <div className="form-container">
-          <div className="col-md-2">
+          <div className="col-sm-12 col-md-6 col-lg-2 mx-4">
             <label className="qustionlabel">Module</label><br/>
             <select className="option12" >
               <option value="">Select Batch Module</option>
@@ -336,25 +335,25 @@ function Meqview() {
             </select>
           </div>
   
-          <div className="col-md-2">
+          <div className="col-sm-12 col-md-6 col-lg-2 mx-4">
             <label className='qustionlabel'>Chapter</label><br/>
             <select className="option12" >
               <option value="">Select Batch Chapter</option>
             </select>
           </div>
-          <div className="col-md-2">
+          <div className="col-sm-12 col-md-6 col-lg-2 mx-4">
             <label className='qustionlabel'>Difficulty</label><br/>
             <select className="option12" >
               <option value="">Select Batch Difficulty</option>
             </select>
           </div>
-          <div className="col-md-2">
+          <div className="col-sm-12 col-md-6 col-lg-2 mx-4">
             <label className='qustionlabel'>Reference</label><br/>
             <select className="option12" >
               <option value="">Select Batch Reference</option>
             </select>
           </div>
-          <div className="col-md-2">
+          <div className="col-sm-12 col-md-6 col-lg-2 mx-4">
             <label className='qustionlabel'>Question Type</label><br/>
             <select className="option12" >
               <option value="">Select Batch Question Type</option>
@@ -362,13 +361,19 @@ function Meqview() {
           </div>
           
         </div>
-        <div className='m-3'>
-        <button className='bg-success text-white ' style={{marginLeft:"500px",padding:"10px",borderRadius:"10px"}}>Go</button>
-          <button className='bg-white ' style={{marginLeft:"10px",padding:"10px",borderRadius:"10px",borderColor:"orangered"}} >Clear Filters</button>
+        <div className='d-flex flex-row'>
+          
+        <div className='col-sm-6 col-md-6 col-lg-5'>
+      
+       </div>
+        <div className='col-sm-6 col-md-6 col-lg-4'>
+        <button className='bg-success text-white m-2' style={{padding:"10px",borderRadius:"10px"}}>Go</button>
+          <button className='bg-white ' style={{padding:"10px",borderRadius:"10px",borderColor:"orangered"}} >Clear Filters</button>
           </div>
+        </div>
+    
       </div>
-      </div>
-      <div className='col-md-2'></div>
+    
       <div className='col-md-12'>
       <div className="card-container2">
         <div className='card3'>

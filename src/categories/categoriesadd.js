@@ -26,13 +26,14 @@ function Categoriesadd() {
         tag: tag,
         accesstype: accesstype,
         accessplan: accessplan,
-        display: display
+        display:display
+       
 
     };
     const onSubmitForm3 = (e) => {
         e.preventDefault();
 
-        if (sno, name, description, tag, accesstype, accessplan, display !== "") {
+        if (sno, name, description, tag, accesstype, accessplan,display !== "") {
             axios
                 .post("http://localhost:5020/categoris", useData2)
                 .then((response) => {
@@ -52,6 +53,12 @@ function Categoriesadd() {
             toast.warning("Enter the Required Details");
         }
     };
+    const [selectedOption, setselectedOption] = useState("Status");
+
+  const handleSelectChange = (e) => {
+    const selectedValue = e.target.value;
+    setdisplay(selectedValue);
+  }
     return (
         <div>
             <div className="d-flex flex-row">
@@ -65,7 +72,7 @@ function Categoriesadd() {
                             {/* <!-- Modal Header --> */}
                             <div class="modal-header">
                                 <h3>CREATE Categories</h3>
-                                <Link to="/assessment"><button type="button" class="btn-close"></button></Link>
+                                <Link to="/assessment/categories"><button type="button" class="btn-close"></button></Link>
                             </div>
 
                             {/* <!-- Modal body --> */}
@@ -86,10 +93,7 @@ function Categoriesadd() {
                                         />
                                         <form>
                                             <div class="col-md-7">
-                                                <label className="profilename1">Sno</label>
-                                                <br />
-                                                <input className="p-2 w-100"style={{borderRadius:"10px",borderColor:"gray"}}  placeholder="select category" onChange={(e) => setsno(e.target.value)}
-                                                    value={sno} /><br/>
+                                               
 
                                                 <label className="profilename1">Name</label>
                                                 <br />
@@ -130,7 +134,7 @@ function Categoriesadd() {
                                                     <option value="Retail">Retail</option>
                                                 </select><br />
                                                 <label className="profilename1">Display</label> <br />
-                                                <select onChange={(e) => setdisplay(e.target.value)}style={{borderRadius:"10px",borderColor:"gray"}} className='p-2 w-100'>
+                                                <select onChange={handleSelectChange}style={{borderRadius:"10px",borderColor:"gray"}} className='p-2 w-100'>
                                                     <option value="Status">Status</option>
                                                     <option value="No">No</option>
                                                     <option value="Yes">Yes</option>

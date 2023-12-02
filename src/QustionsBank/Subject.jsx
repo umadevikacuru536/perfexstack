@@ -78,13 +78,13 @@ function Subject() {
     }
   };
   const [gettingId, setGettingId] = useState("")
-  const[error,setError]=useState("")
+  const [error, setError] = useState("")
   const [individualInstitute, setIndividualInstitute] = useState({
     name: "",
     Tag: "",
     totalqustions: "",
     Description: ""
-    
+
 
   });
   const onSubmitForm = (e) => {
@@ -94,7 +94,7 @@ function Subject() {
       Tag: individualInstitute.Tag,
       totalqustions: individualInstitute.totalqustions,
       Description: individualInstitute.Description,
-  
+
     };
     console.log(UserData);
     console.log(`http://localhost:5020/updatesubjects/${gettingId}`);
@@ -124,55 +124,55 @@ function Subject() {
         console.log(error.message);
       });
   }
-  const[Chapters,setChapters]=useState('')
-  const[name,setname]=useState('')
-  const[Tag,setTag]=useState('')
-  const[totalqustions,settotalqustions]=useState('')
-  const useData2={
-    Chapters:Chapters,
-    name:name,
-    Tag:Tag,
-    totalqustions:totalqustions
+  const [Chapters, setChapters] = useState('')
+  const [name, setname] = useState('')
+  const [Tag, setTag] = useState('')
+  const [totalqustions, settotalqustions] = useState('')
+  const useData2 = {
+    Chapters: Chapters,
+    name: name,
+    Tag: Tag,
+    totalqustions: totalqustions
   }
-  const[data2,setdata2]=useState("")
+  const [data2, setdata2] = useState("")
   const onSubmitForm3 = (e) => {
     e.preventDefault();
 
     if (Chapters, name, Tag, totalqustions !== "") {
-        axios
-            .post("http://localhost:5020/subjects", useData2)
-            .then((response) => {
-                setdata2(response.data);
+      axios
+        .post("http://localhost:5020/subjects", useData2)
+        .then((response) => {
+          setdata2(response.data);
 
-                console.log(response.data);
-                toast.success("Add Subjects Successfully");
-                setTimeout(function () {
-                    // navigate("/assessment/categories");
-                  }, 3000);
-            })
-            
-            .catch((error) => {
-                console.log(error.message);
-            });
+          console.log(response.data);
+          toast.success("Add Subjects Successfully");
+          setTimeout(function () {
+            // navigate("/assessment/categories");
+          }, 3000);
+        })
+
+        .catch((error) => {
+          console.log(error.message);
+        });
     } else {
-        toast.warning("Enter the Required Details");
+      toast.warning("Enter the Required Details");
     }
-};
-const update = async (id) => {
-  console.log(id);
-  setGettingId(id)
-  try {
-    const response = await axios.get(
-      "http://localhost:5020/allindividualsubject/" + id
-    ); // Replace with your API endpoint
-    setIndividualInstitute(response.data);
-    // setLoading(false);
-  } catch (error) {
-    console.error("Error fetching data:", error);
-    // setLoading(false);
-  }
+  };
+  const update = async (id) => {
+    console.log(id);
+    setGettingId(id)
+    try {
+      const response = await axios.get(
+        "http://localhost:5020/allindividualsubject/" + id
+      ); // Replace with your API endpoint
+      setIndividualInstitute(response.data);
+      // setLoading(false);
+    } catch (error) {
+      console.error("Error fetching data:", error);
+      // setLoading(false);
+    }
 
-}
+  }
   return (
     <div>
       <header>
@@ -193,12 +193,12 @@ const update = async (id) => {
             </a>
           </li>
           <li>
-           <Link to="/sidebar">
-             <span class="material-symbols-outlined icon">dashboard</span>
-             <span className="Item_Name">Dashboard</span>
-           </Link>
-          
-         </li>
+            <Link to="/sidebar">
+              <span class="material-symbols-outlined icon">dashboard</span>
+              <span className="Item_Name">Dashboard</span>
+            </Link>
+
+          </li>
           <li>
             <a href="#">
               <span class="material-symbols-outlined icon">home</span>
@@ -326,11 +326,11 @@ const update = async (id) => {
 
           <li>
             <Link to="/Assignedqb">
-            <a href="#" >
+              <a href="#" >
                 <span class="material-symbols-outlined icon">search</span>
                 <span className=" title">Assigned QB</span>
-                </a>
-              </Link>
+              </a>
+            </Link>
           </li>
           <li onClick={showAssign} >
             <a href="#">
@@ -433,167 +433,174 @@ const update = async (id) => {
       </nav>
       <div
         className={`content-container ${isActive ? "shifted-content" : ""}`}
-    >
-              <div class="box">
-              <div class="content">
-              <div className="">
-          <div className="d-flex flex-row ">
-            <p className="assement">Subjects</p>
-          <button className="creat1" data-bs-toggle="modal" data-bs-target="#myModal11" >+ Create Subjects</button>
-        <div class="modal" id="myModal11">
-  <div class="modal-dialog">
-    <div class="modal-content text-start" style={{ width: "40vw" }}>
+      >
+        <div className='container'>
+          <div className='row'>
+            <div className='col-md-12'>
+            <div class="box">
+          <div class="content">
+            <div className="">
+              <div className="d-flex flex-row ">
+                <p className="assement">Subjects</p>
+                <button className="creat1" data-bs-toggle="modal" data-bs-target="#myModal11" >+ Create Subjects</button>
+                <div class="modal" id="myModal11">
+                  <div class="modal-dialog">
+                    <div class="modal-content text-start" style={{ width: "40vw" }}>
 
-      <div class="modal-header">
-        <h4 class="modal-title">Add Subject</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
+                      <div class="modal-header">
+                        <h4 class="modal-title">Add Subject</h4>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                      </div>
 
-      <div class="modal-body">
-      <ToastContainer
-                                            position="top-right"
-                                            autoClose={1000}
-                                            hideProgressBar={false}
-                                            newestOnTop={false}
-                                            closeOnClick
-                                            rtl={false}
-                                            pauseOnFocusLoss
-                                            draggable
-                                            pauseOnHover
-                                            theme="colored"
-                                        />
-        <form onSubmit={onSubmitForm3} >
-        <label>Name</label><br/>
-        <input className='input' style={{height:"4vh"}} onChange={(e) => setname(e.target.value)}
-                                                    value={name}/><br/>
-        <label>Description</label><br/>
-        <input className='input' style={{height:"4vh"}} onChange={(e) => setChapters(e.target.value)}
-                                                    value={Chapters}/><br/>
-        <label>Subject Tag</label><br/>
-        <input className='input'style={{height:"4vh"}} onChange={(e) => setTag(e.target.value)}
-                                                    value={Tag}/><br/>
-                                                    <label>Totalqustions</label><br/>
-        <input className='input' style={{height:"4vh"}} onChange={(e) => settotalqustions(e.target.value)}
-                                                    value={totalqustions}/><br/>
-        <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
-          <button className="creat12" >ADD</button>
-        </form>
-      </div>
+                      <div class="modal-body">
+                        <ToastContainer
+                          position="top-right"
+                          autoClose={1000}
+                          hideProgressBar={false}
+                          newestOnTop={false}
+                          closeOnClick
+                          rtl={false}
+                          pauseOnFocusLoss
+                          draggable
+                          pauseOnHover
+                          theme="colored"
+                        />
+                        <form onSubmit={onSubmitForm3} >
+                          <label>Name</label><br />
+                          <input className='input' style={{ height: "4vh" }} onChange={(e) => setname(e.target.value)}
+                            value={name} /><br />
+                          <label>Description</label><br />
+                          <input className='input' style={{ height: "4vh" }} onChange={(e) => setChapters(e.target.value)}
+                            value={Chapters} /><br />
+                          <label>Subject Tag</label><br />
+                          <input className='input' style={{ height: "4vh" }} onChange={(e) => setTag(e.target.value)}
+                            value={Tag} /><br />
+                          <label>Totalqustions</label><br />
+                          <input className='input' style={{ height: "4vh" }} onChange={(e) => settotalqustions(e.target.value)}
+                            value={totalqustions} /><br />
+                          <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
+                          <button className="creat12" >ADD</button>
+                        </form>
+                      </div>
 
-    </div>
-  </div>
-</div>
+                    </div>
+                  </div>
+                </div>
 
-          </div>
+              </div>
 
-          <div className="text-start m-4">
-            <label className="showname">Show</label><br />
-
-
-            <select className="show">
-              <option>1</option>
-            </select>
-<div>
-            <label className="seach" >Seach</label>
-            <input  className='p-2' />
-            <button className="seachbut p-2"style={{backgroundColor : "#ae1e97"}}>seach</button></div>
-          </div>
-          <table className="table">
-            <thead>
-              <tr>
-                <th>S.NO</th>
-                <th>NAME</th>
-                <th>TAG</th>
-                <th>CHAPTERS </th>
-                <th>TOTAL QUESTIONS</th>
-                <th>ACTIONS</th>
-              </tr>
-            </thead>
-            <tbody>
-            {blogslist.length > 0 ? (
-                      blogslist.map((blog,index) => (
-                        <tr key={blog.id}>
-                          <td>{index+1}</td>
-                          <td>{blog.name}</td>
-                          <td>{blog.Tag}</td>
-                          <td>{blog.Chapters}</td>
-                          <td>{blog.totalqustions}</td>
-             <td><div>
-             <span className="material-symbols-outlined editicon" data-bs-toggle="modal" data-bs-target="#myModal"onClick={() => update(blog._id)} >edit_square</span>
+              <div className="text-start m-4">
+                <label className="showname">Show</label><br />
 
 
-<div class="modal" id="myModal">
-  <div class="modal-dialog">
-    <div class="modal-content" style={{ width: "40vw" }}>
-
-      <div class="modal-header">
-        <h4 class="modal-title">Edit Subject</h4>
-        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
-      </div>
-
-      <div class="modal-body">
-     
-        <form>
-        <label>Name</label><br/>
-        <input className='input' value={individualInstitute.name}
-                                            onChange={(e) =>
-                                              setIndividualInstitute({
-                                                ...individualInstitute,
-                                                name: e.target.value,
-                                              }) }style={{height:"4vh"}}/><br/>
-        <label>Description</label><br/>
-        <input className='input' style={{height:"4vh"}} value={individualInstitute.Description}
-        onChange={(e) =>
-          setIndividualInstitute({
-            ...individualInstitute,
-            Description: e.target.value,
-          })}/><br/>
-        <label>Subject Tag</label><br/>
-        <input className='input'style={{height:"4vh"}} value={individualInstitute.Tag}
-        onChange={(e) =>
-          setIndividualInstitute({
-            ...individualInstitute,
-            Tag: e.target.value,
-          })}/><br/>
-           <label>Subject Tag</label><br/>
-        <input className='input'style={{height:"4vh"}} value={individualInstitute.totalqustions}
-        onChange={(e) =>
-          setIndividualInstitute({
-            ...individualInstitute,
-            totalqustions: e.target.value,
-          })}/><br/>
-        <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
-          <button className="creat12"onClick={onSubmitForm} >Update</button>
-        </form>
-      </div>
-
-    </div>
-  </div>
-</div>
-
-<span className="material-symbols-outlined delete" >delete</span>
-                </div></td>
-                </tr>
-                ))
-                ) : (
+                <select className="show">
+                  <option>1</option>
+                </select>
+                <div>
+                  <label className="seach" >Seach</label>
+                  <input className='p-2' />
+                  <button className="seachbut p-2" style={{ backgroundColor: "#ae1e97" }}>seach</button></div>
+              </div>
+              <table className="table">
+                <thead>
                   <tr>
-                    <td colSpan="18">No data available</td>
+                    <th>S.NO</th>
+                    <th>NAME</th>
+                    <th>TAG</th>
+                    <th>CHAPTERS </th>
+                    <th>TOTAL QUESTIONS</th>
+                    <th>ACTIONS</th>
                   </tr>
-                )}
-            </tbody>
+                </thead>
+                <tbody>
+                  {blogslist.length > 0 ? (
+                    blogslist.map((blog, index) => (
+                      <tr key={blog.id}>
+                        <td>{index + 1}</td>
+                        <td>{blog.name}</td>
+                        <td>{blog.Tag}</td>
+                        <td>{blog.Chapters}</td>
+                        <td>{blog.totalqustions}</td>
+                        <td><div>
+                          <span className="material-symbols-outlined editicon" data-bs-toggle="modal" data-bs-target="#myModal" onClick={() => update(blog._id)} >edit_square</span>
 
-          </table>
 
-        </div>
-  </div>
-  </div>
-         
+                          <div class="modal" id="myModal">
+                            <div class="modal-dialog">
+                              <div class="modal-content" style={{ width: "40vw" }}>
+
+                                <div class="modal-header">
+                                  <h4 class="modal-title">Edit Subject</h4>
+                                  <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                                </div>
+
+                                <div class="modal-body">
+
+                                  <form>
+                                    <label>Name</label><br />
+                                    <input className='input' value={individualInstitute.name}
+                                      onChange={(e) =>
+                                        setIndividualInstitute({
+                                          ...individualInstitute,
+                                          name: e.target.value,
+                                        })} style={{ height: "4vh" }} /><br />
+                                    <label>Description</label><br />
+                                    <input className='input' style={{ height: "4vh" }} value={individualInstitute.Description}
+                                      onChange={(e) =>
+                                        setIndividualInstitute({
+                                          ...individualInstitute,
+                                          Description: e.target.value,
+                                        })} /><br />
+                                    <label>Subject Tag</label><br />
+                                    <input className='input' style={{ height: "4vh" }} value={individualInstitute.Tag}
+                                      onChange={(e) =>
+                                        setIndividualInstitute({
+                                          ...individualInstitute,
+                                          Tag: e.target.value,
+                                        })} /><br />
+                                    <label>Subject Tag</label><br />
+                                    <input className='input' style={{ height: "4vh" }} value={individualInstitute.totalqustions}
+                                      onChange={(e) =>
+                                        setIndividualInstitute({
+                                          ...individualInstitute,
+                                          totalqustions: e.target.value,
+                                        })} /><br />
+                                    <p>Note:Updating Subject Tag will set all the Chapter Tags of Chapter Inside the Subject to others</p>
+                                    <button className="creat12" onClick={onSubmitForm} >Update</button>
+                                  </form>
+                                </div>
+
+                              </div>
+                            </div>
+                          </div>
+
+                          <span className="material-symbols-outlined delete" >delete</span>
+                        </div></td>
+                      </tr>
+                    ))
+                  ) : (
+                    <tr>
+                      <td colSpan="18">No data available</td>
+                    </tr>
+                  )}
+                </tbody>
+
+              </table>
+
             </div>
-          
-    
-        
-    
+          </div>
         </div>
+            </div>
+          </div>
+        </div>
+      
+
+      </div>
+
+
+
+
+    </div>
   )
 }
 
